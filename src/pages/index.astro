@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import BrandStory from "../components/BrandStory.astro";
+import Menu from "../components/Menu.astro";
+import Gallery from "../components/Gallery.astro";
+import MobileBarConcept from "../components/MobileBarConcept.astro";
+import Reels from "../components/Reels.astro";
+import ContactForm from "../components/ContactForm.astro";
+import MobileCTA from "../components/MobileCTA.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="ROAM SOCIAL | Luxury Mobile Bar in Bengaluru — Jeep Bar, Cocktails & Social Bites"
+  description="ROAM SOCIAL is a luxury mobile bar in Bengaluru — a vintage Jeep bar pouring crafted cocktails & social bites at weddings, pop-ups and private events. Book the mobile bar."
+>
+  <Header />
+
+  <main>
+    <Hero />
+    <BrandStory />
+    <Menu />
+    <Gallery />
+    <MobileBarConcept />
+    <Reels />
+    <ContactForm />
+  </main>
+
+  <MobileCTA />
+  <Footer />
+</Layout>

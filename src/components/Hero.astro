@@ -1,0 +1,93 @@
+---
+/**
+ * Hero.astro — full-screen immersive opener.
+ * Poster-first: /images/golden-hour-popup-bar.jpg paints instantly; the muted
+ * loop fades in
+ * over it and pauses when scrolled out of view (battery/GPU friendly).
+ */
+---
+
+<section id="hero" class="hero-viewport relative flex min-h-[600px] items-center justify-center overflow-hidden">
+  <!-- Poster image — art-directed: portrait crop on phones + tablet portrait, wide otherwise -->
+  <picture class="hero-media absolute inset-0 block h-full w-full">
+    <source media="(max-width: 1023px) and (orientation: portrait)" srcset="/images/golden-hour-popup-bar-mobile.jpg" width="900" height="1200" />
+    <img
+      src="/images/golden-hour-popup-bar.jpg"
+      fetchpriority="high"
+      decoding="async"
+      alt="ROAM SOCIAL golden-hour pop-up bar with the branded Jeep and canopy"
+      class="hero-kenburns h-full w-full object-cover object-center"
+    />
+  </picture>
+
+  <!-- Moody grading overlays -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-ink" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,10,10,.55)_100%)]" aria-hidden="true"></div>
+
+  <!-- Side vertical labels -->
+  <div class="absolute left-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex xl:left-10">
+    <span class="h-16 w-px bg-gradient-to-b from-transparent to-gold/70" aria-hidden="true"></span>
+    <span class="text-[10px] uppercase tracking-[.5em] text-white/40 [writing-mode:vertical-rl]">Est. Bengaluru — Mobile Bar</span>
+  </div>
+  <div class="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex xl:right-10">
+    <span class="h-16 w-px bg-gradient-to-b from-gold/70 to-transparent" aria-hidden="true"></span>
+    <span class="text-[10px] uppercase tracking-[.5em] text-white/40 [writing-mode:vertical-rl]">Crafted Drinks. Social Moments.</span>
+  </div>
+
+  <!-- Hero content -->
+  <div class="relative z-10 flex flex-col items-center px-6 pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)] text-center">
+    <p class="reveal kicker mb-7 text-[10px] font-medium text-gold md:text-xs">
+      Crafted Drinks.&nbsp;&nbsp;Social Moments.
+    </p>
+
+    <h1
+      class="reveal font-display text-[13.5vw] font-medium leading-[1.02] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[7.25rem]"
+      style="--d:.12s"
+    >
+      Drinks Made to<br />
+      <em class="gold-text font-semibold">Move.</em>
+    </h1>
+
+    <p class="reveal mt-8 text-[11px] font-light uppercase tracking-[.3em] text-white/65 sm:text-xs md:text-sm" style="--d:.24s">
+      Luxury Mobile Bar <span class="mx-2 text-gold">•</span> Bengaluru
+    </p>
+    <p class="reveal mt-3 text-[10px] uppercase tracking-[.34em] text-white/45" style="--d:.3s">
+      Jeep Bar <span class="mx-1.5 text-gold">•</span> Cocktails <span class="mx-1.5 text-gold">•</span> Social Bites
+    </p>
+
+    <div class="reveal mt-11 flex flex-wrap items-center justify-center gap-4" style="--d:.36s">
+      <a href="#contact" class="btn-gold">
+        Book the Mobile Bar <i class="fa-solid fa-arrow-down-long text-[11px]" aria-hidden="true"></i>
+      </a>
+      <a href="#menu" class="btn-ghost">Explore the Menu</a>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <a href="#menu" class="scroll-cue absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/50 transition hover:text-gold" aria-label="Scroll to menu">
+    <span class="text-[9px] uppercase tracking-[.4em]">Scroll</span>
+    <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+  </a>
+</section>
+
+<!-- Marquee divider -->
+<div class="relative z-10 overflow-hidden border-y border-white/5 bg-[#0d0d0f] py-4" aria-hidden="true">
+  <div class="marquee-track flex w-max">
+    {
+      [0, 1].map(() => (
+        <div class="flex shrink-0 items-center gap-10 pr-10 text-[11px] uppercase tracking-[.35em] text-white/35 md:gap-14 md:pr-14">
+          <span>Luxury Mobile Bar</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Jeep Bar</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Cocktails &amp; Social Bites</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Pop-ups</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Weddings &amp; Events</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Corporate Nights</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Bengaluru</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+          <span>Drinks Made to Move</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+

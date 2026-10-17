@@ -1,0 +1,192 @@
+---
+/**
+ * MobileBarConcept.astro
+ * "The Mobile Bar" — rugged-luxury setup showcase.
+ * Alternating grid: media half (featured image + mini gallery) / copy half.
+ * Every asset is an absolute /images/ path served from public/images/.
+ * CTA scrolls to the Cloudflare-powered contact form (#contact).
+ */
+
+interface Props {
+  /** Anchor id of the contact section the CTA should scroll to. */
+  contactAnchor?: string;
+  /** Pre-filled WhatsApp text used by the secondary CTA. */
+  whatsappText?: string;
+}
+
+const {
+  contactAnchor = "#contact",
+  whatsappText = "Hi ROAM SOCIAL, I'd like to book the mobile bar setup for an event.",
+} = Astro.props;
+
+const whatsappHref = `https://wa.me/918217733823?text=${encodeURIComponent(whatsappText)}`;
+
+const featured = {
+  src: "/images/golden-hour-popup-bar.jpg",
+  alt: "ROAM SOCIAL golden-hour pop-up bar with the branded Jeep and black canopy strung with warm bulbs",
+};
+
+const gallery = [
+  {
+    src: "/images/roam-vintage-jeep.jpg",
+    alt: "White vintage ROAM SOCIAL Mahindra off-road Jeep with ROAM SOCIAL branding",
+    label: "The Jeep",
+  },
+  {
+    src: "/images/31580.jpg",
+    alt: "ROAM SOCIAL mobile bar beneath a black canopy with hanging lights",
+    label: "The Bar",
+  },
+  {
+    src: "/images/bartender-pour.jpg",
+    alt: "ROAM SOCIAL bartender pouring a drink into a branded cup at the mobile bar counter",
+    label: "The Pour",
+  },
+  {
+    src: "/images/jeep-canopy.jpg",
+    alt: "ROAM SOCIAL crew member setting up the branded vintage Jeep at the mobile bar",
+    label: "The Set-Up",
+  },
+];
+---
+
+<section
+  id="concept-two"
+  aria-labelledby="concept-two-title"
+  class="relative overflow-hidden border-y border-white/5 bg-zinc-900 py-24 md:py-32"
+>
+  <!-- Ambient warm glow — ties the gold accents to the black tent lighting -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 opacity-60"
+    style="background:
+      radial-gradient(38rem 24rem at 12% 18%, rgba(200,163,95,.14) 0%, transparent 65%),
+      radial-gradient(40rem 26rem at 88% 82%, rgba(200,163,95,.10) 0%, transparent 65%);"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="grid items-center gap-12 md:grid-cols-2 md:gap-10 lg:gap-16">
+
+      <!-- ============ MEDIA HALF ============ -->
+      <div class="reveal order-2 md:order-1">
+        <!-- Featured image -->
+        <figure class="group relative overflow-hidden rounded-2xl border border-white/10 shadow-xl shadow-black/50">
+          <img
+            src={featured.src}
+            alt={featured.alt}
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="800"
+            class="aspect-[4/3] w-full object-cover object-center transition-transform duration-[1.6s] ease-out group-hover:scale-105"
+          />
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+          >
+          </div>
+          <figcaption class="absolute bottom-0 left-0 flex w-full items-end justify-between p-5">
+            <span class="text-[10px] uppercase tracking-[.3em] text-champagne">The Mobile Bar</span>
+            <span class="rounded-full border border-gold/40 bg-black/50 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-gold backdrop-blur-sm">
+              Featured
+            </span>
+          </figcaption>
+        </figure>
+
+        <!-- Mini gallery -->
+        <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {
+            gallery.map((item, i) => (
+              <figure
+                class="group relative overflow-hidden rounded-lg border border-white/10 shadow-xl shadow-black/40 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50"
+                style={`--d:${0.08 * (i + 1)}s`}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="560"
+                  class="aspect-[3/4] w-full object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                />
+                <div
+                  aria-hidden="true"
+                  class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"
+                >
+                </div>
+                <figcaption class="absolute bottom-0 left-0 w-full p-3">
+                  <span class="block text-[9px] uppercase tracking-[.24em] text-gold">
+                    {item.label}
+                  </span>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- ============ COPY HALF ============ -->
+      <div class="order-1 md:order-2">
+        <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">04 — The Setup</p>
+
+        <h2
+          id="concept-two-title"
+          class="reveal camp-head text-4xl font-medium text-white sm:text-5xl lg:text-6xl"
+          style="--d:.1s"
+        >
+          <span class="gold-text">The Mobile Bar</span>
+        </h2>
+
+        <div class="reveal mt-6 h-px w-24 bg-gradient-to-r from-gold to-transparent" aria-hidden="true" style="--d:.15s"></div>
+
+        <p class="reveal mt-7 text-sm leading-relaxed text-white/60 md:text-base" style="--d:.2s">
+          We take rugged, head-turning vehicles and rebuild them into high-end
+          mobile bar units. A vintage white Mahindra Jeep carrying the
+          ROAM SOCIAL name. A sleek, dark-themed bar under a black canopy strung
+          with hanging bulbs. Steel, ice, citrus and craftsmanship — staged
+          wherever the party happens.
+        </p>
+
+        <p class="reveal mt-4 text-sm leading-relaxed text-white/50 md:text-base" style="--d:.26s">
+          Every setup arrives fully self-contained: bar counters, glassware,
+          garnishes, ice wells and a bartender team that shakes to order on the
+          spot. Private courtyards, rooftop terraces, weddings, corporate
+          launches or brand activations — we bring the crafted drinks, the
+          theatre of the pour, and a social experience your guests won't stop
+          talking about.
+        </p>
+
+        <!-- Spec strip -->
+        <dl class="reveal mt-9 grid grid-cols-2 gap-5 border-t border-white/10 pt-7 lg:grid-cols-3" style="--d:.32s">
+          <div>
+            <dt class="text-[9px] uppercase tracking-[.28em] text-gold/80">Signature</dt>
+            <dd class="mt-1.5 font-display text-lg text-white">Vintage Jeep</dd>
+          </div>
+          <div>
+            <dt class="text-[9px] uppercase tracking-[.28em] text-gold/80">Service</dt>
+            <dd class="mt-1.5 font-display text-lg text-white">Pop-ups &amp; Events</dd>
+          </div>
+          <div>
+            <dt class="text-[9px] uppercase tracking-[.28em] text-gold/80">Base</dt>
+            <dd class="mt-1.5 font-display text-lg text-white">Bengaluru</dd>
+          </div>
+        </dl>
+
+        <!-- CTAs: Primary -> contact form, Secondary -> WhatsApp -->
+        <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="--d:.38s">
+          <a href={contactAnchor} class="btn-gold">
+            Book the Mobile Bar
+            <i class="fa-solid fa-arrow-down-long text-[11px]" aria-hidden="true"></i>
+          </a>
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn-ghost">
+            <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i>
+            Quick WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

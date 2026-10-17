@@ -1,0 +1,98 @@
+---
+/**
+ * Layout for legal pages (Privacy Policy, Terms & Conditions).
+ * Thin, print-friendly shell on top of the global brand styles.
+ */
+import Layout from "./Layout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const backHref = "/#contact";
+---
+
+<Layout title={title} description={description} showSplash={false}>
+  <main class="min-h-screen bg-ink px-5 pb-24 pt-32 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <a
+        href={backHref}
+        class="group mb-12 inline-flex items-center gap-2 text-[11px] uppercase tracking-[.24em] text-white/50 transition hover:text-gold"
+      >
+        <i class="fa-solid fa-arrow-left-long transition-transform group-hover:-translate-x-1" aria-hidden="true"></i>
+        Back to ROAM SOCIAL
+      </a>
+
+      <article class="legal-body">
+        <slot />
+      </article>
+
+      <div class="mt-20 flex flex-col items-center gap-6 border-t border-white/10 pt-10 sm:flex-row sm:justify-between">
+        <a href="/#hero" aria-label="ROAM SOCIAL — Home" class="inline-flex">
+          <img src="/images/roam-logo.png" alt="ROAM SOCIAL logo" loading="lazy" decoding="async" class="h-10 w-auto sm:h-11" />
+        </a>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/45">
+          <a href="/privacy" class="transition hover:text-gold">Privacy Policy</a>
+          <a href="/terms" class="transition hover:text-gold">Terms &amp; Conditions</a>
+          <a href="mailto:support@roamsocial.in" class="transition hover:text-gold">support@roamsocial.in</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .legal-body :global(h1) {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    color: #fff;
+  }
+  .legal-body :global(h2) {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.35rem;
+    color: #ead9b0;
+    margin-top: 2.75rem;
+    margin-bottom: 0.85rem;
+  }
+  .legal-body :global(p) {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+  .legal-body :global(ul) {
+    margin-top: 0.75rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .legal-body :global(li) {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 0.7rem;
+  }
+  .legal-body :global(li)::before {
+    content: "\2022";
+    color: #c8a35f;
+  }
+  .legal-body :global(a) {
+    color: #ead9b0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal-body :global(strong) {
+    color: #fff;
+    font-weight: 600;
+  }
+  .legal-body :global(.legal-meta) {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+  }
+</style>

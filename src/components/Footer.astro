@@ -1,0 +1,163 @@
+---
+/**
+ * Footer.astro — booking CTA band + footer grid.
+ * Primary CTA: Book the Mobile Bar -> #contact. Secondary: Quick WhatsApp.
+ * Only support@roamsocial.in is published (no general-inquiries inbox).
+ */
+
+const whatsappHref =
+  "https://wa.me/918217733823?text=" +
+  encodeURIComponent("Hi ROAM SOCIAL, I'd like to book the mobile bar for an event.");
+const emailHref =
+  "mailto:support@roamsocial.in?subject=" +
+  encodeURIComponent("ROAM SOCIAL Booking Inquiry");
+const instagramUrl = "https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==";
+---
+
+<footer class="border-t border-white/5 bg-[#080809]">
+  <!-- Booking CTA band -->
+  <div class="border-b border-white/5 px-6 py-20 text-center md:py-24">
+    <p class="reveal kicker mb-6 text-[10px] font-medium text-gold md:text-xs">Bookings &amp; Collaborations</p>
+    <h2 class="reveal font-display text-4xl font-medium leading-tight md:text-6xl" style="--d:.1s">
+      Let&rsquo;s pour something<br class="hidden md:block" />
+      <span class="gold-text italic">memorable.</span>
+    </h2>
+    <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/45" style="--d:.2s">
+      Weddings, corporate nights, private parties and street pop-ups —
+      tell us about your event and we&rsquo;ll build the bar around it.
+    </p>
+    <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-4" style="--d:.3s">
+      <a href="#contact" class="btn-gold">
+        <i class="fa-solid fa-calendar-check text-base" aria-hidden="true"></i> Book the Mobile Bar
+      </a>
+      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn-ghost">
+        <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Quick WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Main footer grid -->
+  <div class="mx-auto max-w-7xl px-6 py-16 md:px-8">
+    <div class="grid gap-12 md:grid-cols-12">
+      <!-- Brand -->
+      <div class="md:col-span-5">
+        <a href="#hero" class="inline-flex" aria-label="ROAM SOCIAL — Home">
+          <img src="/images/roam-logo.png" alt="ROAM SOCIAL logo" loading="lazy" decoding="async" class="h-12 w-auto md:h-14" />
+        </a>
+        <p class="mt-6 max-w-xs text-sm leading-relaxed text-white/45">
+          Crafted drinks. Social moments. Drinks made to move —
+          a luxury mobile bar that roams Bengaluru&rsquo;s best nights.
+        </p>
+        <p class="mt-4 font-display text-base italic text-gold">&ldquo;Good drinks. Bolder stories.&rdquo;</p>
+        <p class="mt-5 text-sm text-white/60">By <span class="text-gold">@we.are.rod</span></p>
+
+        <div class="mt-7 flex items-center gap-3">
+          <a
+            href="https://www.instagram.com/roamsocial.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ROAM SOCIAL on Instagram"
+            class="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book on WhatsApp"
+            class="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold"
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+          <a
+            href={emailHref}
+            aria-label="Email support@roamsocial.in"
+            class="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold"
+          >
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div class="md:col-span-3">
+        <h3 class="kicker text-[10px] font-medium text-gold">Explore</h3>
+        <ul class="mt-6 space-y-3.5 text-sm text-white/55">
+          <li><a href="#menu" class="transition hover:text-gold">The Menu</a></li>
+          <li><a href="#gallery" class="transition hover:text-gold">Gallery</a></li>
+          <li><a href="#contact" class="transition hover:text-gold">Reserve Bar</a></li>
+          <li><a href="#instagram" class="transition hover:text-gold">Reels</a></li>
+          <li>
+            <a href="https://www.instagram.com/roamsocial.in" target="_blank" rel="noopener noreferrer" class="transition hover:text-gold">Instagram</a>
+          </li>
+          <li><a href="#contact" class="transition hover:text-gold">Book the Bar</a></li>
+          <li><a href="/privacy" class="transition hover:text-gold">Privacy Policy</a></li>
+          <li><a href="/terms" class="transition hover:text-gold">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="md:col-span-4">
+        <h3 class="kicker text-[10px] font-medium text-gold">Contact</h3>
+        <ul class="mt-6 space-y-4 text-sm text-white/55">
+          <li>
+            <a href={emailHref} class="group flex items-center gap-3.5 transition hover:text-white" title="Opens your email app">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gold/40 text-xs text-gold">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+              </span>
+              <span>
+                <strong class="block text-xs font-medium text-white">Bookings &amp; Support:</strong>
+                support@roamsocial.in
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3.5 transition hover:text-white" title="Opens WhatsApp">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-xs text-gold/80">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              </span>
+              <span>
+                <strong class="block text-xs font-medium text-white">Book on WhatsApp:</strong>
+                +91 82177 33823
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3.5 transition hover:text-white" title="Opens Instagram">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-xs text-gold/80">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </span>
+              <span>
+                <strong class="block text-xs font-medium text-white">Instagram:</strong>
+                @roamsocial.in
+              </span>
+            </a>
+          </li>
+          <li class="flex items-center gap-3.5">
+            <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-xs text-gold/80">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            </span>
+            Bengaluru, Karnataka, India
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/5">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-[11px] tracking-[.14em] text-white/35 md:flex-row md:px-8">
+      <p>&copy; <span id="year">2025</span> ROAM SOCIAL — All rights reserved.</p>
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 uppercase">
+        <span>Crafted in Bengaluru</span>
+        <span class="text-gold/60">•</span>
+        <a href="/privacy" class="transition hover:text-gold">Privacy Policy</a>
+        <span class="text-gold/60">•</span>
+        <a href="/terms" class="transition hover:text-gold">Terms &amp; Conditions</a>
+        <span class="text-gold/60">•</span>
+        <span class="text-gold/80">By @we.are.rod</span>
+      </p>
+    </div>
+  </div>
+</footer>

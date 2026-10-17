@@ -1,0 +1,386 @@
+---
+/**
+ * Menu.astro — "Crafted Drinks & Mocktails" + "Social Bites".
+ * Data-driven cards with All / Cocktails / Mocktails / Social Bites filters
+ * and pairing badges surfaced from each bite's pairing notes.
+ */
+
+const drinks = [
+  { n: "01", name: "Old Fashioned", tag: "Classic", category: "cocktails", gold: false,
+    desc: "A timeless mix of bourbon or rye whiskey, bitters, and sugar.",
+    img: "/images/menu-old-fashioned.jpeg", alt: "Old Fashioned cocktail" },
+  { n: "02", name: "Negroni", tag: "Bold", category: "cocktails", gold: false,
+    desc: "Equal parts gin, Campari, and sweet vermouth, known for its rich red hue.",
+    img: "/images/menu-negroni.jpeg", alt: "Negroni cocktail" },
+  { n: "03", name: "Whiskey Sour", tag: "Silky", category: "cocktails", gold: false,
+    desc: "Bourbon, fresh lemon juice, simple syrup, and often an egg white for a frothy top.",
+    img: "/images/menu-whiskey-sour.jpeg", alt: "Whiskey Sour cocktail" },
+  { n: "04", name: "Espresso Martini", tag: "After Dark", category: "cocktails", gold: false,
+    desc: "Vodka, coffee liqueur, and freshly brewed espresso for a sophisticated kick.",
+    img: "/images/menu-espresso-martini.jpeg", alt: "Espresso Martini cocktail" },
+  { n: "05", name: "Spicy Margarita", tag: "Spicy", category: "cocktails", gold: false,
+    desc: "Tequila, fresh lime juice, agave, and muddled jalapeño for a modern twist.",
+    img: "/images/menu-spicy-margarita.jpeg", alt: "Spicy Margarita cocktail" },
+  { n: "06", name: "Boulevardier", tag: "Bitter", category: "cocktails", gold: false,
+    desc: "A warm, bitter cocktail made with bourbon, Campari, and sweet vermouth.",
+    img: "/images/menu-boulevardier.jpeg", alt: "Boulevardier cocktail" },
+  { n: "07", name: "Bee’s Knees", tag: "Prohibition", category: "cocktails", gold: false,
+    desc: "A Prohibition-era classic made with gin, fresh lemon juice, and honey syrup.",
+    img: "/images/menu-bees-knees.jpeg", alt: "Bee's Knees cocktail" },
+  { n: "08", name: "French 75", tag: "Celebration", category: "cocktails", gold: false,
+    desc: "Gin, lemon juice, simple syrup, topped with champagne for celebration.",
+    img: "/images/menu-french-75.jpeg", alt: "French 75 cocktail" },
+  { n: "09", name: "Mojito", tag: "Fresh", category: "cocktails", gold: false,
+    desc: "White rum, fresh mint, lime juice, sugar, and club soda over crushed ice.",
+    img: "/images/menu-mojito.jpeg", alt: "Mojito cocktail" },
+  { n: "10", name: "Basil Smash", suffix: "(Mocktail variant)", tag: "Mocktail", category: "mocktails", gold: true,
+    desc: "Fresh basil muddled with lemon juice and simple syrup, shaken with apple juice.",
+    img: "/images/menu-basil-smash.jpeg", alt: "Basil Smash mocktail" },
+];
+
+const bites = [
+  {
+    name: "Tuna Tartare on Crispy Wonton",
+    tag: "Seafood",
+    gold: false,
+    img: "/images/bites/tuna-tartare.jpg",
+    alt: "Tuna tartare on crisp wonton squares with jalapeño and micro-cilantro, plated on a ROAM SOCIAL slate plate",
+    desc: "Fresh, sushi-grade tuna diced and tossed with a light soy-sesame glaze, served on a crisp wonton square and topped with a tiny sliver of jalapeño or micro-cilantro.",
+    vibe: "Modern and refreshing; pairs beautifully with bright, citrusy drinks like a Margarita or French 75.",
+    pairing: "Margarita • French 75",
+  },
+  {
+    name: "Truffle Mushroom Arancini",
+    tag: "Vegetarian",
+    gold: false,
+    img: "/images/bites/truffle-arancini.jpg",
+    alt: "Golden truffle mushroom arancini with garlic aioli on a ROAM SOCIAL slate plate",
+    desc: "Golden, bite-sized crispy risotto balls infused with earthy wild mushrooms and truffle oil, served with a dab of garlic aioli.",
+    vibe: "Rich, savory, and sophisticated comfort food that feels incredibly premium.",
+    pairing: null,
+  },
+  {
+    name: "Filet Mignon Crostini with Horseradish Cream",
+    tag: "Beef",
+    gold: false,
+    img: "/images/bites/filet-mignon-crostini.jpg",
+    alt: "Seared filet mignon crostini with horseradish cream and caramelized onion on a ROAM SOCIAL slate plate",
+    desc: "Thinly sliced, rare beef tenderloin layered on a toasted baguette slice, topped with a dollop of sharp horseradish crème fraîche and sweet caramelized onions.",
+    vibe: "A hearty but refined bite that goes perfectly with bolder, darker drinks like an Old Fashioned or a Boulevardier.",
+    pairing: "Old Fashioned • Boulevardier",
+  },
+  {
+    name: "Smoked Salmon & Crème Fraîche Blinis",
+    tag: "Seafood",
+    gold: false,
+    img: "/images/bites/smoked-salmon-blinis.jpg",
+    alt: "Smoked salmon and crème fraîche blinis with dill and micro-herbs on a ROAM SOCIAL slate plate",
+    desc: "A classic catering staple featuring a tiny, savory buckwheat pancake topped with cold-smoked salmon, a touch of crème fraîche, and a sprig of fresh dill.",
+    vibe: "Timeless luxury that visually pops on a serving platter.",
+    pairing: null,
+  },
+  {
+    name: "Prosciutto-Wrapped Asparagus with Balsamic Glaze",
+    tag: "Gluten-Free",
+    gold: false,
+    img: "/images/bites/prosciutto-asparagus.jpg",
+    alt: "Prosciutto-wrapped asparagus spears with balsamic glaze and micro-herbs on a ROAM SOCIAL slate plate",
+    desc: "Tender-crisp asparagus spears wrapped in salty, cured prosciutto and lightly roasted, then finished with a drizzle of sweet balsamic reduction.",
+    vibe: "Simple, elegant, and easy for guests to pick up and eat without a napkin.",
+    pairing: null,
+  },
+  {
+    name: "Whipped Ricotta & Fig Tartlets",
+    tag: "Sweet",
+    gold: true,
+    img: "/images/bites/ricotta-fig-tartlets.jpg",
+    alt: "Whipped ricotta and fig tartlets topped with fresh fig and crushed pistachio on a ROAM SOCIAL slate plate",
+    desc: "Miniature pastry shells filled with light, honey-whipped ricotta cheese and topped with a slice of fresh fig and a sprinkle of crushed pistachios.",
+    vibe: "A beautiful balance of sweet, creamy, and crunchy that adds a sophisticated aesthetic to the menu.",
+    pairing: null,
+  },
+];
+
+const cardBase =
+  "drink-card menu-card reveal group relative overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2";
+const cardSkin = "border border-white/5 bg-coal hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]";
+const cardSkinGold =
+  "border border-gold/30 bg-gradient-to-br from-[#141210] to-coal hover:border-gold/60 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]";
+---
+
+<section id="menu" class="relative py-24 md:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <!-- Section header -->
+    <div class="mb-14 flex flex-col justify-between gap-8 md:mb-16 md:flex-row md:items-end">
+      <div class="reveal">
+        <p class="kicker mb-5 text-[10px] font-medium text-gold md:text-xs">01 — The Menu</p>
+        <h2 class="font-display text-4xl font-medium leading-tight md:text-5xl">
+          Crafted Drinks <span class="gold-text italic">&amp;</span> Mocktails
+        </h2>
+        <div class="mt-6 h-px w-24 bg-gradient-to-r from-gold to-transparent" aria-hidden="true"></div>
+      </div>
+      <p class="reveal max-w-sm text-sm leading-relaxed text-white/45" style="--d:.15s">
+        Every drink is shaken to order and served chilled in our signature ROAM SOCIAL cups —
+        built to travel, made to be photographed, poured to be remembered.
+      </p>
+    </div>
+
+    <!-- Filter pills -->
+    <div class="reveal mb-10 flex flex-wrap items-center gap-3" role="group" aria-label="Filter menu">
+      <button type="button" class="filter-pill is-active" data-filter="all">All</button>
+      <button type="button" class="filter-pill" data-filter="cocktails">Cocktails</button>
+      <button type="button" class="filter-pill" data-filter="mocktails">Mocktails</button>
+      <button type="button" class="filter-pill" data-filter="bites">Social Bites</button>
+    </div>
+
+    <!-- Drinks grid -->
+    <div id="drinksGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        drinks.map((drink, i) => (
+          <article
+            class={`${cardBase} ${drink.gold ? cardSkinGold : cardSkin}`}
+            data-category={drink.category}
+            data-menu-item
+            style={`--d:${(i % 3) * 0.07}s`}
+          >
+            <div class="relative aspect-square overflow-hidden bg-gradient-to-br from-[#17181c] to-[#0d0d0f]">
+              {drink.img && (
+                <img
+                  src={drink.img}
+                  alt={drink.alt ?? drink.name}
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+                />
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" aria-hidden="true" />
+              <span class="absolute right-4 top-4 rounded-full border border-white/20 bg-black/65 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-white backdrop-blur-sm">
+                {drink.tag}
+              </span>
+              <span class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
+            </div>
+            <div class="p-6 md:p-7">
+              <h3 class="font-display text-2xl font-medium">
+                {drink.name}
+                {drink.suffix && (
+                  <span class="ml-1 align-middle font-body text-sm font-light text-white/40">{drink.suffix}</span>
+                )}
+              </h3>
+              <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16" />
+              <p class="text-sm leading-relaxed text-white/55">{drink.desc}</p>
+            </div>
+          </article>
+        ))
+      }
+
+    </div>
+
+    <!-- Mobile: reveal the rest of the drinks -->
+    <div class="mt-8 flex justify-center md:hidden">
+      <button type="button" id="drinksMore" class="view-more" aria-controls="drinksGrid">
+        <span data-label>View more</span>
+        <i class="fa-solid fa-chevron-down text-[10px]" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Social Bites sub-section -->
+    <div
+      id="bitesHeader"
+      class="mt-20 flex flex-col justify-between gap-6 border-t border-white/10 pt-16 md:mt-24 md:pt-20 md:flex-row md:items-end"
+    >
+      <div class="reveal">
+        <p class="kicker mb-5 text-[10px] font-medium text-gold md:text-xs">Small Plates &amp; Bar Bites</p>
+        <h3 class="font-display text-3xl font-medium md:text-4xl">Social <span class="gold-text italic">Bites</span></h3>
+        <div class="mt-5 h-px w-20 bg-gradient-to-r from-gold to-transparent" aria-hidden="true"></div>
+      </div>
+      <p class="reveal max-w-sm text-sm leading-relaxed text-white/45" style="--d:.15s">
+        Canapés built to travel from our mobile bar to your hand — plated fresh,
+        finished on site, and designed to be picked up in a single bite between pours.
+      </p>
+    </div>
+
+    <div id="bitesGrid" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        bites.map((bite, i) => (
+          <article
+            class={`${cardBase} ${bite.gold ? cardSkinGold : cardSkin}`}
+            data-category="bites"
+            data-menu-item
+            style={`--d:${(i % 3) * 0.07}s`}
+          >
+            <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#17181c] to-[#0d0d0f]">
+              {bite.img && (
+                <img
+                  src={bite.img}
+                  alt={bite.alt ?? bite.name}
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+                />
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" aria-hidden="true" />
+              <span class="drink-num absolute left-5 top-5 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/40 text-sm text-gold backdrop-blur-sm">
+                <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+              </span>
+              <span class="absolute right-4 top-4 rounded-full border border-white/20 bg-black/65 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-white backdrop-blur-sm">
+                {bite.tag}
+              </span>
+              <span class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
+            </div>
+            <div class="p-6 md:p-7">
+              <h4 class="font-display text-xl font-medium leading-snug">{bite.name}</h4>
+              <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16" />
+              <p class="text-sm leading-relaxed text-white/55">{bite.desc}</p>
+              <div class="mt-5 border-t border-white/5 pt-4">
+                <p class="text-[11px] leading-relaxed text-white/45">
+                  <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                  {bite.vibe}
+                </p>
+                {bite.pairing && (
+                  <span class="pairing-badge">
+                    <i class="fa-solid fa-wine-glass" aria-hidden="true"></i>
+                    Pairs: {bite.pairing}
+                  </span>
+                )}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Mobile: reveal the rest of the social bites -->
+    <div class="mt-8 flex justify-center md:hidden">
+      <button type="button" id="bitesMore" class="view-more" aria-controls="bitesGrid">
+        <span data-label>View more</span>
+        <i class="fa-solid fa-chevron-down text-[10px]" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Zero-proof note tile: appears after the bites (all / social bites views) -->
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article
+        class="menu-card reveal group relative flex flex-col justify-between rounded-2xl border border-gold/25 bg-gradient-to-br from-[#141210] to-coal p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)] md:p-8"
+        data-category="note"
+      >
+        <i class="fa-solid fa-wine-bottle text-2xl text-gold/70" aria-hidden="true"></i>
+        <div>
+          <h3 class="font-display text-xl font-medium">Zero-proof, always.</h3>
+          <p class="mt-3 text-sm leading-relaxed text-white/50">
+            Every signature has a zero-proof variation, built with the same care.
+            Custom menus for private lists on request.
+          </p>
+          <a
+            href="https://wa.me/918217733823"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[.24em] text-gold transition hover:gap-3"
+          >
+            Request a menu <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Bites closing line -->
+    <div class="reveal mt-12 flex items-center gap-5">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gold/40" aria-hidden="true"></span>
+      <p class="text-center text-[10px] uppercase tracking-[.3em] text-white/40">
+        Bites &amp; pours paired on request &nbsp;<span class="text-gold">•</span>&nbsp; Custom canapé menus for private lists
+      </p>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gold/40" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var filterPills = document.querySelectorAll(".filter-pill");
+    var menuCards = document.querySelectorAll(".menu-card");
+    var bitesHeader = document.getElementById("bitesHeader");
+    if (!filterPills.length) return;
+
+    var mobileQuery = window.matchMedia("(max-width: 767px)");
+    var LIMIT = 4;
+
+    // Grids that collapse to the first N items on mobile behind a "View more" toggle.
+    var grids = [
+      { grid: document.getElementById("drinksGrid"), btn: document.getElementById("drinksMore") },
+      { grid: document.getElementById("bitesGrid"), btn: document.getElementById("bitesMore") },
+    ].filter(function (g) {
+      return g.grid && g.btn;
+    });
+    var expanded = {};
+
+    function applyLimits() {
+      grids.forEach(function (g) {
+        var items = g.grid.querySelectorAll("[data-menu-item]");
+        items.forEach(function (el) {
+          el.classList.remove("menu-over");
+        });
+
+        var visible = Array.prototype.filter.call(items, function (el) {
+          return !el.classList.contains("is-hidden");
+        });
+
+        if (mobileQuery.matches && !expanded[g.grid.id] && visible.length > LIMIT) {
+          visible.forEach(function (el, i) {
+            if (i >= LIMIT) el.classList.add("menu-over");
+          });
+          var label = g.btn.querySelector("[data-label]");
+          if (label) label.textContent = "View more (" + (visible.length - LIMIT) + ")";
+          g.btn.style.display = "";
+        } else {
+          g.btn.style.display = "none";
+        }
+      });
+    }
+
+    grids.forEach(function (g) {
+      g.btn.addEventListener("click", function () {
+        expanded[g.grid.id] = true;
+        g.grid.querySelectorAll("[data-menu-item]").forEach(function (el) {
+          if (!el.classList.contains("is-hidden")) el.classList.add("in");
+        });
+        applyLimits();
+      });
+    });
+
+    if (mobileQuery.addEventListener) mobileQuery.addEventListener("change", applyLimits);
+    else if (mobileQuery.addListener) mobileQuery.addListener(applyLimits);
+
+    filterPills.forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        var filter = pill.getAttribute("data-filter");
+
+        filterPills.forEach(function (p) {
+          p.classList.remove("is-active");
+        });
+        pill.classList.add("is-active");
+
+        // Switching filters resets any "view more" expansion.
+        expanded = {};
+
+        menuCards.forEach(function (card) {
+          var cat = card.getAttribute("data-category");
+          // The zero-proof tile trails the food items, so it belongs to
+          // the "all" and "social bites" views only.
+          var show =
+            cat === "note"
+              ? filter === "all" || filter === "bites"
+              : filter === "all" || cat === filter;
+          card.classList.toggle("is-hidden", !show);
+          if (show) card.classList.add("in");
+        });
+
+        if (bitesHeader) {
+          bitesHeader.classList.toggle("hidden", filter === "cocktails" || filter === "mocktails");
+        }
+
+        applyLimits();
+      });
+    });
+
+    applyLimits();
+  })();
+</script>

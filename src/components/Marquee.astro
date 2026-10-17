@@ -1,0 +1,25 @@
+---
+/**
+ * Marquee — infinite scrolling brand ticker divider.
+ * Pure CSS animation; duplicated track for a seamless loop.
+ */
+const items = [
+  "Luxury Mobile Bar",
+  "Pop-ups",
+  "Weddings & Events",
+  "Corporate Nights",
+  "Bengaluru",
+  "Drinks Made to Move",
+];
+---
+
+<div class="relative z-10 overflow-hidden border-y border-white/5 bg-[#0d0d0f] py-4" aria-hidden="true">
+  <div class="marquee-track flex w-max">
+    {items.concat(items).map((item) => (
+      <div class="flex shrink-0 items-center gap-10 pr-10 text-[11px] uppercase tracking-[.35em] text-white/35 md:gap-14 md:pr-14">
+        <span>{item}</span>
+        <i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+      </div>
+    ))}
+  </div>
+</div>

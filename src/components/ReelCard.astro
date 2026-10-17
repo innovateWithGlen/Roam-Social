@@ -1,0 +1,104 @@
+---
+/**
+ * ReelCard.astro — a single 9:16 interactive reel card.
+ * Shared by the mobile auto-scrolling rail and the desktop 3-up grid.
+ */
+interface Reel {
+  id: string;
+  title: string;
+  subtitle: string;
+  views: string;
+  poster: string;
+  posterAlt: string;
+  video: string;
+}
+
+interface Props {
+  reel: Reel;
+  index: number;
+  clone?: boolean;
+}
+
+const { reel, index, clone = false } = Astro.props;
+const instagramUrl = "https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==";
+---
+
+<article
+  class="reel-card reveal group relative aspect-[9/16] w-[78vw] max-w-[320px] shrink-0 cursor-pointer select-none overflow-hidden rounded-2xl border border-white/10 bg-black md:w-full"
+  data-reel-id={reel.id}
+  style={`--d:${index * 0.08}s`}
+>
+  <video
+    class="reel-video absolute inset-0 h-full w-full object-cover object-center"
+    playsinline
+    loop
+    preload="none"
+    poster={reel.poster}
+    src={reel.video}
+  />
+
+  <!-- Poster layer (fades out on play) -->
+  <div class="reel-poster-layer absolute inset-0 z-10">
+    <img
+      src={reel.poster}
+      loading="lazy"
+      decoding="async"
+      alt={reel.posterAlt}
+      class="h-full w-full object-cover object-center transition-transform duration-[1.4s] group-hover:scale-105"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+  </div>
+
+  <!-- Top chrome -->
+  <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+    <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md">
+      <i class="fa-solid fa-clapperboard text-[10px] text-gold" aria-hidden="true"></i> Reel
+    </span>
+    <a
+      href={instagramUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      tabindex={clone ? "-1" : undefined}
+      class="reel-ig-link grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold"
+      title="Open @roamsocial.in on Instagram"
+    >
+      <i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!-- Center play -->
+  <div class="reel-play-center pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+    <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+    <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 text-white backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:border-gold group-hover:bg-gold/25">
+      <i class="fa-solid fa-play pl-1 text-lg group-hover:text-champagne" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <!-- Bottom chrome -->
+  <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5">
+    <div>
+      <p class="font-display text-lg leading-tight text-white">{reel.title}</p>
+      <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">{reel.subtitle}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        tabindex={clone ? "-1" : undefined}
+        class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold"
+        title="Mute / Unmute"
+        aria-label="Toggle sound"
+      >
+        <i class="fa-solid fa-volume-high text-xs text-gold" aria-hidden="true"></i>
+      </button>
+      <span class="flex items-center gap-1.5 text-[11px] text-white/70">
+        <i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>
+        {reel.views}
+      </span>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="absolute inset-x-0 bottom-0 z-30 h-1 bg-white/15" aria-hidden="true">
+    <div class="reel-progress-fill h-full w-0 bg-gold"></div>
+  </div>
+</article>

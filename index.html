@@ -1,0 +1,2591 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROAM SOCIAL | Luxury Mobile Bar in Bengaluru — Jeep Bar, Cocktails & Social Bites</title>
+  <meta name="description" content="ROAM SOCIAL is a luxury mobile bar in Bengaluru — a vintage Jeep bar pouring crafted cocktails & social bites at weddings, pop-ups and private events. Book the mobile bar." />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ROAM SOCIAL" />
+  <meta property="og:title" content="ROAM SOCIAL | Luxury Mobile Bar in Bengaluru — Jeep Bar, Cocktails & Social Bites" />
+  <meta property="og:description" content="A vintage Jeep bar pouring crafted cocktails & social bites at weddings, pop-ups and private events across Bengaluru." />
+  <meta property="og:image" content="https://roamsocial.in/images/31580.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ROAM SOCIAL | Luxury Mobile Bar in Bengaluru — Jeep Bar, Cocktails & Social Bites" />
+  <meta name="twitter:description" content="A vintage Jeep bar pouring crafted cocktails & social bites at weddings, pop-ups and private events across Bengaluru." />
+  <meta name="twitter:image" content="https://roamsocial.in/images/31580.jpg" />
+
+  <!-- Security Headers Framework -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; media-src 'self' https: blob:; connect-src 'self' https:;" />
+
+  <!-- Performance Optimization: Resource Hints -->
+  <link rel="dns-prefetch" href="https://images.pexels.com" />
+  <link rel="dns-prefetch" href="https://videos.pexels.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- Typography: Playfair Display (headings) + Inter (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Tailwind CSS (v4 browser CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Brand tokens -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-ink: #0a0a0a;
+      --color-coal: #101013;
+      --color-smoke: #17181c;
+      --color-gold: #c8a35f;
+      --color-champagne: #ead9b0;
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    }
+  </style>
+
+  <!-- Custom styles -->
+  <style>
+    html { scroll-padding-top: 120px; }
+    body { background: #0a0a0a; overflow-x: hidden; }
+
+    ::selection { background: #c8a35f; color: #0a0a0a; }
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #2b2b30; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(200, 163, 95, .55); }
+
+    .kicker { letter-spacing: .38em; text-transform: uppercase; }
+
+    .gold-text {
+      background: linear-gradient(115deg, #f2e3bd 0%, #d3b478 40%, #a3803e 80%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      background: linear-gradient(135deg, #ecd9ab 0%, #c8a35f 48%, #a3803e 100%);
+      color: #0a0a0a; padding: 1rem 2.1rem; font-size: .78rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; border-radius: 9999px;
+      transition: transform .4s ease, box-shadow .4s ease, filter .4s ease;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(200,163,95,.28); filter: brightness(1.06); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      border: 1px solid rgba(255,255,255,.22); color: #f5f5f4;
+      padding: 1rem 2.1rem; font-size: .78rem; font-weight: 500;
+      letter-spacing: .16em; text-transform: uppercase; border-radius: 9999px;
+      transition: border-color .4s ease, color .4s ease, background .4s ease, transform .4s ease;
+    }
+    .btn-ghost:hover { border-color: rgba(200,163,95,.7); color: #ead9b0; background: rgba(200,163,95,.06); transform: translateY(-2px); }
+
+    .nav-link { font-size: .82rem; letter-spacing: .08em; color: rgba(255,255,255,.72); transition: color .3s ease; position: relative; }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; bottom: -6px; height: 1px; width: 0;
+      background: #c8a35f; transition: width .4s cubic-bezier(.22,1,.36,1);
+    }
+    .nav-link:hover { color: #ead9b0; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Navbar state */
+    #siteNav .nav-shell { transition: background .5s ease, box-shadow .5s ease, border-color .5s ease; }
+    #siteNav.scrolled .nav-shell { background: rgba(7,7,8,.82); border-color: rgba(255,255,255,.14); box-shadow: 0 12px 44px rgba(0,0,0,.55); }
+
+    /* Mobile panel */
+    .mobile-panel { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .55s cubic-bezier(.22,1,.36,1), opacity .4s ease; }
+    .mobile-panel.open { max-height: 460px; opacity: 1; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); transition-delay: var(--d, 0s); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Film grain overlay */
+    .grain {
+      position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+    }
+
+    /* Hero slow zoom */
+    @keyframes heroDrift { 0% { transform: scale(1.03); } 100% { transform: scale(1.13); } }
+    .hero-kenburns { animation: heroDrift 22s ease-in-out infinite alternate; }
+
+    /* Marquee */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { animation: marquee 32s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* Scroll cue */
+    @keyframes cue { 0%, 100% { transform: translateY(0); opacity: .9; } 50% { transform: translateY(9px); opacity: .35; } }
+    .scroll-cue i { animation: cue 2.2s ease-in-out infinite; }
+
+    /* Reel play pulse */
+    @keyframes pulseRing { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.75); opacity: 0; } }
+    .play-ring { animation: pulseRing 2.6s ease-out infinite; }
+
+    /* Gallery tiles */
+    .tile img { transition: transform 1.5s cubic-bezier(.22,1,.36,1), filter .7s ease; }
+    .tile:hover img { transform: scale(1.06); }
+
+    /* Campaign palette — taken from the ROAM SOCIAL ad set */
+    :root {
+      --c-lime:   #c7dc6b;
+      --c-sunset: #ec944f;
+      --c-cream:  #f2e8d5;
+      --c-berry:  #ee7ab8;
+    }
+
+    /* Ad-style headline: condensed uppercase serif, two-tone lines */
+    .camp-head {
+      font-family: "Playfair Display", Georgia, serif;
+      text-transform: uppercase;
+      line-height: .96;
+      letter-spacing: .005em;
+    }
+    .camp-rule { width: 44px; height: 1px; background: linear-gradient(90deg, currentColor, transparent); transition: width .7s cubic-bezier(.22,1,.36,1); }
+    .camp-card img { transition: transform 1.6s cubic-bezier(.22,1,.36,1), filter .8s ease; }
+    .camp-card:hover img { transform: scale(1.07); }
+    .camp-card:hover .camp-rule { width: 72px; transition: width .7s cubic-bezier(.22,1,.36,1); }
+
+    /* Menu drink product image */
+    .drink-img { transition: transform 1.4s cubic-bezier(.22,1,.36,1), filter .7s ease; filter: saturate(.92) contrast(1.04); }
+    .drink-card:hover .drink-img { transform: scale(1.08); filter: saturate(1.08) contrast(1.06); }
+    .drink-num {
+      font-family: "Playfair Display", Georgia, serif; font-style: italic;
+      line-height: 1;
+    }
+
+    /* Reel interactive player styles */
+    .reel-card {
+      transition: transform .4s cubic-bezier(.22,1,.36,1), border-color .4s ease, box-shadow .4s ease;
+    }
+    .reel-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200, 163, 95, .5);
+      box-shadow: 0 20px 48px rgba(0,0,0,.65);
+    }
+    .reel-card.is-playing {
+      border-color: rgba(200, 163, 95, .85);
+      box-shadow: 0 0 35px rgba(200, 163, 95, .25), 0 20px 50px rgba(0,0,0,.85);
+    }
+    .reel-card.is-playing .reel-poster-layer {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .reel-card.is-playing .reel-play-center {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .reel-card.is-paused .reel-play-center {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    .reel-card.is-playing .reel-controls-bar {
+      opacity: 1;
+    }
+    .reel-poster-layer {
+      transition: opacity .5s ease;
+    }
+    .reel-play-center {
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .reel-progress-fill {
+      transition: width .12s linear;
+    }
+
+    /* Mobile-only floating WhatsApp bubble (icon only) */
+    .wa-bubble {
+      position: fixed; right: 20px; bottom: 20px; z-index: 80;
+      display: grid; place-items: center;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #fff;
+      box-shadow: 0 12px 34px rgba(18, 140, 126, .45), 0 4px 12px rgba(0,0,0,.4);
+      transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, opacity .3s ease;
+    }
+    .wa-bubble:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 16px 42px rgba(18, 140, 126, .55), 0 6px 16px rgba(0,0,0,.45); }
+    .wa-bubble:active { transform: translateY(-1px) scale(0.96); }
+    .wa-bubble i { font-size: 1.85rem; line-height: 1; }
+    @keyframes waPulse {
+      0% { box-shadow: 0 12px 34px rgba(18,140,126,.45), 0 0 0 0 rgba(37, 211, 102, .5); }
+      70% { box-shadow: 0 12px 34px rgba(18,140,126,.45), 0 0 0 14px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 12px 34px rgba(18,140,126,.45), 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    .wa-bubble { animation: waPulse 2.8s ease-out infinite; }
+    .wa-bubble.is-hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
+
+    /* Menu filter pills */
+    .filter-pill {
+      padding: .6rem 1.15rem; border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.6);
+      font-size: .7rem; font-weight: 500;
+      letter-spacing: .16em; text-transform: uppercase;
+      transition: all .35s cubic-bezier(.22,1,.36,1);
+      cursor: pointer;
+    }
+    .filter-pill:hover { border-color: rgba(200,163,95,.5); color: #ead9b0; }
+    .filter-pill.is-active {
+      background: linear-gradient(135deg, #ecd9ab 0%, #c8a35f 48%, #a3803e 100%);
+      border-color: transparent; color: #0a0a0a; font-weight: 600;
+    }
+    .menu-card.is-hidden { display: none; }
+
+    /* Pairing badge */
+    .pairing-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      margin-top: .9rem; padding: .4rem .8rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(200,163,95,.35);
+      background: rgba(200,163,95,.08);
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: #ead9b0;
+    }
+    .pairing-badge i { font-size: 9px; color: #c8a35f; }
+
+    /* Mobile reels rail: horizontal snap scroll, no visible scrollbar */
+    .reels-rail { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .reels-rail::-webkit-scrollbar { display: none; }
+
+    /* Infinite right-to-left reel marquee */
+    .reels-marquee {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: auto;
+      cursor: grab;
+      mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+    }
+    .reels-marquee::-webkit-scrollbar { display: none; }
+    .reels-marquee.is-dragging { cursor: grabbing; scroll-behavior: auto; }
+    .reels-track, .reels-clone { flex: 0 0 auto; width: max-content; will-change: scroll-position; }
+  </style>
+</head>
+
+<body class="bg-ink font-body text-white antialiased">
+
+  <!-- Ambient film grain -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Mobile-only floating WhatsApp CTA -->
+  <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL%2C%20I%27d%20like%20to%20book%20the%20mobile%20bar%20for%20an%20event."
+     target="_blank" rel="noopener noreferrer"
+     id="waBubble"
+     class="wa-bubble md:hidden"
+     aria-label="Chat with ROAM SOCIAL on WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- ============ 1. NAVBAR ============ -->
+  <header id="siteNav" class="fixed inset-x-0 top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 pt-4 lg:px-8">
+      <div class="nav-shell flex items-center justify-between rounded-2xl border border-white/10 bg-black/35 px-4 py-3 backdrop-blur-xl md:px-6">
+
+        <!-- Logo -->
+        <a href="#hero" class="group flex items-center gap-3" aria-label="ROAM SOCIAL — Home">
+          <span class="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full border border-gold/40 bg-[#0d0d0f] md:h-11 md:w-11">
+            <img src="./images/31564.jpg" alt="ROAM SOCIAL logo"
+                 class="h-full w-full object-cover object-center"
+                 onerror="this.style.display='none';document.getElementById('navHg').classList.remove('hidden');" />
+            <svg id="navHg" class="hidden h-6 w-6" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M14 9h36L32 30 14 9z" stroke="#e8d5a9" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M32 34L16 55h32L32 34z" stroke="#e8d5a9" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="32" cy="32" r="3.2" fill="#97a06b"/>
+            </svg>
+          </span>
+          <span class="leading-none">
+            <span class="block font-display text-base tracking-[.24em] text-white md:text-lg">ROAM&nbsp;<span class="text-gold">SOCIAL</span></span>
+            <span class="mt-1.5 block text-[9px] tracking-[.42em] text-white/45">BENGALURU</span>
+          </span>
+        </a>
+
+        <!-- Desktop links -->
+        <nav class="hidden items-center gap-7 md:flex" aria-label="Primary">
+          <a href="#menu" class="nav-link">Menu</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="https://www.instagram.com/roamsocial.in" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+          <a href="#contact" class="btn-gold !px-5 !py-3 !text-[11px]">
+            <i class="fa-solid fa-calendar-check text-sm" aria-hidden="true"></i> Book the Bar
+          </a>
+        </nav>
+
+        <!-- Mobile toggle -->
+        <button id="menuBtn" class="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition hover:border-gold/60 hover:text-gold md:hidden"
+                aria-label="Toggle menu" aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Mobile panel -->
+      <div id="mobileMenu" class="mobile-panel md:hidden">
+        <div class="mt-3 rounded-2xl border border-white/10 bg-black/85 p-4 backdrop-blur-xl">
+          <nav class="flex flex-col" aria-label="Mobile">
+            <a href="#menu" class="mobile-link border-b border-white/5 py-3.5 text-sm tracking-[.14em] text-white/75 transition hover:text-gold">MENU</a>
+            <a href="#gallery" class="mobile-link border-b border-white/5 py-3.5 text-sm tracking-[.14em] text-white/75 transition hover:text-gold">GALLERY</a>
+            <a href="#contact" class="mobile-link border-b border-white/5 py-3.5 text-sm tracking-[.14em] text-white/75 transition hover:text-gold">CONTACT</a>
+            <a href="https://www.instagram.com/roamsocial.in" target="_blank" rel="noopener noreferrer" class="mobile-link border-b border-white/5 py-3.5 text-sm tracking-[.14em] text-white/75 transition hover:text-gold">INSTAGRAM</a>
+          </nav>
+          <a href="#contact" class="btn-gold mobile-link mt-4 w-full !py-3.5 !text-[11px]">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book the Bar
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 2. HERO ============ -->
+  <section id="hero" class="relative flex h-screen min-h-[640px] items-center justify-center overflow-hidden">
+
+    <!-- Fallback / overlay image (31580 — bartender mixing at the black tent setup) -->
+    <img src="./images/31580.jpg"
+         fetchpriority="high"
+         decoding="async"
+         onerror="this.onerror=null;this.src='https://images.pexels.com/photos/31285170/pexels-photo-31285170.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+         alt="ROAM SOCIAL bartender crafting a drink at the black tent bar"
+         class="hero-kenburns absolute inset-0 h-full w-full object-cover object-center" />
+
+    <!-- Looping background video placeholder — optimized with lazy-load play via IntersectionObserver -->
+    <video id="heroVideo" class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-[1400ms]"
+           preload="metadata" loop muted playsinline poster="./images/31580.jpg" aria-hidden="true">
+      <source src="https://videos.pexels.com/video-files/4667164/4667164-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Moody grading overlays -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-ink" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,10,10,.55)_100%)]" aria-hidden="true"></div>
+
+    <!-- Side vertical labels -->
+    <div class="absolute left-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex xl:left-10">
+      <span class="h-16 w-px bg-gradient-to-b from-transparent to-gold/70" aria-hidden="true"></span>
+      <span class="text-[10px] uppercase tracking-[.5em] text-white/40 [writing-mode:vertical-rl]">Est. Bengaluru — Mobile Bar</span>
+    </div>
+    <div class="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex xl:right-10">
+      <span class="h-16 w-px bg-gradient-to-b from-gold/70 to-transparent" aria-hidden="true"></span>
+      <span class="text-[10px] uppercase tracking-[.5em] text-white/40 [writing-mode:vertical-rl]">Crafted Drinks. Social Moments.</span>
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 flex flex-col items-center px-6 text-center">
+      <p class="reveal kicker mb-7 text-[10px] font-medium text-gold md:text-xs">Crafted Drinks.&nbsp;&nbsp;Social Moments.</p>
+
+      <h1 class="reveal font-display text-[13.5vw] font-medium leading-[1.02] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[7.25rem]" style="--d:.12s">
+        Drinks Made to<br />
+        <em class="gold-text font-semibold">Move.</em>
+      </h1>
+
+      <p class="reveal mt-8 text-[11px] font-light uppercase tracking-[.3em] text-white/65 sm:text-xs md:text-sm" style="--d:.24s">
+        Luxury Mobile Bar <span class="mx-2 text-gold">•</span> Bengaluru
+      </p>
+      <p class="reveal mt-3 text-[10px] uppercase tracking-[.34em] text-white/45" style="--d:.3s">
+        Jeep Bar <span class="mx-1.5 text-gold">•</span> Cocktails <span class="mx-1.5 text-gold">•</span> Social Bites
+      </p>
+
+      <div class="reveal mt-11" style="--d:.36s">
+        <a href="#menu" class="btn-gold">Explore the Menu <i class="fa-solid fa-arrow-down-long text-[11px]" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <a href="#menu" class="scroll-cue absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/50 transition hover:text-gold" aria-label="Scroll to menu">
+      <span class="text-[9px] uppercase tracking-[.4em]">Scroll</span>
+      <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+    </a>
+  </section>
+
+  <!-- Marquee divider -->
+  <div class="relative z-10 overflow-hidden border-y border-white/5 bg-[#0d0d0f] py-4" aria-hidden="true">
+    <div class="marquee-track flex w-max">
+      <div class="flex shrink-0 items-center gap-10 pr-10 text-[11px] uppercase tracking-[.35em] text-white/35 md:gap-14 md:pr-14">
+        <span>Luxury Mobile Bar</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Jeep Bar</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Cocktails &amp; Social Bites</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Pop-ups</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Weddings &amp; Events</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Corporate Nights</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Bengaluru</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Drinks Made to Move</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+      </div>
+      <div class="flex shrink-0 items-center gap-10 pr-10 text-[11px] uppercase tracking-[.35em] text-white/35 md:gap-14 md:pr-14">
+        <span>Luxury Mobile Bar</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Jeep Bar</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Cocktails &amp; Social Bites</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Pop-ups</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Weddings &amp; Events</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Corporate Nights</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Bengaluru</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+        <span>Drinks Made to Move</span><i class="fa-solid fa-asterisk text-[9px] text-gold/60"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 2.5 — THE ROAM PHILOSOPHY (campaign) ============ -->
+  <section id="campaign" class="relative overflow-hidden py-24 md:py-32">
+    <!-- faint colour washes from the ad palette -->
+    <div class="pointer-events-none absolute inset-0 opacity-[.14]" aria-hidden="true"
+         style="background:
+           radial-gradient(40rem 24rem at 8% 18%, var(--c-lime) 0%, transparent 62%),
+           radial-gradient(38rem 24rem at 92% 22%, var(--c-sunset) 0%, transparent 62%),
+           radial-gradient(38rem 24rem at 12% 88%, var(--c-cream) 0%, transparent 60%),
+           radial-gradient(42rem 26rem at 88% 90%, var(--c-berry) 0%, transparent 62%);"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="mb-14 max-w-3xl md:mb-16">
+        <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">The Roam Philosophy</p>
+        <h2 class="reveal camp-head text-4xl font-medium text-white sm:text-5xl md:text-6xl" style="--d:.1s">
+          Good Drinks.<br /><span class="gold-text">Bolder Stories.</span>
+        </h2>
+        <p class="reveal mt-7 max-w-lg text-sm leading-relaxed text-white/45" style="--d:.2s">
+          Four moods, one bar. Whether it&rsquo;s the first lime dropped in the shaker or the last
+          round poured under the tent lights, ROAM SOCIAL is built around the people holding the cup.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-5">
+
+        <!-- 01 — Fresh Energy -->
+        <article class="camp-card reveal group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10">
+          <img src="https://images.pexels.com/photos/27626313/pexels-photo-27626313.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+               loading="lazy" decoding="async"
+               alt="Fresh lime and mint green cocktail, ice cold"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(6,6,6,.86) 0%, rgba(6,6,6,.22) 45%, rgba(6,6,6,.9) 100%);" aria-hidden="true"></div>
+          <div class="absolute inset-0 opacity-30 mix-blend-soft-light" style="background:radial-gradient(20rem 20rem at 70% 75%, var(--c-lime), transparent 70%);" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between p-6">
+            <div>
+              <h3 class="camp-head text-2xl text-white md:text-[1.75rem]">
+                Fresh Energy.<br /><span style="color:var(--c-lime)">Good Company.</span>
+              </h3>
+              <div class="camp-rule mt-4" style="color:var(--c-lime)" aria-hidden="true"></div>
+            </div>
+            <div>
+              <p class="text-[10px] font-medium uppercase leading-relaxed tracking-[.28em] text-white/70">Great drinks.<br />Brighter conversations.</p>
+              <p class="mt-4 text-[9px] uppercase tracking-[.3em] text-white/35">Lime <span class="mx-1" style="color:var(--c-lime)">•</span> Mint <span class="mx-1" style="color:var(--c-lime)">•</span> Crushed Ice</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 — Sip Into The Moment -->
+        <article class="camp-card reveal group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10" style="--d:.1s">
+          <img src="https://images.pexels.com/photos/27626315/pexels-photo-27626315.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+               loading="lazy" decoding="async"
+               alt="Sunset orange citrus cocktail in a warm bar glow"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(6,6,6,.86) 0%, rgba(6,6,6,.2) 45%, rgba(6,6,6,.9) 100%);" aria-hidden="true"></div>
+          <div class="absolute inset-0 opacity-30 mix-blend-soft-light" style="background:radial-gradient(20rem 20rem at 70% 75%, var(--c-sunset), transparent 70%);" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between p-6">
+            <div>
+              <h3 class="camp-head text-2xl text-white md:text-[1.75rem]">
+                Sip Into<br /><span style="color:var(--c-sunset)">The Moment.</span>
+              </h3>
+              <div class="camp-rule mt-4" style="color:var(--c-sunset)" aria-hidden="true"></div>
+            </div>
+            <div>
+              <p class="text-[10px] font-medium uppercase leading-relaxed tracking-[.28em] text-white/70">Good drinks.<br />Bolder stories.</p>
+              <p class="mt-4 text-[9px] uppercase tracking-[.3em] text-white/35">Orange <span class="mx-1" style="color:var(--c-sunset)">•</span> Bitters <span class="mx-1" style="color:var(--c-sunset)">•</span> Bourbon</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 — Poured Fresh -->
+        <article class="camp-card reveal group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10" style="--d:.2s">
+          <img src="https://images.pexels.com/photos/11185014/pexels-photo-11185014.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+               loading="lazy" decoding="async"
+               alt="Creamy cocktail poured fresh through a strainer over ice"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(6,6,6,.86) 0%, rgba(6,6,6,.22) 45%, rgba(6,6,6,.9) 100%);" aria-hidden="true"></div>
+          <div class="absolute inset-0 opacity-25 mix-blend-soft-light" style="background:radial-gradient(20rem 20rem at 70% 75%, var(--c-cream), transparent 70%);" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between p-6">
+            <div>
+              <h3 class="camp-head text-2xl text-white md:text-[1.75rem]">
+                Poured Fresh.<br /><span style="color:var(--c-cream)">Shared Often.</span>
+              </h3>
+              <div class="camp-rule mt-4" style="color:var(--c-cream)" aria-hidden="true"></div>
+            </div>
+            <div>
+              <p class="text-[10px] font-medium uppercase leading-relaxed tracking-[.28em] text-white/70">Simple ingredients.<br />Memorable moments.</p>
+              <p class="mt-4 text-[9px] uppercase tracking-[.3em] text-white/35">Citrus <span class="mx-1" style="color:var(--c-cream)">•</span> Honey <span class="mx-1" style="color:var(--c-cream)">•</span> Egg White</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 — Your Next Social Ritual -->
+        <article class="camp-card reveal group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10" style="--d:.3s">
+          <img src="https://images.pexels.com/photos/38391495/pexels-photo-38391495.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+               loading="lazy" decoding="async"
+               alt="Deep berry cocktail glowing under moody bar lighting"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(6,6,6,.86) 0%, rgba(6,6,6,.2) 45%, rgba(6,6,6,.9) 100%);" aria-hidden="true"></div>
+          <div class="absolute inset-0 opacity-30 mix-blend-soft-light" style="background:radial-gradient(20rem 20rem at 70% 75%, var(--c-berry), transparent 70%);" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between p-6">
+            <div>
+              <h3 class="camp-head text-2xl text-white md:text-[1.75rem]">
+                Your Next<br /><span style="color:var(--c-berry)">Social Ritual.</span>
+              </h3>
+              <div class="camp-rule mt-4" style="color:var(--c-berry)" aria-hidden="true"></div>
+            </div>
+            <div>
+              <p class="text-[10px] font-medium uppercase leading-relaxed tracking-[.28em] text-white/70">Bolder flavors.<br />Brighter people.</p>
+              <p class="mt-4 text-[9px] uppercase tracking-[.3em] text-white/35">Berry <span class="mx-1" style="color:var(--c-berry)">•</span> Campari <span class="mx-1" style="color:var(--c-berry)">•</span> Cold Pour</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Brand stamp -->
+      <div class="reveal mt-14 flex items-center gap-5 md:mt-16">
+        <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gold/50" aria-hidden="true"></span>
+        <p class="kicker text-center text-[10px] font-medium text-gold md:text-xs">Crafted Drinks.&nbsp;&nbsp;Social Moments.</p>
+        <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gold/50" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. THE MENU ============ -->
+  <section id="menu" class="relative py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+      <div class="mb-14 flex flex-col justify-between gap-8 md:mb-16 md:flex-row md:items-end">
+        <div class="reveal">
+          <p class="kicker mb-5 text-[10px] font-medium text-gold md:text-xs">01 — The Menu</p>
+          <h2 class="font-display text-4xl font-medium leading-tight md:text-5xl">Crafted Drinks <span class="gold-text italic">&amp;</span> Mocktails</h2>
+          <div class="mt-6 h-px w-24 bg-gradient-to-r from-gold to-transparent" aria-hidden="true"></div>
+        </div>
+        <p class="reveal max-w-sm text-sm leading-relaxed text-white/45" style="--d:.15s">
+          Every drink is shaken to order and served chilled in our signature ROAM SOCIAL cups —
+          built to travel, made to be photographed, poured to be remembered.
+        </p>
+      </div>
+
+      <!-- Filter pills -->
+      <div class="reveal mb-10 flex flex-wrap items-center gap-3" role="group" aria-label="Filter menu">
+        <button type="button" class="filter-pill is-active" data-filter="all">All</button>
+        <button type="button" class="filter-pill" data-filter="cocktails">Cocktails</button>
+        <button type="button" class="filter-pill" data-filter="mocktails">Mocktails</button>
+        <button type="button" class="filter-pill" data-filter="bites">Social Bites</button>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- 01 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/31631265/pexels-photo-31631265.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Old Fashioned cocktail with orange peel" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">01</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Classic</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Old Fashioned</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">A timeless mix of bourbon or rye whiskey, bitters, and sugar.</p>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails" style="--d:.07s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/31631268/pexels-photo-31631268.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Negroni cocktail with orange twist" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">02</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Bold</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Negroni</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Equal parts gin, Campari, and sweet vermouth, known for its rich red hue.</p>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails" style="--d:.14s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/28834354/pexels-photo-28834354.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Whiskey Sour cocktail with dried citrus" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">03</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Silky</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Whiskey Sour</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Bourbon, fresh lemon juice, simple syrup, and often an egg white for a frothy top.</p>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/3407778/pexels-photo-3407778.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Espresso Martini with coffee foam" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">04</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">After Dark</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Espresso Martini</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Vodka, coffee liqueur, and freshly brewed espresso for a sophisticated kick.</p>
+          </div>
+        </article>
+
+        <!-- 05 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails" style="--d:.07s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/3490364/pexels-photo-3490364.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Spicy Margarita with jalapeño and lime" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">05</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Spicy</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Spicy Margarita</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Tequila, fresh lime juice, agave, and muddled jalapeño for a modern twist.</p>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails" style="--d:.14s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/5829916/pexels-photo-5829916.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Boulevardier amber whiskey cocktail over ice" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">06</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Bitter</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Boulevardier</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">A warm, bitter cocktail made with bourbon, Campari, and sweet vermouth.</p>
+          </div>
+        </article>
+
+        <!-- 07 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/29707920/pexels-photo-29707920.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Bee's Knees gin honey lemon cocktail" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">07</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Prohibition</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Bee&rsquo;s Knees</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">A Prohibition-era classic made with gin, fresh lemon juice, and honey syrup.</p>
+          </div>
+        </article>
+
+        <!-- 08 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails" style="--d:.07s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/6288698/pexels-photo-6288698.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="French 75 champagne cocktail in a coupe" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">08</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Celebration</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">French 75</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Gin, lemon juice, simple syrup, topped with champagne for celebration.</p>
+          </div>
+        </article>
+
+        <!-- 09 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="cocktails" style="--d:.14s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/11009215/pexels-photo-11009215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Mojito with fresh mint and lime" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-sm text-gold backdrop-blur-sm">09</span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Fresh</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Mojito</h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">White rum, fresh mint, lime juice, sugar, and club soda over crushed ice.</p>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-[#141210] to-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/60 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="mocktails">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/36741813/pexels-photo-36741813.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750" loading="lazy" decoding="async" alt="Basil Smash mocktail with fresh basil and lemon" class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#141210] via-[#141210]/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-gold/40 bg-black/55 text-sm text-gold backdrop-blur-sm">10</span>
+            <span class="absolute right-4 top-4 rounded-full border border-gold/40 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-gold">Mocktail</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h3 class="font-display text-2xl font-medium">Basil Smash <span class="text-base font-body font-light text-white/40">(Mocktail variant)</span></h3>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Fresh basil muddled with lemon juice and simple syrup, shaken with apple juice.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ============ SOCIAL BITES (sub-section) ============ -->
+      <div id="bitesHeader" class="mt-20 flex flex-col justify-between gap-6 border-t border-white/10 pt-16 md:mt-24 md:pt-20 md:flex-row md:items-end">
+        <div class="reveal">
+          <p class="kicker mb-5 text-[10px] font-medium text-gold md:text-xs">Small Plates &amp; Bar Bites</p>
+          <h3 class="font-display text-3xl font-medium md:text-4xl">Social <span class="gold-text italic">Bites</span></h3>
+          <div class="mt-5 h-px w-20 bg-gradient-to-r from-gold to-transparent" aria-hidden="true"></div>
+        </div>
+        <p class="reveal max-w-sm text-sm leading-relaxed text-white/45" style="--d:.15s">
+          Canapés built to travel from our mobile bar to your hand — plated fresh,
+          finished on site, and designed to be picked up in a single bite between pours.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- B01 — Tuna Tartare on Crispy Wonton -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="bites">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/39433087/pexels-photo-39433087.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750"
+                 loading="lazy" decoding="async"
+                 alt="Tuna tartare with cilantro served on crispy wonton chips"
+                 class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-xs text-gold backdrop-blur-sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Seafood</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h4 class="font-display text-xl font-medium leading-snug">Tuna Tartare on Crispy Wonton</h4>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Fresh, sushi-grade tuna diced and tossed with a light soy-sesame glaze, served on a crisp wonton square and topped with a tiny sliver of jalapeño or micro-cilantro.</p>
+            <div class="mt-5 border-t border-white/5 pt-4">
+              <p class="text-[11px] leading-relaxed text-white/45">
+                <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                Modern and refreshing; pairs beautifully with bright, citrusy drinks like a Margarita or French 75.
+              </p>
+              <span class="pairing-badge">
+                <i class="fa-solid fa-wine-glass" aria-hidden="true"></i>
+                Pairs: Margarita <span class="text-gold">•</span> French 75
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- B02 — Truffle Mushroom Arancini -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="bites" style="--d:.07s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/26182871/pexels-photo-26182871.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750"
+                 loading="lazy" decoding="async"
+                 alt="Golden crispy truffle mushroom arancini served on a restaurant plate"
+                 class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-xs text-gold backdrop-blur-sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Vegetarian</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h4 class="font-display text-xl font-medium leading-snug">Truffle Mushroom Arancini</h4>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Golden, bite-sized crispy risotto balls infused with earthy wild mushrooms and truffle oil, served with a dab of garlic aioli.</p>
+            <div class="mt-5 border-t border-white/5 pt-4">
+              <p class="text-[11px] leading-relaxed text-white/45">
+                <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                Rich, savory, and sophisticated comfort food that feels incredibly premium.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- B03 — Filet Mignon Crostini with Horseradish Cream -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="bites" style="--d:.14s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/16013899/pexels-photo-16013899.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750"
+                 loading="lazy" decoding="async"
+                 alt="Rare sliced beef tenderloin on toasted bread with horseradish cream"
+                 class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-xs text-gold backdrop-blur-sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Beef</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h4 class="font-display text-xl font-medium leading-snug">Filet Mignon Crostini with Horseradish Cream</h4>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Thinly sliced, rare beef tenderloin layered on a toasted baguette slice, topped with a dollop of sharp horseradish crème fraîche and sweet caramelized onions.</p>
+            <div class="mt-5 border-t border-white/5 pt-4">
+              <p class="text-[11px] leading-relaxed text-white/45">
+                <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                A hearty but refined bite that goes perfectly with bolder, darker drinks like an Old Fashioned or a Boulevardier.
+              </p>
+              <span class="pairing-badge">
+                <i class="fa-solid fa-wine-glass" aria-hidden="true"></i>
+                Pairs: Old Fashioned <span class="text-gold">•</span> Boulevardier
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- B04 — Smoked Salmon and Crème Fraîche Blinis -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="bites">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/32916212/pexels-photo-32916212.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750"
+                 loading="lazy" decoding="async"
+                 alt="Smoked salmon canapés with crème fraîche and fresh dill"
+                 class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-xs text-gold backdrop-blur-sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Seafood</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h4 class="font-display text-xl font-medium leading-snug">Smoked Salmon &amp; Crème Fraîche Blinis</h4>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">A classic catering staple featuring a tiny, savory buckwheat pancake topped with cold-smoked salmon, a touch of crème fraîche, and a sprig of fresh dill.</p>
+            <div class="mt-5 border-t border-white/5 pt-4">
+              <p class="text-[11px] leading-relaxed text-white/45">
+                <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                Timeless luxury that visually pops on a serving platter.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- B05 — Prosciutto-Wrapped Asparagus with Balsamic Glaze -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-white/5 bg-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="bites" style="--d:.07s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/6660285/pexels-photo-6660285.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750"
+                 loading="lazy" decoding="async"
+                 alt="Prosciutto-wrapped canapés served at a catered event"
+                 class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coal via-coal/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-black/55 text-xs text-gold backdrop-blur-sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <span class="absolute right-4 top-4 text-[9px] uppercase tracking-[.28em] text-white/75">Gluten-Free</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h4 class="font-display text-xl font-medium leading-snug">Prosciutto-Wrapped Asparagus with Balsamic Glaze</h4>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Tender-crisp asparagus spears wrapped in salty, cured prosciutto and lightly roasted, then finished with a drizzle of sweet balsamic reduction.</p>
+            <div class="mt-5 border-t border-white/5 pt-4">
+              <p class="text-[11px] leading-relaxed text-white/45">
+                <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                Simple, elegant, and easy for guests to pick up and eat without a napkin.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- B06 — Whipped Ricotta & Fig Tartlets -->
+        <article class="drink-card menu-card reveal group relative overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-[#141210] to-coal transition-all duration-500 hover:-translate-y-2 hover:border-gold/60 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)]" data-category="bites" style="--d:.14s">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://images.pexels.com/photos/27125037/pexels-photo-27125037.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=750"
+                 loading="lazy" decoding="async"
+                 alt="Miniature pastry tartlet topped with fresh fig and crushed pistachios"
+                 class="drink-img absolute inset-0 h-full w-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#141210] via-[#141210]/10 to-transparent" aria-hidden="true"></div>
+            <span class="drink-num absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-gold/40 bg-black/55 text-xs text-gold backdrop-blur-sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <span class="absolute right-4 top-4 rounded-full border border-gold/40 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-gold">Sweet</span>
+          </div>
+          <div class="p-6 md:p-7">
+            <h4 class="font-display text-xl font-medium leading-snug">Whipped Ricotta &amp; Fig Tartlets</h4>
+            <div class="my-4 h-px w-10 bg-gold/50 transition-all duration-500 group-hover:w-16"></div>
+            <p class="text-sm leading-relaxed text-white/55">Miniature pastry shells filled with light, honey-whipped ricotta cheese and topped with a slice of fresh fig and a sprinkle of crushed pistachios.</p>
+            <div class="mt-5 border-t border-white/5 pt-4">
+              <p class="text-[11px] leading-relaxed text-white/45">
+                <span class="mr-1.5 text-[9px] font-medium uppercase tracking-[.22em] text-gold">Vibe</span>
+                A beautiful balance of sweet, creamy, and crunchy that adds a sophisticated aesthetic to the menu.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Zero-proof note tile: appears after the bites (all / social bites views) -->
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="menu-card reveal group relative flex flex-col justify-between rounded-2xl border border-gold/25 bg-gradient-to-br from-[#141210] to-coal p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-[0_24px_60px_rgba(0,0,0,.55)] md:p-8" data-category="note">
+          <i class="fa-solid fa-wine-bottle text-2xl text-gold/70" aria-hidden="true"></i>
+          <div>
+            <h3 class="font-display text-xl font-medium">Zero-proof, always.</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/50">
+              Every signature has a zero-proof variation, built with the same care.
+              Custom menus for private lists on request.
+            </p>
+            <a href="https://wa.me/918217733823" target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[.24em] text-gold transition hover:gap-3">
+              Request a menu <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bites closing line -->
+      <div class="reveal mt-12 flex items-center gap-5">
+        <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gold/40" aria-hidden="true"></span>
+        <p class="text-center text-[10px] uppercase tracking-[.3em] text-white/40">
+          Bites &amp; pours paired on request &nbsp;<span class="text-gold">•</span>&nbsp; Custom canapé menus for private lists
+        </p>
+        <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gold/40" aria-hidden="true"></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 4. THE ROAM EXPERIENCE (GALLERY) ============ -->
+  <section id="gallery" class="border-y border-white/5 bg-[#0c0c0e] py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+      <div class="mb-14 text-center md:mb-16">
+        <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">02 — In Action</p>
+        <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">The <span class="gold-text italic">Roam</span> Experience</h2>
+        <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/45" style="--d:.2s">
+          From the first ice drop to the final pour — a look at the bar in motion,
+          and the branded cup that carries the craft from pop-up to party.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 md:auto-rows-[200px] md:grid-cols-12 md:gap-5">
+
+        <!-- 31576 — purple pour (feature) -->
+        <figure class="tile reveal group relative h-96 overflow-hidden rounded-2xl border border-white/5 md:col-span-5 md:row-span-2 md:h-auto">
+          <img src="./images/31576.jpg"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='https://images.pexels.com/photos/29707929/pexels-photo-29707929.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+               alt="Bartender pouring purple liquid into a ROAM SOCIAL cup"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+          <figcaption class="absolute bottom-0 left-0 p-6">
+            <span class="text-[9px] uppercase tracking-[.3em] text-gold">Signature Pour</span>
+            <p class="mt-1.5 font-display text-xl">The Violet Pour</p>
+          </figcaption>
+        </figure>
+
+        <!-- 31578 — tasting -->
+        <figure class="tile reveal group relative h-96 overflow-hidden rounded-2xl border border-white/5 md:col-span-4 md:row-span-2 md:h-auto" style="--d:.1s">
+          <img src="./images/31578.jpg"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='https://images.pexels.com/photos/15814325/pexels-photo-15814325.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+               alt="ROAM SOCIAL bartender in branded cap tasting a drink"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+          <figcaption class="absolute bottom-0 left-0 p-6">
+            <span class="text-[9px] uppercase tracking-[.3em] text-gold">Quality Control</span>
+            <p class="mt-1.5 font-display text-xl">Every Batch Gets Tasted</p>
+          </figcaption>
+        </figure>
+
+        <!-- 31572 — stirring orange drink -->
+        <figure class="tile reveal group relative h-72 overflow-hidden rounded-2xl border border-white/5 md:col-span-3 md:h-auto" style="--d:.2s">
+          <img src="./images/31572.jpg"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='https://images.pexels.com/photos/28617332/pexels-photo-28617332.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+               alt="Stirring a fresh orange drink with ice in a ROAM SOCIAL cup"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+          <figcaption class="absolute bottom-0 left-0 p-5">
+            <span class="text-[9px] uppercase tracking-[.3em] text-gold">Cold &amp; Clear</span>
+            <p class="mt-1 font-display text-lg">The Fresh Stir</p>
+          </figcaption>
+        </figure>
+
+        <!-- Quote tile -->
+        <div class="reveal relative flex h-64 flex-col justify-between overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br from-[#16130e] to-coal p-6 md:col-span-3 md:h-auto" style="--d:.28s">
+          <i class="fa-solid fa-quote-left text-2xl text-gold/50" aria-hidden="true"></i>
+          <p class="font-display text-xl italic leading-snug text-white/90">&ldquo;Good drinks. Bolder stories.&rdquo;</p>
+          <span class="text-[9px] uppercase tracking-[.3em] text-gold/80">— Poured Fresh. Shared Often.</span>
+        </div>
+
+        <!-- 31574 — pale green pour -->
+        <figure class="tile reveal group relative h-72 overflow-hidden rounded-2xl border border-white/5 md:col-span-7 md:h-auto">
+          <img src="./images/31574.jpg"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='https://images.pexels.com/photos/20104018/pexels-photo-20104018.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+               alt="Pale green drink being poured into a ROAM SOCIAL cup"
+               class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+          <figcaption class="absolute bottom-0 left-0 p-6">
+            <span class="text-[9px] uppercase tracking-[.3em] text-gold">Zero-Proof</span>
+            <p class="mt-1.5 font-display text-xl">Basil Cold Press</p>
+          </figcaption>
+        </figure>
+
+        <!-- CTA tile -->
+        <a href="#contact"
+           class="reveal group relative flex h-64 flex-col items-start justify-between overflow-hidden rounded-2xl border border-white/10 bg-coal p-6 transition-all duration-500 hover:border-gold/60 md:col-span-5 md:h-auto" style="--d:.1s">
+          <div class="flex w-full items-start justify-between">
+            <span class="text-[9px] uppercase tracking-[.3em] text-gold">Now Booking</span>
+            <span class="grid h-11 w-11 place-items-center rounded-full border border-gold/40 text-gold transition-all duration-500 group-hover:rotate-45 group-hover:bg-gold group-hover:text-black">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl font-medium md:text-3xl">Bring the bar<br />to your event.</h3>
+            <p class="mt-3 text-sm text-white/45">Pop-ups • Weddings • Corporate nights across Bengaluru.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4.5 — THE MOBILE BAR ============ -->
+  <section id="concept-two" aria-labelledby="concept-two-title"
+           class="relative overflow-hidden border-y border-white/5 bg-zinc-900 py-24 md:py-32">
+    <!-- Ambient warm glow -->
+    <div class="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"
+         style="background:
+           radial-gradient(38rem 24rem at 12% 18%, rgba(200,163,95,.14) 0%, transparent 65%),
+           radial-gradient(40rem 26rem at 88% 82%, rgba(200,163,95,.10) 0%, transparent 65%);"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+        <!-- MEDIA HALF -->
+        <div class="reveal order-2 lg:order-1">
+          <!-- Real ROAM SOCIAL setup; replace with the branded Jeep image when available. -->
+          <figure class="group relative overflow-hidden rounded-2xl border border-white/10 shadow-xl shadow-black/50">
+            <img src="./images/31580.jpg"
+                 onerror="this.onerror=null;this.alt='Outdoor mobile bar setup';this.src='https://images.pexels.com/photos/18853331/pexels-photo-18853331.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200';"
+                 loading="lazy" decoding="async" width="1200" height="800"
+                 alt="ROAM SOCIAL bartender working at the mobile bar under its black canopy"
+                 class="aspect-[4/3] w-full object-cover object-center transition-transform duration-[1.6s] ease-out group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true"></div>
+            <figcaption class="absolute bottom-0 left-0 flex w-full items-end justify-between p-5">
+              <span class="text-[10px] uppercase tracking-[.3em] text-champagne">The Mobile Bar</span>
+              <span class="rounded-full border border-gold/40 bg-black/50 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-gold backdrop-blur-sm">Featured</span>
+            </figcaption>
+          </figure>
+
+          <!-- Jeep photos use a visual reference until the branded photos are uploaded. -->
+          <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-white/10 shadow-xl shadow-black/40 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50">
+              <img src="./images/jeep-branding.jpg"
+                   onerror="this.onerror=null;this.alt='White Jeep reference photo; ROAM SOCIAL Jeep photo coming soon';this.src='https://images.pexels.com/photos/15628550/pexels-photo-15628550.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600';"
+                   loading="lazy" decoding="async" width="400" height="560"
+                   alt="White vintage ROAM SOCIAL Jeep with branded side profile"
+                   class="aspect-[3/4] w-full object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" aria-hidden="true"></div>
+              <figcaption class="absolute bottom-0 left-0 w-full p-3">
+                <span class="block text-[9px] uppercase tracking-[.24em] text-gold">The Jeep</span>
+              </figcaption>
+            </figure>
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-white/10 shadow-xl shadow-black/40 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50" style="--d:.08s">
+              <img src="./images/31580.jpg"
+                   onerror="this.onerror=null;this.alt='Event bar with warm lighting';this.src='https://images.pexels.com/photos/18853331/pexels-photo-18853331.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600';"
+                   loading="lazy" decoding="async" width="400" height="560"
+                   alt="ROAM SOCIAL mobile bar beneath a black canopy with hanging lights"
+                   class="aspect-[3/4] w-full object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" aria-hidden="true"></div>
+              <figcaption class="absolute bottom-0 left-0 w-full p-3">
+                <span class="block text-[9px] uppercase tracking-[.24em] text-gold">The Bar</span>
+              </figcaption>
+            </figure>
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-white/10 shadow-xl shadow-black/40 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50" style="--d:.16s">
+              <img src="./images/31574.jpg"
+                   onerror="this.onerror=null;this.alt='Bartender pouring a fresh drink';this.src='https://images.pexels.com/photos/20104018/pexels-photo-20104018.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600';"
+                   loading="lazy" decoding="async" width="400" height="560"
+                   alt="ROAM SOCIAL branded cup at the mobile bar counter"
+                   class="aspect-[3/4] w-full object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" aria-hidden="true"></div>
+              <figcaption class="absolute bottom-0 left-0 w-full p-3">
+                <span class="block text-[9px] uppercase tracking-[.24em] text-gold">The Kit</span>
+              </figcaption>
+            </figure>
+            <figure class="reveal group relative overflow-hidden rounded-lg border border-white/10 shadow-xl shadow-black/40 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50" style="--d:.24s">
+              <img src="./images/31578.jpg"
+                   onerror="this.onerror=null;this.alt='Bartender preparing cocktails at an event';this.src='https://images.pexels.com/photos/15814325/pexels-photo-15814325.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600';"
+                   loading="lazy" decoding="async" width="400" height="560"
+                   alt="ROAM SOCIAL bartender under the black canopy and hanging lights"
+                   class="aspect-[3/4] w-full object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" aria-hidden="true"></div>
+              <figcaption class="absolute bottom-0 left-0 w-full p-3">
+                <span class="block text-[9px] uppercase tracking-[.24em] text-gold">The Vibe</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- COPY HALF -->
+        <div class="order-1 lg:order-2">
+          <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">04 — The Setup</p>
+
+          <h2 id="concept-two-title" class="reveal camp-head text-4xl font-medium text-white sm:text-5xl md:text-6xl" style="--d:.1s">
+            <span class="gold-text">The Mobile Bar</span>
+          </h2>
+
+          <div class="reveal mt-6 h-px w-24 bg-gradient-to-r from-gold to-transparent" aria-hidden="true" style="--d:.15s"></div>
+
+          <p class="reveal mt-7 text-sm leading-relaxed text-white/60 md:text-base" style="--d:.2s">
+            We take rugged, head-turning vehicles and rebuild them into high-end mobile catering units.
+            A vintage white Mahindra Jeep carrying the ROAM SOCIAL name. A sleek, dark-themed bar under a
+            black canopy strung with hanging bulbs. Steel, ice, citrus and craftsmanship — staged wherever
+            the party happens.
+          </p>
+
+          <p class="reveal mt-4 text-sm leading-relaxed text-white/50 md:text-base" style="--d:.26s">
+            Every setup arrives fully self-contained: bar counters, glassware, garnishes, ice wells and a
+            bartender team that shakes to order on the spot. Private courtyards, rooftop terraces, weddings,
+            corporate launches or brand activations — we bring the crafted drinks, the theatre of the pour,
+            and a social experience your guests won&rsquo;t stop talking about.
+          </p>
+
+          <!-- Spec strip -->
+          <dl class="reveal mt-9 grid grid-cols-2 gap-5 border-t border-white/10 pt-7 sm:grid-cols-3" style="--d:.32s">
+            <div>
+              <dt class="text-[9px] uppercase tracking-[.28em] text-gold/80">Signature</dt>
+              <dd class="mt-1.5 font-display text-lg text-white">Vintage Jeep</dd>
+            </div>
+            <div>
+              <dt class="text-[9px] uppercase tracking-[.28em] text-gold/80">Service</dt>
+              <dd class="mt-1.5 font-display text-lg text-white">Pop-ups &amp; Events</dd>
+            </div>
+            <div>
+              <dt class="text-[9px] uppercase tracking-[.28em] text-gold/80">Base</dt>
+              <dd class="mt-1.5 font-display text-lg text-white">Bengaluru</dd>
+            </div>
+          </dl>
+
+          <!-- CTAs -->
+          <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="--d:.38s">
+            <a href="#contact" class="btn-gold">
+              Book the Mobile Bar
+              <i class="fa-solid fa-arrow-down-long text-[11px]" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL%2C%20I%27d%20like%20to%20book%20the%20mobile%20bar%20setup%20for%20an%20event."
+               target="_blank" rel="noopener noreferrer" class="btn-ghost">
+              <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Quick WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. INSTAGRAM REELS (INTERACTIVE VIDEO PLAYER) ============ -->
+  <section id="instagram" class="relative py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-14 text-center md:mb-16">
+        <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">03 — Follow The Roam</p>
+        <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">
+          Join the <span class="gold-text italic">Social</span> Roam
+        </h2>
+        <p class="reveal mx-auto mt-6 max-w-lg text-sm leading-relaxed text-white/50" style="--d:.2s">
+          Tap any reel to watch our bartenders in motion. Follow <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer" class="text-gold underline-offset-4 transition hover:underline font-medium">@roamsocial.in</a> for live pop-ups, tasting nights, and private bookings across Bengaluru.
+        </p>
+      </div>
+
+      <!-- Reels Grid: 6 Interactive Video Cards -->
+      <!-- Infinite right-to-left marquee: 4 reels, seamless loop, manually scrollable -->
+      <div class="reels-marquee reveal" id="reelsMarquee">
+        <div class="reels-track flex gap-5" id="reelsTrack">
+
+        <!-- Reel 1: The Violet Pour -->
+        <article class="reel-card reel-item reveal group relative aspect-[9/16] w-[72vw] max-w-[300px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black cursor-pointer select-none"
+                 data-reel-id="reel-1">
+          <!-- Video element (loads & plays on user click) -->
+          <video class="reel-video absolute inset-0 h-full w-full object-cover object-center"
+                 playsinline loop preload="none"
+                 src="https://videos.pexels.com/video-files/4667131/4667131-uhd_2160_4096_25fps.mp4"></video>
+
+          <!-- Poster layer (visible before playback) -->
+          <div class="reel-poster-layer absolute inset-0 z-10">
+            <img src="./images/31576.jpg"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null;this.src='https://images.pexels.com/photos/29707929/pexels-photo-29707929.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+                 alt="The violet pour in a ROAM SOCIAL cup"
+                 class="h-full w-full object-cover object-center transition-transform duration-[1.4s] group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+          </div>
+
+          <!-- Top Chrome -->
+          <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+            <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md">
+              <i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel
+            </span>
+            <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation()"
+               class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold"
+               title="Open @roamsocial.in on Instagram">
+              <i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- Center Play Button (pulsing when idle) -->
+          <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+            <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+            <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white transition-all duration-300 group-hover:scale-110 group-hover:border-gold group-hover:bg-gold/25">
+              <i class="fa-solid fa-play pl-1 text-lg group-hover:text-champagne" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <!-- Bottom Chrome -->
+          <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+            <div>
+              <p class="font-display text-lg leading-tight text-white">The Violet Pour</p>
+              <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Signature Craft</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold"
+                      title="Mute / Unmute" aria-label="Toggle sound">
+                <i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i>
+              </button>
+              <span class="flex items-center gap-1.5 text-[11px] text-white/70">
+                <i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>1.8K
+              </span>
+            </div>
+          </div>
+
+          <!-- Progress scrubber line -->
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true">
+            <div class="reel-progress-fill h-full w-0 bg-gold"></div>
+          </div>
+        </article>
+
+        <!-- Reel 2: Quality Control -->
+        <article class="reel-card reel-item reveal group relative aspect-[9/16] w-[72vw] max-w-[300px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black cursor-pointer select-none"
+                 data-reel-id="reel-2" style="--d:.08s">
+          <video class="reel-video absolute inset-0 h-full w-full object-cover object-center"
+                 playsinline loop preload="none"
+                 src="https://videos.pexels.com/video-files/4667126/4667126-uhd_2160_4096_25fps.mp4"></video>
+
+          <div class="reel-poster-layer absolute inset-0 z-10">
+            <img src="./images/31578.jpg"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null;this.src='https://images.pexels.com/photos/15814325/pexels-photo-15814325.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+                 alt="Bartender in branded cap tasting the drink"
+                 class="h-full w-full object-cover object-center transition-transform duration-[1.4s] group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+          </div>
+
+          <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+            <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md">
+              <i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel
+            </span>
+            <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation()"
+               class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold"
+               title="Open @roamsocial.in on Instagram">
+              <i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+            <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+            <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white transition-all duration-300 group-hover:scale-110 group-hover:border-gold group-hover:bg-gold/25">
+              <i class="fa-solid fa-play pl-1 text-lg group-hover:text-champagne" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+            <div>
+              <p class="font-display text-lg leading-tight text-white">Behind The Bar</p>
+              <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Quality Control</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold"
+                      title="Mute / Unmute" aria-label="Toggle sound">
+                <i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i>
+              </button>
+              <span class="flex items-center gap-1.5 text-[11px] text-white/70">
+                <i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>1.2K
+              </span>
+            </div>
+          </div>
+
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true">
+            <div class="reel-progress-fill h-full w-0 bg-gold"></div>
+          </div>
+        </article>
+
+        <!-- Reel 3: The Fresh Stir -->
+        <article class="reel-card reel-item reveal group relative aspect-[9/16] w-[72vw] max-w-[300px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black cursor-pointer select-none"
+                 data-reel-id="reel-3" style="--d:.16s">
+          <video class="reel-video absolute inset-0 h-full w-full object-cover object-center"
+                 playsinline loop preload="none"
+                 src="https://videos.pexels.com/video-files/14461054/14461054-uhd_2160_3840_25fps.mp4"></video>
+
+          <div class="reel-poster-layer absolute inset-0 z-10">
+            <img src="./images/31572.jpg"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null;this.src='https://images.pexels.com/photos/28617332/pexels-photo-28617332.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+                 alt="Stirring orange drink with ice in ROAM SOCIAL cup"
+                 class="h-full w-full object-cover object-center transition-transform duration-[1.4s] group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+          </div>
+
+          <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+            <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md">
+              <i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel
+            </span>
+            <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation()"
+               class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold"
+               title="Open @roamsocial.in on Instagram">
+              <i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+            <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+            <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white transition-all duration-300 group-hover:scale-110 group-hover:border-gold group-hover:bg-gold/25">
+              <i class="fa-solid fa-play pl-1 text-lg group-hover:text-champagne" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+            <div>
+              <p class="font-display text-lg leading-tight text-white">The Fresh Stir</p>
+              <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Citrus Season</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold"
+                      title="Mute / Unmute" aria-label="Toggle sound">
+                <i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i>
+              </button>
+              <span class="flex items-center gap-1.5 text-[11px] text-white/70">
+                <i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>2.4K
+              </span>
+            </div>
+          </div>
+
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true">
+            <div class="reel-progress-fill h-full w-0 bg-gold"></div>
+          </div>
+        </article>
+
+        <!-- Reel 4: Basil Cold Press -->
+        <article class="reel-card reel-item reveal group relative aspect-[9/16] w-[72vw] max-w-[300px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black cursor-pointer select-none"
+                 data-reel-id="reel-4" style="--d:.24s">
+          <video class="reel-video absolute inset-0 h-full w-full object-cover object-center"
+                 playsinline loop preload="none"
+                 src="https://videos.pexels.com/video-files/30197448/12948079_2160_3840_30fps.mp4"></video>
+
+          <div class="reel-poster-layer absolute inset-0 z-10">
+            <img src="./images/31574.jpg"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null;this.src='https://images.pexels.com/photos/20104018/pexels-photo-20104018.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+                 alt="Pouring pale green drink into ROAM SOCIAL cup"
+                 class="h-full w-full object-cover object-center transition-transform duration-[1.4s] group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+          </div>
+
+          <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+            <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md">
+              <i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel
+            </span>
+            <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation()"
+               class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold"
+               title="Open @roamsocial.in on Instagram">
+              <i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+            <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+            <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white transition-all duration-300 group-hover:scale-110 group-hover:border-gold group-hover:bg-gold/25">
+              <i class="fa-solid fa-play pl-1 text-lg group-hover:text-champagne" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+            <div>
+              <p class="font-display text-lg leading-tight text-white">Basil Cold Press</p>
+              <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Zero-Proof Smash</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold"
+                      title="Mute / Unmute" aria-label="Toggle sound">
+                <i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i>
+              </button>
+              <span class="flex items-center gap-1.5 text-[11px] text-white/70">
+                <i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>1.9K
+              </span>
+            </div>
+          </div>
+
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true">
+            <div class="reel-progress-fill h-full w-0 bg-gold"></div>
+          </div>
+        </article>
+
+        </div>
+
+        <!-- Seamless-loop duplicate of the 4 reels (injected by JS, hidden from AT) -->
+        <div class="reels-clone flex shrink-0 gap-5" id="reelsClone" aria-hidden="true"></div>
+      </div>
+
+      <!-- Hint -->
+      <p class="reveal mt-5 text-center text-[10px] uppercase tracking-[.3em] text-white/35">
+        Drag or swipe to browse <span class="mx-1.5 text-gold">•</span> Auto-scrolling
+      </p>
+
+      <!-- Legacy mobile rail retired — replaced by the infinite marquee above -->
+      <template id="legacyRail">
+      <div class="reveal mt-8 sm:hidden">
+        <p class="mb-4 flex items-center gap-2 text-[10px] uppercase tracking-[.3em] text-white/40">
+          More from the bar <i class="fa-solid fa-arrow-right-long text-gold" aria-hidden="true"></i>
+        </p>
+        <div class="reels-rail -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2">
+
+          <!-- Rail Reel 4: Basil Cold Press -->
+          <article class="reel-card group relative aspect-[9/16] w-[74%] shrink-0 cursor-pointer select-none snap-center overflow-hidden rounded-2xl border border-white/10 bg-black" data-reel-id="reel-4m">
+            <video class="reel-video absolute inset-0 h-full w-full object-cover object-center" playsinline loop preload="none" src="https://videos.pexels.com/video-files/30197448/12948079_2160_3840_30fps.mp4"></video>
+            <div class="reel-poster-layer absolute inset-0 z-10">
+              <img src="./images/31574.jpg" loading="lazy" decoding="async"
+                   onerror="this.onerror=null;this.src='https://images.pexels.com/photos/20104018/pexels-photo-20104018.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+                   alt="Pouring pale green drink into ROAM SOCIAL cup"
+                   class="h-full w-full object-cover object-center" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+            </div>
+            <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+              <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md"><i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel</span>
+              <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold" title="Open @roamsocial.in on Instagram"><i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i></a>
+            </div>
+            <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+              <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+              <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white"><i class="fa-solid fa-play pl-1 text-lg" aria-hidden="true"></i></span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div>
+                <p class="font-display text-lg leading-tight text-white">Basil Cold Press</p>
+                <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Zero-Proof Smash</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold" title="Mute / Unmute" aria-label="Toggle sound"><i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i></button>
+                <span class="flex items-center gap-1.5 text-[11px] text-white/70"><i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>1.9K</span>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true"><div class="reel-progress-fill h-full w-0 bg-gold"></div></div>
+          </article>
+
+          <!-- Rail Reel 5: Night Shift Rush -->
+          <article class="reel-card group relative aspect-[9/16] w-[74%] shrink-0 cursor-pointer select-none snap-center overflow-hidden rounded-2xl border border-white/10 bg-black" data-reel-id="reel-5m">
+            <video class="reel-video absolute inset-0 h-full w-full object-cover object-center" playsinline loop preload="none" src="https://videos.pexels.com/video-files/32054972/13663307_2160_3840_60fps.mp4"></video>
+            <div class="reel-poster-layer absolute inset-0 z-10">
+              <img src="./images/31580.jpg" loading="lazy" decoding="async"
+                   onerror="this.onerror=null;this.src='https://images.pexels.com/photos/31285170/pexels-photo-31285170.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800';"
+                   alt="Bartender mixing drinks at black tent bar"
+                   class="h-full w-full object-cover object-center" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+            </div>
+            <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+              <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md"><i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel</span>
+              <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold" title="Open @roamsocial.in on Instagram"><i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i></a>
+            </div>
+            <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+              <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+              <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white"><i class="fa-solid fa-play pl-1 text-lg" aria-hidden="true"></i></span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div>
+                <p class="font-display text-lg leading-tight text-white">Night Shift Rush</p>
+                <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Pop-Up Atmosphere</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold" title="Mute / Unmute" aria-label="Toggle sound"><i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i></button>
+                <span class="flex items-center gap-1.5 text-[11px] text-white/70"><i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>3.5K</span>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true"><div class="reel-progress-fill h-full w-0 bg-gold"></div></div>
+          </article>
+
+          <!-- Rail Reel 6: Smoky Old Fashioned -->
+          <article class="reel-card group relative aspect-[9/16] w-[74%] shrink-0 cursor-pointer select-none snap-center overflow-hidden rounded-2xl border border-white/10 bg-black" data-reel-id="reel-6m">
+            <video class="reel-video absolute inset-0 h-full w-full object-cover object-center" playsinline loop preload="none" src="https://videos.pexels.com/video-files/30243648/12966031_2160_3840_30fps.mp4"></video>
+            <div class="reel-poster-layer absolute inset-0 z-10">
+              <img src="https://images.pexels.com/photos/31631265/pexels-photo-31631265.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=1400" loading="lazy" decoding="async"
+                   alt="Smoky Old Fashioned cocktail with orange twist"
+                   class="h-full w-full object-cover object-center" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/40" aria-hidden="true"></div>
+            </div>
+            <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-4">
+              <span class="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[9px] uppercase tracking-[.24em] text-white/90 backdrop-blur-md"><i class="fa-solid fa-clapperboard text-gold text-[10px]" aria-hidden="true"></i> Reel</span>
+              <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/70 backdrop-blur-md transition hover:border-gold hover:text-gold" title="Open @roamsocial.in on Instagram"><i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i></a>
+            </div>
+            <div class="reel-play-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+              <span class="play-ring absolute inset-0 rounded-full border border-white/50" aria-hidden="true"></span>
+              <span class="relative grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-black/55 backdrop-blur-md text-white"><i class="fa-solid fa-play pl-1 text-lg" aria-hidden="true"></i></span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div>
+                <p class="font-display text-lg leading-tight text-white">Smoky Old Fashioned</p>
+                <p class="mt-1 text-[10px] uppercase tracking-[.24em] text-gold/90">Classic Roam Pour</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" class="reel-mute-btn grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-gold hover:text-gold" title="Mute / Unmute" aria-label="Toggle sound"><i class="fa-solid fa-volume-xmark text-xs" aria-hidden="true"></i></button>
+                <span class="flex items-center gap-1.5 text-[11px] text-white/70"><i class="fa-solid fa-eye text-[10px] text-gold" aria-hidden="true"></i>2.8K</span>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 h-1 bg-white/15 z-30" aria-hidden="true"><div class="reel-progress-fill h-full w-0 bg-gold"></div></div>
+          </article>
+
+        </div>
+      </div>
+
+      </template>
+
+      <!-- Keep the Follow @roamsocial CTA for Instagram -->
+      <div class="reveal mt-14 text-center" style="--d:.2s">
+        <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+          <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i> Follow &nbsp;@roamsocial.in
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 5.5 — CONTACT & BAR RESERVATIONS ============ -->
+  <section id="contact" class="relative border-t border-white/5 bg-[#0a0a0c] py-24 md:py-32">
+    <!-- Ambient ambient glow -->
+    <div class="pointer-events-none absolute inset-0 opacity-20" aria-hidden="true"
+         style="background: radial-gradient(45rem 25rem at 50% 20%, rgba(200, 163, 95, .15) 0%, transparent 70%);"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="mb-14 text-center md:mb-16">
+        <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">04 — Bookings &amp; Collaborations</p>
+        <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">
+          Plan Your <span class="gold-text italic">Bar</span> Experience
+        </h2>
+        <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/50" style="--d:.2s">
+          Whether you&rsquo;re curating a 500-guest wedding, a weekend pop-up, or a private terrace soiree in Bengaluru —
+          share your event details below. All enquiries route directly to <strong class="text-champagne font-medium">support@roamsocial.in</strong>.
+        </p>
+      </div>
+
+      <!-- Contact Container: Form + Direct Details Card -->
+      <div class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-12">
+
+        <!-- Left Column: High-Security Interactive Form -->
+        <div class="reveal rounded-3xl border border-white/10 bg-coal/90 p-7 shadow-2xl backdrop-blur-xl lg:col-span-8 md:p-10">
+
+          <!-- Status Banners -->
+          <div id="formAlert" class="hidden mb-6 rounded-2xl border p-4 text-sm transition-all" role="alert"></div>
+
+          <form id="contactForm" novalidate class="space-y-6">
+
+            <!-- Security: Anti-Spam Honeypot (Hidden from humans) -->
+            <div class="hidden" aria-hidden="true" style="display:none !important;">
+              <label for="honeypotField">Leave this blank</label>
+              <input type="text" name="_gotcha" id="honeypotField" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Two-column grid -->
+            <div class="grid gap-6 sm:grid-cols-2">
+
+              <!-- Name -->
+              <div>
+                <label for="userName" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Full Name <span class="text-gold">*</span>
+                </label>
+                <div class="relative mt-2">
+                  <input type="text" id="userName" name="name" required maxlength="80"
+                         placeholder="Aarav Sharma"
+                         class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70" />
+                </div>
+                <p id="errName" class="mt-1.5 hidden text-[11px] text-red-400"></p>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="userEmail" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Email Address <span class="text-gold">*</span>
+                </label>
+                <div class="relative mt-2">
+                  <input type="email" id="userEmail" name="email" required maxlength="100"
+                         placeholder="aarav@domain.com"
+                         class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70" />
+                </div>
+                <p id="errEmail" class="mt-1.5 hidden text-[11px] text-red-400"></p>
+              </div>
+
+            </div>
+
+            <!-- Row 2: Phone & Event Date -->
+            <div class="grid gap-6 sm:grid-cols-2">
+
+              <!-- Phone / WhatsApp -->
+              <div>
+                <label for="userPhone" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Phone / WhatsApp <span class="text-gold">*</span>
+                </label>
+                <div class="relative mt-2">
+                  <input type="tel" id="userPhone" name="phone" required maxlength="20"
+                         placeholder="+91 98765 43210"
+                         class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70" />
+                </div>
+                <p id="errPhone" class="mt-1.5 hidden text-[11px] text-red-400"></p>
+              </div>
+
+              <!-- Event Date -->
+              <div>
+                <label for="eventDate" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Event Date
+                </label>
+                <div class="relative mt-2">
+                  <input type="date" id="eventDate" name="event_date"
+                         class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-white transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70 [color-scheme:dark]" />
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Row 3: Event Type & Guests -->
+            <div class="grid gap-6 sm:grid-cols-2">
+
+              <!-- Event Type -->
+              <div>
+                <label for="eventType" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Event Type
+                </label>
+                <div class="relative mt-2">
+                  <select id="eventType" name="event_type"
+                          class="w-full appearance-none rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70">
+                    <option value="Wedding / Sangeet / Reception">Wedding / Sangeet / Reception</option>
+                    <option value="Pop-up / Brand Activation">Pop-up / Brand Activation</option>
+                    <option value="Private Celebration / House Party">Private Celebration / House Party</option>
+                    <option value="Corporate Event / Gala">Corporate Event / Gala</option>
+                    <option value="Bespoke Mobile Bar Setup">Bespoke Mobile Bar Setup</option>
+                    <option value="Other">Other Custom Format</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/40">
+                    <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Estimated Guests -->
+              <div>
+                <label for="guestCount" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Estimated Guests
+                </label>
+                <div class="relative mt-2">
+                  <select id="guestCount" name="guest_count"
+                          class="w-full appearance-none rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70">
+                    <option value="Intimate (Up to 35 guests)">Intimate (Up to 35 guests)</option>
+                    <option value="Medium (35 – 80 guests)">Medium (35 – 80 guests)</option>
+                    <option value="Large (80 – 200 guests)">Large (80 – 200 guests)</option>
+                    <option value="Grand (200 – 500+ guests)">Grand (200 – 500+ guests)</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/40">
+                    <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Message / Drink Preferences -->
+            <div>
+              <div class="flex items-center justify-between">
+                <label for="userMessage" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                  Cocktail Wishlist &amp; Notes
+                </label>
+                <span class="text-[10px] text-white/35">Max 800 chars</span>
+              </div>
+              <div class="relative mt-2">
+                <textarea id="userMessage" name="message" rows="4" maxlength="800"
+                          placeholder="Tell us about the venue (Indiranagar, Koramangala...), hours of service, or preferred drinks (e.g. Negroni, Violet Pour, Basil Smash mocktails)..."
+                          class="w-full resize-none rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"></textarea>
+              </div>
+            </div>
+
+            <!-- Submit Button & Security Note -->
+            <!-- Consent checkbox: required before the form can be submitted -->
+            <div class="rounded-xl border border-white/10 bg-black/30 p-4">
+              <label for="consent" class="flex cursor-pointer items-start gap-3">
+                <input type="checkbox" id="consent" name="consent" required
+                       class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer appearance-none rounded border border-white/25 bg-black/60 transition checked:border-gold checked:bg-gold focus:outline-none focus:ring-2 focus:ring-gold/50" />
+                <span class="text-xs leading-relaxed text-white/60">
+                  I agree to the
+                  <a href="./privacy.html" class="text-champagne underline underline-offset-2 transition hover:text-gold">Privacy Policy</a>
+                  &amp;
+                  <a href="./terms.html" class="text-champagne underline underline-offset-2 transition hover:text-gold">Terms and Conditions</a>
+                </span>
+              </label>
+              <p id="errConsent" class="mt-2 hidden text-[11px] text-red-400"></p>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit" id="submitFormBtn"
+                      class="btn-gold w-full !py-4 !text-xs font-semibold tracking-[.2em]">
+                <span id="btnLabel" class="flex items-center gap-2">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                  Send Enquiry
+                </span>
+                <span id="btnSpinner" class="hidden items-center gap-2">
+                  <i class="fa-solid fa-circle-notch fa-spin text-sm" aria-hidden="true"></i>
+                  Sending your enquiry...
+                </span>
+              </button>
+
+              <div class="mt-4 flex flex-col items-center justify-between gap-2 text-center text-[10px] text-white/40 sm:flex-row">
+                <span class="flex items-center gap-1.5">
+                  <i class="fa-solid fa-shield-halved text-gold/80" aria-hidden="true"></i>
+                  Encrypted &amp; Spam Protected
+                </span>
+                <span>Direct delivery to <strong class="text-white/60">support@roamsocial.in</strong></span>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Right Column: Direct Info Card -->
+        <div class="reveal flex flex-col justify-between rounded-3xl border border-gold/30 bg-gradient-to-br from-[#151412] to-coal p-7 lg:col-span-4 md:p-9" style="--d:.15s">
+
+          <div>
+            <span class="text-[9px] uppercase tracking-[.32em] text-gold">Direct Channels</span>
+            <h3 class="mt-3 font-display text-2xl font-medium text-white md:text-3xl">Prefer to chat right away?</h3>
+            <p class="mt-4 text-xs leading-relaxed text-white/55">
+              Our hospitality team in Bengaluru monitors email and WhatsApp around the clock for upcoming calendar dates.
+            </p>
+
+            <div class="mt-8 space-y-5 border-t border-white/10 pt-6">
+
+              <!-- Email link -->
+              <div class="flex items-start gap-3.5">
+                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                  <i class="fa-solid fa-envelope text-sm" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[.24em] text-white/40">Enquiry &amp; Support Desk</p>
+                  <a href="mailto:support@roamsocial.in?subject=ROAM%20SOCIAL%20Bar%20Booking%20Enquiry"
+                     class="mt-1 block text-sm font-medium text-white transition hover:text-gold">
+                    support@roamsocial.in
+                  </a>
+                  <span class="text-[10px] text-white/35">Monitored 7 days a week</span>
+                </div>
+              </div>
+
+              <!-- Phone / WhatsApp link -->
+              <div class="flex items-start gap-3.5">
+                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                  <i class="fa-brands fa-whatsapp text-base" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[.24em] text-white/40">WhatsApp Hotline</p>
+                  <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL,%20I'd%20like%20to%20enquire%20about%20booking%20the%20mobile%20bar%20for%20an%20event."
+                     target="_blank" rel="noopener noreferrer"
+                     class="mt-1 block text-sm font-medium text-white transition hover:text-gold">
+                    +91 82177 33823
+                  </a>
+                  <span class="text-[10px] text-white/35">Instant quote &amp; date checks</span>
+                </div>
+              </div>
+
+              <!-- Base Location -->
+              <div class="flex items-start gap-3.5">
+                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                  <i class="fa-solid fa-location-dot text-sm" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[.24em] text-white/40">Operating Region</p>
+                  <p class="mt-1 text-sm text-white">Bengaluru, Karnataka</p>
+                  <span class="text-[10px] text-white/35">Roams across all city zones</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="mt-8 border-t border-white/10 pt-6">
+            <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL,%20I'd%20like%20to%20enquire%20about%20booking%20the%20mobile%20bar."
+               target="_blank" rel="noopener noreferrer"
+               class="btn-gold w-full !py-3.5 !text-[11px]">
+              <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Chat on WhatsApp
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 6. FOOTER & BOOKING ============ -->
+  <footer class="border-t border-white/5 bg-[#080809]">
+
+    <!-- Booking CTA band -->
+    <div class="border-b border-white/5 px-6 py-20 text-center md:py-24">
+      <p class="reveal kicker mb-6 text-[10px] font-medium text-gold md:text-xs">Bookings &amp; Collaborations</p>
+      <h2 class="reveal font-display text-4xl font-medium leading-tight md:text-6xl" style="--d:.1s">
+        Let&rsquo;s pour something<br class="hidden md:block" />
+        <span class="gold-text italic">memorable.</span>
+      </h2>
+      <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/45" style="--d:.2s">
+        Weddings, corporate nights, private parties and street pop-ups —
+        tell us about your event and we&rsquo;ll build the bar around it.
+      </p>
+      <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-4" style="--d:.3s">
+        <a href="#contact" class="btn-gold">
+          <i class="fa-solid fa-calendar-check text-base" aria-hidden="true"></i> Book the Mobile Bar
+        </a>
+        <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL%2C%20I%27d%20like%20to%20book%20the%20mobile%20bar%20for%20an%20event." target="_blank" rel="noopener noreferrer" class="btn-ghost">
+          <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Quick WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Main footer grid -->
+    <div class="mx-auto max-w-7xl px-6 py-16 md:px-8">
+      <div class="grid gap-12 md:grid-cols-12">
+
+        <!-- Brand -->
+        <div class="md:col-span-5">
+          <a href="#hero" class="flex items-center gap-3">
+            <span class="relative grid h-12 w-12 place-items-center rounded-full border border-gold/40 bg-[#0d0d0f]">
+              <svg class="h-7 w-7" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <path d="M14 9h36L32 30 14 9z" stroke="#e8d5a9" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M32 34L16 55h32L32 34z" stroke="#e8d5a9" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="32" cy="32" r="3.2" fill="#97a06b"/>
+              </svg>
+            </span>
+            <span class="leading-none">
+              <span class="block font-display text-xl tracking-[.24em]">ROAM&nbsp;<span class="text-gold">SOCIAL</span></span>
+              <span class="mt-1.5 block text-[9px] tracking-[.42em] text-white/45">BENGALURU</span>
+            </span>
+          </a>
+          <p class="mt-6 max-w-xs text-sm leading-relaxed text-white/45">
+            Crafted drinks. Social moments. Drinks made to move —
+            a luxury mobile bar that roams Bengaluru&rsquo;s best nights.
+          </p>
+          <p class="mt-4 font-display text-base italic text-gold">&ldquo;Good drinks. Bolder stories.&rdquo;</p>
+          <p class="mt-5 text-sm text-white/60">By <span class="text-gold">@we.are.rod</span></p>
+          <div class="mt-7 flex items-center gap-3">
+            <a href="https://www.instagram.com/roamsocial.in" target="_blank" rel="noopener noreferrer" aria-label="ROAM SOCIAL on Instagram"
+               class="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL%2C%20I%27d%20like%20to%20book%20the%20mobile%20bar." target="_blank" rel="noopener noreferrer" aria-label="Book on WhatsApp"
+               class="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:support@roamsocial.in?subject=ROAM%20SOCIAL%20Booking%20Enquiry" aria-label="Email support@roamsocial.in"
+               class="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:text-gold">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Explore -->
+        <div class="md:col-span-3">
+          <h3 class="kicker text-[10px] font-medium text-gold">Explore</h3>
+          <ul class="mt-6 space-y-3.5 text-sm text-white/55">
+            <li><a href="#menu" class="transition hover:text-gold">The Menu</a></li>
+            <li><a href="#gallery" class="transition hover:text-gold">Gallery</a></li>
+            <li><a href="#contact" class="transition hover:text-gold">Reserve Bar</a></li>
+            <li><a href="#instagram" class="transition hover:text-gold">Reels</a></li>
+            <li><a href="https://www.instagram.com/roamsocial.in" target="_blank" rel="noopener noreferrer" class="transition hover:text-gold">Instagram</a></li>
+            <li><a href="#contact" class="transition hover:text-gold">Book the Bar</a></li>
+            <li><a href="./privacy.html" class="transition hover:text-gold">Privacy Policy</a></li>
+            <li><a href="./terms.html" class="transition hover:text-gold">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="md:col-span-4">
+          <h3 class="kicker text-[10px] font-medium text-gold">Contact</h3>
+          <ul class="mt-6 space-y-4 text-sm text-white/55">
+            <li>
+              <a href="mailto:support@roamsocial.in?subject=ROAM%20SOCIAL%20Booking%20Enquiry"
+                 class="group flex items-center gap-3.5 transition hover:text-white" title="Opens your email app">
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gold/40 text-xs text-gold"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+                <span>
+                  <strong class="block text-white font-medium text-xs">Bookings &amp; Support:</strong>
+                  support@roamsocial.in
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL%2C%20I%27d%20like%20to%20book%20the%20mobile%20bar%20for%20an%20event."
+                 target="_blank" rel="noopener noreferrer"
+                 class="group flex items-center gap-3.5 transition hover:text-white" title="Opens WhatsApp">
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-xs text-gold/80"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                <span>
+                  <strong class="block text-white font-medium text-xs">Book on WhatsApp:</strong>
+                  +91 82177 33823
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA=="
+                 target="_blank" rel="noopener noreferrer"
+                 class="group flex items-center gap-3.5 transition hover:text-white" title="Opens Instagram">
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-xs text-gold/80"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+                <span>
+                  <strong class="block text-white font-medium text-xs">Instagram:</strong>
+                  @roamsocial.in
+                </span>
+              </a>
+            </li>
+            <li class="flex items-center gap-3.5">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-xs text-gold/80"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+              Bengaluru, Karnataka, India
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/5">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-[11px] tracking-[.14em] text-white/35 md:flex-row md:px-8">
+        <p>&copy; <span id="year">2025</span> ROAM SOCIAL — All rights reserved.</p>
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 uppercase">
+          <span>Crafted in Bengaluru</span>
+          <span class="text-gold/60">•</span>
+          <a href="./privacy.html" class="transition hover:text-gold">Privacy Policy</a>
+          <span class="text-gold/60">•</span>
+          <a href="./terms.html" class="transition hover:text-gold">Terms &amp; Conditions</a>
+          <span class="text-gold/60">•</span>
+          <span class="text-gold/80">By @we.are.rod</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    (function () {
+      "use strict";
+
+      /* ========================================================
+         MENU FILTER: All / Cocktails / Mocktails / Social Bites
+         ======================================================== */
+      var filterPills = document.querySelectorAll(".filter-pill");
+      var menuCards = document.querySelectorAll(".menu-card");
+      var bitesHeader = document.getElementById("bitesHeader");
+
+      filterPills.forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          var filter = pill.getAttribute("data-filter");
+
+          filterPills.forEach(function (p) { p.classList.remove("is-active"); });
+          pill.classList.add("is-active");
+
+          menuCards.forEach(function (card) {
+            var cat = card.getAttribute("data-category");
+            // The zero-proof tile trails the food items, so it belongs to
+            // the "all" and "social bites" views only.
+            var show =
+              cat === "note"
+                ? filter === "all" || filter === "bites"
+                : filter === "all" || cat === filter;
+            card.classList.toggle("is-hidden", !show);
+            if (show) card.classList.add("in");
+          });
+
+          // Hide the "Social Bites" sub-header unless bites (or all) are shown
+          if (bitesHeader) {
+            bitesHeader.classList.toggle("hidden", filter === "cocktails" || filter === "mocktails");
+          }
+        });
+      });
+
+      /* ========================================================
+         MOBILE WHATSAPP BUBBLE: hide once the contact form is in view
+         so it never overlaps the primary booking path.
+         ======================================================== */
+      var waBubble = document.getElementById("waBubble");
+      var contactSec = document.getElementById("contact");
+      if (waBubble && contactSec && "IntersectionObserver" in window) {
+        var bubbleObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            waBubble.classList.toggle("is-hidden", entry.isIntersecting);
+          });
+        }, { threshold: 0.12 });
+        bubbleObserver.observe(contactSec);
+      }
+
+      /* Footer year */
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* Navbar: glass intensifies on scroll */
+      var nav = document.getElementById("siteNav");
+      var onScroll = function () {
+        nav.classList.toggle("scrolled", window.scrollY > 40);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* Mobile menu */
+      var menuBtn = document.getElementById("menuBtn");
+      var mobileMenu = document.getElementById("mobileMenu");
+      var barsIcon = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      var xIcon = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+      var closeMobile = function () {
+        mobileMenu.classList.remove("open");
+        menuBtn.innerHTML = barsIcon;
+        menuBtn.setAttribute("aria-expanded", "false");
+      };
+      menuBtn.addEventListener("click", function () {
+        var open = mobileMenu.classList.toggle("open");
+        menuBtn.innerHTML = open ? xIcon : barsIcon;
+        menuBtn.setAttribute("aria-expanded", String(open));
+      });
+      mobileMenu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", closeMobile);
+      });
+
+      /* Close the open mobile menu as soon as the user scrolls without
+         selecting an option (touch-drag, momentum or trackpad). */
+      var mobileMenuIsOpen = function () {
+        return mobileMenu.classList.contains("open");
+      };
+      var onMenuCloseScroll = function () {
+        if (mobileMenuIsOpen()) closeMobile();
+      };
+      window.addEventListener("scroll", onMenuCloseScroll, { passive: true });
+      window.addEventListener("touchmove", onMenuCloseScroll, { passive: true });
+      window.addEventListener("wheel", onMenuCloseScroll, { passive: true });
+      document.addEventListener("keydown", function (e) {
+        if (!mobileMenuIsOpen()) return;
+        var scrollKeys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Space", "Home", "End"];
+        if (scrollKeys.indexOf(e.key) !== -1) closeMobile();
+        if (e.key === "Escape") closeMobile();
+      });
+
+      /* ========================================================
+         PERFORMANCE FRAMEWORK: Hero Video IntersectionObserver
+         Pauses background playback when out of viewport to save
+         CPU cycles, mobile battery, and GPU resources.
+         ======================================================== */
+      var heroSec = document.getElementById("hero");
+      var video = document.getElementById("heroVideo");
+      if (video && heroSec) {
+        var source = video.querySelector("source");
+        if (source) {
+          source.addEventListener("error", function () { video.remove(); });
+        }
+        video.addEventListener("canplay", function () {
+          video.classList.remove("opacity-0");
+        });
+
+        if ("IntersectionObserver" in window) {
+          var videoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                var p = video.play();
+                if (p && p.catch) p.catch(function () {});
+              } else {
+                video.pause();
+              }
+            });
+          }, { threshold: 0.15 });
+          videoObserver.observe(heroSec);
+        } else {
+          var p = video.play();
+          if (p && p.catch) p.catch(function () {});
+        }
+      }
+
+      /* ========================================================
+         PERFORMANCE FRAMEWORK: Scroll Reveal via IntersectionObserver
+         ======================================================== */
+      var revealEls = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add("in"); });
+      }
+
+      /* ========================================================
+         REELS INFINITE MARQUEE
+         Auto-scrolls right -> left, loops seamlessly, and remains
+         fully manually scrollable / draggable. Auto-scroll yields
+         while the user interacts or while a reel is playing.
+         ======================================================== */
+      var marquee = document.getElementById("reelsMarquee");
+      var reelsTrack = document.getElementById("reelsTrack");
+      var reelsClone = document.getElementById("reelsClone");
+      if (marquee && reelsTrack && reelsClone) {
+        // Duplicate the set once so the loop point is invisible
+        reelsClone.innerHTML = reelsTrack.innerHTML;
+        // Cloned cards are injected after the reveal observer ran — force visible
+        reelsClone.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.remove("reveal");
+          el.classList.add("in");
+        });
+
+        var halfWidth = 0;
+        var measureMarquee = function () {
+          // Match the gap between the last card and the first cloned card.
+          var loopGap = parseFloat(window.getComputedStyle(marquee).columnGap) || 0;
+          halfWidth = reelsTrack.getBoundingClientRect().width + loopGap;
+        };
+        measureMarquee();
+        window.addEventListener("resize", measureMarquee);
+        window.addEventListener("load", measureMarquee);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(measureMarquee);
+        }
+
+        var marqueeSpeed = 0.6;
+        var marqueeHover = false;
+        var dragActive = false;
+        var marqueeCooldown = false;
+        var cooldownTimer = null;
+        var suppressClick = false;
+        var marqueeVisible = true;
+        var resumeAfterPauseAt = 0;
+
+        // Let the video player request a brief beat before the marquee resumes.
+        window.addEventListener("roam-reel-paused", function () {
+          resumeAfterPauseAt = performance.now() + 2000;
+        });
+
+        // Only animate while the section is on screen (saves battery/GPU)
+        if ("IntersectionObserver" in window) {
+          var marqueeVisibilityObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              marqueeVisible = entry.isIntersecting;
+            });
+          }, { threshold: 0.05 });
+          marqueeVisibilityObserver.observe(marquee);
+        }
+
+        var startCooldown = function () {
+          marqueeCooldown = true;
+          if (cooldownTimer) clearTimeout(cooldownTimer);
+          cooldownTimer = setTimeout(function () { marqueeCooldown = false; }, 2200);
+        };
+
+        var marqueeStep = function () {
+          // Always enforce loop bounds (covers manual scrolls too)
+          if (halfWidth > 0) {
+            if (marquee.scrollLeft >= halfWidth) {
+              marquee.scrollLeft -= halfWidth;
+            } else if (marquee.scrollLeft < 0) {
+              marquee.scrollLeft += halfWidth;
+            }
+          }
+          var userEngaged = marqueeHover || dragActive || marqueeCooldown;
+          var reelPlaying = document.querySelector(".reel-card.is-playing:not(.is-paused)") !== null;
+          var pauseBeat = performance.now() < resumeAfterPauseAt;
+          if (!userEngaged && !reelPlaying && !pauseBeat && marqueeVisible && halfWidth > 0) {
+            marquee.scrollLeft += marqueeSpeed;
+          }
+          requestAnimationFrame(marqueeStep);
+        };
+        requestAnimationFrame(marqueeStep);
+
+        // NOTE: no "scroll" listener here on purpose — programmatic
+        // scrollLeft updates fire scroll events too, which would trap the
+        // marquee in a permanent cooldown. User intent is detected via
+        // hover / touch / wheel / drag instead.
+        marquee.addEventListener("mouseenter", function () { marqueeHover = true; });
+        marquee.addEventListener("mouseleave", function () { marqueeHover = false; });
+        marquee.addEventListener("touchstart", startCooldown, { passive: true });
+        marquee.addEventListener("touchmove", startCooldown, { passive: true });
+        marquee.addEventListener("touchend", startCooldown, { passive: true });
+        marquee.addEventListener("wheel", startCooldown, { passive: true });
+
+        // Mouse drag-to-scroll (touch already scrolls natively)
+        var dragStartX = 0, dragStartScroll = 0; /* dragActive declared above */
+        marquee.addEventListener("pointerdown", function (e) {
+          if (e.pointerType !== "mouse") return;
+          dragActive = true;
+          dragStartX = e.clientX;
+          dragStartScroll = marquee.scrollLeft;
+          suppressClick = false;
+          marquee.classList.add("is-dragging");
+        });
+        marquee.addEventListener("pointermove", function (e) {
+          if (!dragActive) return;
+          var delta = e.clientX - dragStartX;
+          if (Math.abs(delta) > 6) suppressClick = true;
+          marquee.scrollLeft = dragStartScroll - delta;
+        });
+        ["pointerup", "pointercancel"].forEach(function (evt) {
+          marquee.addEventListener(evt, function () {
+            if (!dragActive) return;
+            dragActive = false;
+            marquee.classList.remove("is-dragging");
+            startCooldown();
+          });
+        });
+
+        // A drag should never register as a tap-to-play
+        marquee.addEventListener("click", function (e) {
+          if (!suppressClick) return;
+          e.stopPropagation();
+          e.preventDefault();
+          suppressClick = false;
+        }, true);
+      }
+
+      /* ========================================================
+         REELS INTERACTIVE VIDEO PLAYER FRAMEWORK
+         - 6 high-performance portrait videos
+         - Click any card to play that video immediately
+         - Auto-pauses any previously playing reel
+         - Toggle play / pause on subsequent taps
+         - Audio mute / unmute button control
+         - Live gold progress bar synced with video currentTime
+         - Preserves external Instagram links without redirection
+         ======================================================== */
+      var reelCards = document.querySelectorAll(".reel-card");
+      var activePlayingCard = null;
+
+      reelCards.forEach(function (card) {
+        var videoEl = card.querySelector(".reel-video");
+        var muteBtn = card.querySelector(".reel-mute-btn");
+        var progressBar = card.querySelector(".reel-progress-fill");
+
+        // Initial default state: muted for mobile autoplay policy compliance
+        if (videoEl) {
+          videoEl.muted = true;
+
+          // Sync progress line
+          videoEl.addEventListener("timeupdate", function () {
+            if (videoEl.duration) {
+              var pct = (videoEl.currentTime / videoEl.duration) * 100;
+              if (progressBar) progressBar.style.width = pct + "%";
+            }
+          });
+
+          // Handle video loop completion smoothly
+          videoEl.addEventListener("ended", function () {
+            videoEl.currentTime = 0;
+            videoEl.play();
+          });
+        }
+
+        // Handle card click
+        card.addEventListener("click", function (e) {
+          // If user clicked the discrete Instagram link, allow external navigation
+          if (e.target.closest("a")) return;
+
+          // If mute button was clicked, toggle audio only
+          if (e.target.closest(".reel-mute-btn")) {
+            e.stopPropagation();
+            if (videoEl) {
+              videoEl.muted = !videoEl.muted;
+              var icon = muteBtn ? muteBtn.querySelector("i") : null;
+              if (icon) {
+                icon.className = videoEl.muted
+                  ? "fa-solid fa-volume-xmark text-xs"
+                  : "fa-solid fa-volume-high text-xs text-gold";
+              }
+            }
+            return;
+          }
+
+          if (!videoEl) return;
+
+          // If this card is already playing, toggle pause / play
+          if (card.classList.contains("is-playing")) {
+            if (videoEl.paused) {
+              videoEl.play().then(function () {
+                card.classList.remove("is-paused");
+              }).catch(function () {});
+            } else {
+              videoEl.pause();
+              card.classList.add("is-paused");
+              window.dispatchEvent(new Event("roam-reel-paused"));
+            }
+            return;
+          }
+
+          // Otherwise, pause any other active reel
+          reelCards.forEach(function (otherCard) {
+            if (otherCard !== card) {
+              var otherVideo = otherCard.querySelector(".reel-video");
+              if (otherVideo) {
+                otherVideo.pause();
+                otherVideo.currentTime = 0;
+              }
+              otherCard.classList.remove("is-playing", "is-paused");
+              var otherProg = otherCard.querySelector(".reel-progress-fill");
+              if (otherProg) otherProg.style.width = "0%";
+            }
+          });
+
+          // Play this reel
+          card.classList.add("is-playing");
+          card.classList.remove("is-paused");
+          activePlayingCard = card;
+
+          videoEl.play().catch(function () {
+            videoEl.muted = true;
+            videoEl.play();
+          });
+        });
+      });
+
+      // Pause active reel if scrolled out of viewport to optimize GPU/CPU
+      if ("IntersectionObserver" in window) {
+        var reelSection = document.getElementById("instagram");
+        if (reelSection) {
+          var reelSectionObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting && activePlayingCard) {
+                var v = activePlayingCard.querySelector(".reel-video");
+                if (v && !v.paused) {
+                  v.pause();
+                  activePlayingCard.classList.add("is-paused");
+                }
+              }
+            });
+          }, { threshold: 0.1 });
+          reelSectionObserver.observe(reelSection);
+        }
+      }
+
+      /* ========================================================
+         SECURITY & FORM DISPATCH FRAMEWORK: support@roamsocial.in
+         - Input sanitization (XSS mitigation)
+         - Anti-spam honeypot verification
+         - Human interaction timing threshold (bot defense)
+         - Rate limiting & double-submit prevention
+         - Multi-tier routing: direct dispatch with auto-fallback
+         ======================================================== */
+      var pageLoadTimestamp = Date.now();
+      var lastSubmissionTime = 0;
+      var SUBMIT_COOLDOWN_MS = 25000; // 25s anti-abuse cooldown
+
+      var contactForm = document.getElementById("contactForm");
+      var submitBtn = document.getElementById("submitFormBtn");
+      var btnLabel = document.getElementById("btnLabel");
+      var btnSpinner = document.getElementById("btnSpinner");
+      var formAlert = document.getElementById("formAlert");
+      var eventDateInput = document.getElementById("eventDate");
+
+      // Set min date to today for event reservations
+      if (eventDateInput) {
+        var today = new Date().toISOString().split("T")[0];
+        eventDateInput.setAttribute("min", today);
+      }
+
+      // XSS sanitizer: strips tags and escapes dangerous entities
+      function sanitize(str) {
+        if (!str) return "";
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;")
+          .trim();
+      }
+
+      function showAlert(type, htmlContent) {
+        formAlert.className = "mb-6 rounded-2xl border p-5 text-sm transition-all";
+        if (type === "success") {
+          formAlert.classList.add("border-gold/50", "bg-gold/10", "text-champagne");
+        } else if (type === "error") {
+          formAlert.classList.add("border-red-500/50", "bg-red-950/40", "text-red-200");
+        } else {
+          formAlert.classList.add("border-white/20", "bg-white/5", "text-white/80");
+        }
+        formAlert.innerHTML = htmlContent;
+        formAlert.classList.remove("hidden");
+        formAlert.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function hideAlert() {
+        formAlert.classList.add("hidden");
+        formAlert.innerHTML = "";
+      }
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          hideAlert();
+
+          // 1. Anti-spam Honeypot verification
+          var honeypot = document.getElementById("honeypotField");
+          if (honeypot && honeypot.value.trim() !== "") {
+            // Silently swallow bot submission without sending
+            showAlert("success", '<div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold text-lg"></i><span>Thank you! Your enquiry has been dispatched to <strong>support@roamsocial.in</strong>.</span></div>');
+            contactForm.reset();
+            return;
+          }
+
+          // 2. Anti-bot timing check (human cannot complete form under 2 seconds)
+          if (Date.now() - pageLoadTimestamp < 2000) {
+            showAlert("error", '<div class="flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation text-red-400"></i><span>Please verify your details before submitting.</span></div>');
+            return;
+          }
+
+          // 3. Rate limiting cooldown
+          var now = Date.now();
+          if (now - lastSubmissionTime < SUBMIT_COOLDOWN_MS) {
+            var remaining = Math.ceil((SUBMIT_COOLDOWN_MS - (now - lastSubmissionTime)) / 1000);
+            showAlert("error", '<div class="flex items-center gap-3"><i class="fa-solid fa-clock text-red-400"></i><span>Please wait ' + remaining + ' seconds before submitting another enquiry.</span></div>');
+            return;
+          }
+
+          // 4. Input validation & sanitization
+          var nameInput = document.getElementById("userName");
+          var emailInput = document.getElementById("userEmail");
+          var phoneInput = document.getElementById("userPhone");
+          var dateInput = document.getElementById("eventDate");
+          var typeInput = document.getElementById("eventType");
+          var guestsInput = document.getElementById("guestCount");
+          var messageInput = document.getElementById("userMessage");
+
+          var errName = document.getElementById("errName");
+          var errEmail = document.getElementById("errEmail");
+          var errPhone = document.getElementById("errPhone");
+
+          var hasError = false;
+
+          // Reset error states
+          [errName, errEmail, errPhone].forEach(function (el) { if (el) { el.classList.add("hidden"); el.textContent = ""; } });
+          [nameInput, emailInput, phoneInput].forEach(function (el) { if (el) el.classList.remove("border-red-400"); });
+
+          var cleanName = sanitize(nameInput.value);
+          var cleanEmail = sanitize(emailInput.value);
+          var cleanPhone = sanitize(phoneInput.value);
+          var cleanDate = sanitize(dateInput ? dateInput.value : "");
+          var cleanType = sanitize(typeInput ? typeInput.value : "");
+          var cleanGuests = sanitize(guestsInput ? guestsInput.value : "");
+          var cleanMessage = sanitize(messageInput ? messageInput.value : "");
+
+          if (!cleanName || cleanName.length < 2) {
+            errName.textContent = "Please enter your full name.";
+            errName.classList.remove("hidden");
+            nameInput.classList.add("border-red-400");
+            hasError = true;
+          }
+
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+            errEmail.textContent = "Please provide a valid email address.";
+            errEmail.classList.remove("hidden");
+            emailInput.classList.add("border-red-400");
+            hasError = true;
+          }
+
+          if (!cleanPhone || cleanPhone.length < 7) {
+            errPhone.textContent = "Please provide your phone or WhatsApp number.";
+            errPhone.classList.remove("hidden");
+            phoneInput.classList.add("border-red-400");
+            hasError = true;
+          }
+
+          // Consent is mandatory
+          var consentInput = document.getElementById("consent");
+          var errConsent = document.getElementById("errConsent");
+          if (!consentInput.checked) {
+            errConsent.textContent =
+              "Please agree to the Privacy Policy & Terms and Conditions to send your enquiry.";
+            errConsent.classList.remove("hidden");
+            hasError = true;
+          }
+
+          if (hasError) return;
+
+          // 5. Build structured payload for support@roamsocial.in
+          var payload = {
+            targetEmail: "support@roamsocial.in",
+            name: cleanName,
+            email: cleanEmail,
+            phone: cleanPhone,
+            eventDate: cleanDate || "Flexible / Not finalized",
+            eventType: cleanType,
+            guests: cleanGuests,
+            cocktailsAndNotes: cleanMessage || "Standard bar menu requested",
+            consent: consentInput.checked,
+            timestamp: new Date().toISOString()
+          };
+
+          // Email subject & body for mailto fallback
+          var mailtoSubject = encodeURIComponent("ROAM SOCIAL Booking Enquiry — " + cleanName + " (" + cleanType + ")");
+          var mailtoBody = encodeURIComponent(
+            "Hello ROAM SOCIAL Team,\n\n" +
+            "I would like to enquire about booking the mobile bar. Here are my event details:\n\n" +
+            "• Name: " + cleanName + "\n" +
+            "• Email: " + cleanEmail + "\n" +
+            "• Phone/WhatsApp: " + cleanPhone + "\n" +
+            "• Event Date: " + (cleanDate || "To be decided") + "\n" +
+            "• Event Type: " + cleanType + "\n" +
+            "• Estimated Guests: " + cleanGuests + "\n\n" +
+            "• Wishlist & Notes:\n" + (cleanMessage || "Looking forward to your curated menu and quote.") + "\n\n" +
+            "Sent from roamsocial.in"
+          );
+          var mailtoUrl = "mailto:support@roamsocial.in?subject=" + mailtoSubject + "&body=" + mailtoBody;
+
+          // 6. UI Loading state
+          submitBtn.disabled = true;
+          btnLabel.classList.add("hidden");
+          btnSpinner.classList.remove("hidden");
+
+          // 7. Dispatch attempt: Formspree endpoint with seamless mailto / WhatsApp fallback
+          fetch("https://formspree.io/f/support@roamsocial.in", {
+            method: "POST",
+            headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          })
+          .then(function (response) {
+            lastSubmissionTime = Date.now();
+            showAlert(
+              "success",
+              '<div class="space-y-3">' +
+                '<div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-xl text-gold"></i><h4 class="font-display text-base font-semibold text-white">Enquiry Dispatched to support@roamsocial.in</h4></div>' +
+                '<p class="text-xs text-white/70">Thank you, <strong>' + cleanName + '</strong>! Your event details have been delivered to our team at <strong>support@roamsocial.in</strong>. We will review availability and send our customized bar deck shortly.</p>' +
+                '<div class="pt-2 flex flex-wrap gap-3">' +
+                  '<a href="' + mailtoUrl + '" class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-gold hover:underline"><i class="fa-solid fa-envelope"></i> Open copy in email client</a>' +
+                  '<a href="https://wa.me/918217733823?text=' + encodeURIComponent("Hi ROAM SOCIAL, I just sent a booking enquiry via your site for " + cleanType + " (" + cleanName + ").") + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-green-400 hover:underline"><i class="fa-brands fa-whatsapp"></i> Notify on WhatsApp</a>' +
+                '</div>' +
+              '</div>'
+            );
+            contactForm.reset();
+          })
+          .catch(function () {
+            // Graceful resilience: In case of adblock, CSP policy block or offline, trigger mailto directly
+            lastSubmissionTime = Date.now();
+            showAlert(
+              "success",
+              '<div class="space-y-3">' +
+                '<div class="flex items-center gap-3"><i class="fa-solid fa-paper-plane text-xl text-gold"></i><h4 class="font-display text-base font-semibold text-white">Ready to Dispatch to support@roamsocial.in</h4></div>' +
+                '<p class="text-xs text-white/70">Click below to send your pre-formatted enquiry directly to <strong>support@roamsocial.in</strong> using your email app, or message our WhatsApp hotline instantly:</p>' +
+                '<div class="pt-2 flex flex-wrap gap-3">' +
+                  '<a href="' + mailtoUrl + '" class="btn-gold !py-2.5 !px-4 !text-[11px]"><i class="fa-solid fa-envelope"></i> Send via Email (support@roamsocial.in)</a>' +
+                  '<a href="https://wa.me/918217733823?text=' + encodeURIComponent("Hi ROAM SOCIAL, booking enquiry from " + cleanName + " for " + cleanType + ".") + '" target="_blank" rel="noopener noreferrer" class="btn-ghost !py-2.5 !px-4 !text-[11px]"><i class="fa-brands fa-whatsapp"></i> Fast-Track on WhatsApp</a>' +
+                '</div>' +
+              '</div>'
+            );
+            // Optionally launch the email client directly
+            setTimeout(function () {
+              window.location.href = mailtoUrl;
+            }, 600);
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            btnLabel.classList.remove("hidden");
+            btnSpinner.classList.add("hidden");
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

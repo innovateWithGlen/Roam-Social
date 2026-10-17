@@ -1,0 +1,440 @@
+---
+/**
+ * Contact — "Plan Your Bar Experience".
+ * Email delivery via Web3Forms (https://web3forms.com) — a free,
+ * no-backend form service. The access key is a PUBLIC identifier
+ * (not an SMTP credential), so it is safe to embed client-side.
+ *
+ * SECURITY FRAMEWORK built into the form logic:
+ *   - XSS sanitization of every field before dispatch
+ *   - Honeypot field (Web3Forms "botcheck") to silently drop bots
+ *   - Human-timing check (rejects sub-2s machine submissions)
+ *   - 25s rate-limit cooldown + double-submit prevention
+ *   - Graceful mailto: fallback to support@roamsocial.in
+ */
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; // ← get a free key at web3forms.com
+const SUPPORT_EMAIL = "support@roamsocial.in";
+
+const inputClass = "w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-sm text-white placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70";
+const labelClass = "block text-[11px] font-medium uppercase tracking-[.22em] text-white/70";
+const errClass = "mt-1.5 hidden text-[11px] text-red-400";
+---
+
+<section id="contact" class="relative border-t border-white/5 bg-[#0a0a0c] py-24 md:py-32">
+  <!-- Ambient glow -->
+  <div class="pointer-events-none absolute inset-0 opacity-20" aria-hidden="true"
+       style="background: radial-gradient(45rem 25rem at 50% 20%, rgba(200, 163, 95, .15) 0%, transparent 70%);"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+
+    <!-- Section header -->
+    <div class="mb-14 text-center md:mb-16">
+      <p class="reveal kicker mb-6 text-[10px] font-medium text-gold md:text-xs">04 — Bookings &amp; Collaborations</p>
+      <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">
+        Plan Your <span class="gold-text italic">Bar</span> Experience
+      </h2>
+      <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/50" style="--d:.2s">
+        Whether you&rsquo;re curating a 500-guest wedding, a weekend pop-up, or a private terrace soiree in Bengaluru —
+        share your event details below. All inquiries route directly to <strong class="text-champagne font-medium">support@roamsocial.in</strong>.
+      </p>
+    </div>
+
+    <div class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-12">
+
+      <!-- Left: the form -->
+      <div class="reveal rounded-3xl border border-white/10 bg-coal/90 p-7 shadow-2xl backdrop-blur-xl lg:col-span-8 md:p-10">
+
+        <div id="formAlert" class="hidden mb-6 rounded-2xl border p-5 text-sm transition-all" role="alert"></div>
+
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate class="space-y-6">
+
+          <!-- Web3Forms configuration (public, non-secret values only) -->
+          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+          <input type="hidden" name="subject" value="ROAM SOCIAL — New Mobile Bar Booking Inquiry" />
+          <input type="hidden" name="from_name" value="ROAM SOCIAL Website" />
+          <!-- Honeypot: hidden from humans, bots fill it and get dropped -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="userName" class={labelClass}>Full Name <span class="text-gold">*</span></label>
+              <div class="relative mt-2">
+                <input type="text" id="userName" name="name" required maxlength="80" placeholder="Aarav Sharma" class={inputClass} />
+              </div>
+              <p id="errName" class={errClass}></p>
+            </div>
+            <div>
+              <label for="userEmail" class={labelClass}>Email Address <span class="text-gold">*</span></label>
+              <div class="relative mt-2">
+                <input type="email" id="userEmail" name="email" required maxlength="100" placeholder="aarav@domain.com" class={inputClass} />
+              </div>
+              <p id="errEmail" class={errClass}></p>
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="userPhone" class={labelClass}>Phone / WhatsApp <span class="text-gold">*</span></label>
+              <div class="relative mt-2">
+                <input type="tel" id="userPhone" name="phone" required maxlength="20" placeholder="+91 98765 43210" class={inputClass} />
+              </div>
+              <p id="errPhone" class={errClass}></p>
+            </div>
+            <div>
+              <label for="eventDate" class={labelClass}>Event Date</label>
+              <div class="relative mt-2">
+                <input type="date" id="eventDate" name="event_date" class={`${inputClass} [color-scheme:dark]`} />
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="eventType" class={labelClass}>Event Type</label>
+              <div class="relative mt-2">
+                <select id="eventType" name="event_type" class={`${inputClass} appearance-none`}>
+                  <option value="Wedding / Sangeet / Reception">Wedding / Sangeet / Reception</option>
+                  <option value="Pop-up / Brand Activation">Pop-up / Brand Activation</option>
+                  <option value="Private Celebration / House Party">Private Celebration / House Party</option>
+                  <option value="Corporate Event / Gala">Corporate Event / Gala</option>
+                  <option value="Bespoke Mobile Bar Setup">Bespoke Mobile Bar Setup</option>
+                  <option value="Other">Other Custom Format</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/40">
+                  <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="guestCount" class={labelClass}>Estimated Guests</label>
+              <div class="relative mt-2">
+                <select id="guestCount" name="guest_count" class={`${inputClass} appearance-none`}>
+                  <option value="Intimate (Up to 35 guests)">Intimate (Up to 35 guests)</option>
+                  <option value="Medium (35 – 80 guests)">Medium (35 – 80 guests)</option>
+                  <option value="Large (80 – 200 guests)">Large (80 – 200 guests)</option>
+                  <option value="Grand (200 – 500+ guests)">Grand (200 – 500+ guests)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/40">
+                  <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="userMessage" class={labelClass}>Cocktail Wishlist &amp; Notes</label>
+              <span class="text-[10px] text-white/35">Max 800 chars</span>
+            </div>
+            <div class="relative mt-2">
+              <textarea id="userMessage" name="message" rows="4" maxlength="800"
+                        placeholder="Tell us about the venue (Indiranagar, Koramangala...), hours of service, or preferred drinks (e.g. Negroni, Violet Pour, Basil Smash mocktails)..."
+                        class={`${inputClass} resize-none`}></textarea>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" id="submitFormBtn"
+                    class="btn-gold btn-gold-sm w-full py-4! text-xs! font-semibold tracking-[.2em] disabled:cursor-not-allowed disabled:opacity-60">
+              <span id="btnLabel" class="flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                Send Inquiry to support@roamsocial.in
+              </span>
+              <span id="btnSpinner" class="hidden items-center gap-2">
+                <i class="fa-solid fa-circle-notch fa-spin text-sm" aria-hidden="true"></i>
+                Dispatching to support@roamsocial.in...
+              </span>
+            </button>
+
+            <div class="mt-4 flex flex-col items-center justify-between gap-2 text-center text-[10px] text-white/40 sm:flex-row">
+              <span class="flex items-center gap-1.5">
+                <i class="fa-solid fa-shield-halved text-gold/80" aria-hidden="true"></i>
+                Encrypted &amp; Spam Protected
+              </span>
+              <span>Direct delivery to <strong class="text-white/60">support@roamsocial.in</strong></span>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Right: direct channels card -->
+      <div class="reveal flex flex-col justify-between rounded-3xl border border-gold/30 bg-gradient-to-br from-[#151412] to-coal p-7 lg:col-span-4 md:p-9" style="--d:.15s">
+        <div>
+          <span class="text-[9px] uppercase tracking-[.32em] text-gold">Direct Channels</span>
+          <h3 class="mt-3 font-display text-2xl font-medium text-white md:text-3xl">Prefer to chat right away?</h3>
+          <p class="mt-4 text-xs leading-relaxed text-white/55">
+            Our hospitality team in Bengaluru monitors email and WhatsApp around the clock for upcoming calendar dates.
+          </p>
+
+          <div class="mt-8 space-y-5 border-t border-white/10 pt-6">
+
+            <div class="flex items-start gap-3.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                <i class="fa-solid fa-envelope text-sm" aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[.24em] text-white/40">Inquiry &amp; Support Desk</p>
+                <a href="mailto:support@roamsocial.in?subject=ROAM%20SOCIAL%20Bar%20Booking%20Inquiry"
+                   class="mt-1 block text-sm font-medium text-white transition hover:text-gold">
+                  support@roamsocial.in
+                </a>
+                <span class="text-[10px] text-white/35">Monitored 7 days a week</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                <i class="fa-brands fa-whatsapp text-base" aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[.24em] text-white/40">WhatsApp Hotline</p>
+                <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL,%20I'd%20like%20to%20inquire%20about%20booking%20the%20mobile%20bar%20for%20an%20event."
+                   target="_blank" rel="noopener noreferrer"
+                   class="mt-1 block text-sm font-medium text-white transition hover:text-gold">
+                  +91 82177 33823
+                </a>
+                <span class="text-[10px] text-white/35">Instant quote &amp; date checks</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                <i class="fa-solid fa-location-dot text-sm" aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[.24em] text-white/40">Operating Region</p>
+                <p class="mt-1 text-sm text-white">Bengaluru, Karnataka</p>
+                <span class="text-[10px] text-white/35">Roams across all city zones</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-white/10 pt-6">
+          <a href="https://wa.me/918217733823?text=Hi%20ROAM%20SOCIAL,%20I'd%20like%20to%20inquire%20about%20booking%20the%20mobile%20bar."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-gold btn-gold-sm w-full py-3.5!">
+            <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Chat on WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  /* ============================================================
+     SECURITY & FORM DISPATCH FRAMEWORK — support@roamsocial.in
+     ============================================================ */
+  const pageLoadTimestamp = Date.now();
+  let lastSubmissionTime = 0;
+  const SUBMIT_COOLDOWN_MS = 25000; // 25s anti-abuse cooldown
+
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const submitBtn = document.getElementById("submitFormBtn");
+    const btnLabel = document.getElementById("btnLabel");
+    const btnSpinner = document.getElementById("btnSpinner");
+    const formAlert = document.getElementById("formAlert");
+    const eventDateInput = document.getElementById("eventDate");
+
+    // Event date can't be in the past
+    if (eventDateInput) {
+      eventDateInput.setAttribute("min", new Date().toISOString().split("T")[0]);
+    }
+
+    // XSS sanitizer: escapes all dangerous entities
+    function sanitize(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        .trim();
+    }
+
+    function showAlert(type, htmlContent) {
+      formAlert.className = "mb-6 rounded-2xl border p-5 text-sm transition-all";
+      if (type === "success") {
+        formAlert.classList.add("border-gold/50", "bg-gold/10", "text-champagne");
+      } else {
+        formAlert.classList.add("border-red-500/50", "bg-red-950/40", "text-red-200");
+      }
+      formAlert.innerHTML = htmlContent;
+      formAlert.classList.remove("hidden");
+      formAlert.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function hideAlert() {
+      formAlert.classList.add("hidden");
+      formAlert.innerHTML = "";
+    }
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      hideAlert();
+
+      /* 1. Honeypot: silently swallow bot submissions */
+      const botcheck = contactForm.querySelector('[name="botcheck"]');
+      if (botcheck && botcheck.checked) {
+        showAlert("success", '<div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold text-lg"></i><span>Thank you! Your inquiry has been received.</span></div>');
+        contactForm.reset();
+        return;
+      }
+
+      /* 2. Human-timing check: machines submit in under 2 seconds */
+      if (Date.now() - pageLoadTimestamp < 2000) {
+        showAlert("error", '<div class="flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation text-red-400"></i><span>Please verify your details before submitting.</span></div>');
+        return;
+      }
+
+      /* 3. Rate limiting */
+      const now = Date.now();
+      if (now - lastSubmissionTime < SUBMIT_COOLDOWN_MS) {
+        const remaining = Math.ceil((SUBMIT_COOLDOWN_MS - (now - lastSubmissionTime)) / 1000);
+        showAlert("error", '<div class="flex items-center gap-3"><i class="fa-solid fa-clock text-red-400"></i><span>Please wait ' + remaining + ' seconds before submitting another inquiry.</span></div>');
+        return;
+      }
+
+      /* 4. Validation + sanitization */
+      const nameInput = document.getElementById("userName");
+      const emailInput = document.getElementById("userEmail");
+      const phoneInput = document.getElementById("userPhone");
+      const dateInput = document.getElementById("eventDate");
+      const typeInput = document.getElementById("eventType");
+      const guestsInput = document.getElementById("guestCount");
+      const messageInput = document.getElementById("userMessage");
+      const errName = document.getElementById("errName");
+      const errEmail = document.getElementById("errEmail");
+      const errPhone = document.getElementById("errPhone");
+
+      let hasError = false;
+      [errName, errEmail, errPhone].forEach((el) => { if (el) { el.classList.add("hidden"); el.textContent = ""; } });
+      [nameInput, emailInput, phoneInput].forEach((el) => { if (el) el.classList.remove("border-red-400"); });
+
+      const cleanName = sanitize(nameInput.value);
+      const cleanEmail = sanitize(emailInput.value);
+      const cleanPhone = sanitize(phoneInput.value);
+      const cleanDate = sanitize(dateInput ? dateInput.value : "");
+      const cleanType = sanitize(typeInput ? typeInput.value : "");
+      const cleanGuests = sanitize(guestsInput ? guestsInput.value : "");
+      const cleanMessage = sanitize(messageInput ? messageInput.value : "");
+
+      if (!cleanName || cleanName.length < 2) {
+        errName.textContent = "Please enter your full name.";
+        errName.classList.remove("hidden");
+        nameInput.classList.add("border-red-400");
+        hasError = true;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+        errEmail.textContent = "Please provide a valid email address.";
+        errEmail.classList.remove("hidden");
+        emailInput.classList.add("border-red-400");
+        hasError = true;
+      }
+      if (!cleanPhone || cleanPhone.length < 7) {
+        errPhone.textContent = "Please provide your phone or WhatsApp number.";
+        errPhone.classList.remove("hidden");
+        phoneInput.classList.add("border-red-400");
+        hasError = true;
+      }
+      if (hasError) return;
+
+      /* 5. Structured payload for Web3Forms → support@roamsocial.in */
+      const payload = {
+        access_key: contactForm.querySelector('[name="access_key"]').value,
+        subject: "ROAM SOCIAL — New Mobile Bar Booking Inquiry",
+        from_name: "ROAM SOCIAL Website",
+        name: cleanName,
+        email: cleanEmail,
+        phone: cleanPhone,
+        event_date: cleanDate || "Flexible / Not finalized",
+        event_type: cleanType,
+        guest_count: cleanGuests,
+        message: cleanMessage || "Standard bar menu requested",
+        botcheck: "",
+        submitted_at: new Date().toISOString(),
+      };
+
+      // Pre-built mailto fallback to the support desk
+      const mailtoSubject = encodeURIComponent("ROAM SOCIAL Booking Inquiry — " + cleanName + " (" + cleanType + ")");
+      const mailtoBody = encodeURIComponent(
+        "Hello ROAM SOCIAL Team,\n\n" +
+        "I would like to inquire about booking the mobile bar. Here are my event details:\n\n" +
+        "• Name: " + cleanName + "\n" +
+        "• Email: " + cleanEmail + "\n" +
+        "• Phone/WhatsApp: " + cleanPhone + "\n" +
+        "• Event Date: " + (cleanDate || "To be decided") + "\n" +
+        "• Event Type: " + cleanType + "\n" +
+        "• Estimated Guests: " + cleanGuests + "\n\n" +
+        "• Wishlist & Notes:\n" + (cleanMessage || "Looking forward to your curated menu and quote.") + "\n\n" +
+        "Sent from roamsocial.in"
+      );
+      const mailtoUrl = "mailto:support@roamsocial.in?subject=" + mailtoSubject + "&body=" + mailtoBody;
+
+      /* 6. Loading state */
+      submitBtn.disabled = true;
+      btnLabel.classList.add("hidden");
+      btnSpinner.classList.remove("hidden");
+
+      /* 7. Dispatch via Web3Forms (no backend, no SMTP credentials in code) */
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          lastSubmissionTime = Date.now();
+          if (data && data.success) {
+            showAlert(
+              "success",
+              '<div class="space-y-3">' +
+                '<div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-xl text-gold"></i><h4 class="font-display text-base font-semibold text-white">Inquiry Dispatched to support@roamsocial.in</h4></div>' +
+                '<p class="text-xs text-white/70">Thank you, <strong>' + cleanName + '</strong>! Your event details have been delivered to our team at <strong>support@roamsocial.in</strong>. We will review availability and send our customized bar deck within 2–4 hours.</p>' +
+                '<div class="pt-2 flex flex-wrap gap-3">' +
+                  '<a href="' + mailtoUrl + '" class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-gold hover:underline"><i class="fa-solid fa-envelope"></i> Open copy in email client</a>' +
+                  '<a href="https://wa.me/918217733823?text=' + encodeURIComponent("Hi ROAM SOCIAL, I just sent a booking inquiry via your site for " + cleanType + " (" + cleanName + ").") + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-green-400 hover:underline"><i class="fa-brands fa-whatsapp"></i> Notify on WhatsApp</a>' +
+                '</div>' +
+              '</div>'
+            );
+            contactForm.reset();
+          } else {
+            throw new Error((data && data.message) || "Submission failed");
+          }
+        })
+        .catch(function () {
+          /* 8. Graceful resilience: adblock / CSP / offline → mailto + WhatsApp fallback */
+          lastSubmissionTime = Date.now();
+          showAlert(
+            "success",
+            '<div class="space-y-3">' +
+              '<div class="flex items-center gap-3"><i class="fa-solid fa-paper-plane text-xl text-gold"></i><h4 class="font-display text-base font-semibold text-white">Ready to Dispatch to support@roamsocial.in</h4></div>' +
+              '<p class="text-xs text-white/70">Click below to send your pre-formatted inquiry directly to <strong>support@roamsocial.in</strong> using your email app, or message our WhatsApp hotline instantly:</p>' +
+              '<div class="pt-2 flex flex-wrap gap-3">' +
+                '<a href="' + mailtoUrl + '" class="btn-gold btn-gold-sm"><i class="fa-solid fa-envelope"></i> Send via Email (support@roamsocial.in)</a>' +
+                '<a href="https://wa.me/918217733823?text=' + encodeURIComponent("Hi ROAM SOCIAL, booking inquiry from " + cleanName + " for " + cleanType + ".") + '" target="_blank" rel="noopener noreferrer" class="btn-ghost btn-gold-sm"><i class="fa-brands fa-whatsapp"></i> Fast-Track on WhatsApp</a>' +
+              '</div>' +
+            '</div>'
+          );
+          setTimeout(function () { window.location.href = mailtoUrl; }, 600);
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          btnLabel.classList.remove("hidden");
+          btnSpinner.classList.add("hidden");
+        });
+    });
+  }
+</script>

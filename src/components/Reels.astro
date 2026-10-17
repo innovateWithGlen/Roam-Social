@@ -1,0 +1,238 @@
+---
+/**
+ * Reels.astro — "Join the Social Roam".
+ * Three self-hosted reels (public/videos/reel1-3.mp4) as interactive
+ * 9:16 cards. Poster loads first; the video streams only on tap.
+ */
+import ReelCard from "./ReelCard.astro";
+
+const instagramUrl = "https://www.instagram.com/roamsocial.in?xtok=MWVudHZwZGZvaGlmMA==";
+
+const reels = [
+  {
+    id: "reel-1",
+    title: "The Violet Pour",
+    subtitle: "Signature Craft",
+    views: "1.8K",
+    poster: "/images/reel1-thumb.jpg",
+    posterAlt: "Bartender pouring a creamy cocktail into a ROAM SOCIAL cup",
+    video: "/videos/reel1.mp4",
+  },
+  {
+    id: "reel-2",
+    title: "Behind The Bar",
+    subtitle: "Quality Control",
+    views: "1.2K",
+    poster: "/images/reel2-thumb.jpg",
+    posterAlt: "Bartender pouring an orange cocktail behind the ROAM SOCIAL bar",
+    video: "/videos/reel2.mp4",
+  },
+  {
+    id: "reel-3",
+    title: "The Fresh Stir",
+    subtitle: "Citrus Season",
+    views: "2.4K",
+    poster: "/images/reel3-thumb.jpg",
+    posterAlt: "Bartender garnishing a ROAM SOCIAL cocktail with a citrus spray",
+    video: "/videos/reel3.mp4",
+  },
+];
+---
+
+<section id="instagram" class="relative py-24 md:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <!-- Header -->
+    <div class="mb-14 text-center md:mb-16">
+      <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">03 — Follow The Roam</p>
+      <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">
+        Join the <span class="gold-text italic">Social</span> Roam
+      </h2>
+      <p class="reveal mx-auto mt-6 max-w-lg text-sm leading-relaxed text-white/50" style="--d:.2s">
+        Tap any reel to watch our bartenders in motion. Follow
+        <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="font-medium text-gold underline-offset-4 transition hover:underline">@roamsocial.in</a>
+        for live pop-ups, tasting nights, and private bookings across Bengaluru.
+      </p>
+    </div>
+
+    <!-- Mobile: self-running rail — one reel centred, neighbours peeking -->
+    <div class="md:hidden">
+      <div id="reelsMarquee" class="reels-marquee px-[11vw]">
+        <div class="reels-track flex gap-5">
+          {reels.map((reel, i) => <ReelCard reel={reel} index={i} />)}
+        </div>
+        <div class="reels-clone flex gap-5" aria-hidden="true">
+          {reels.map((reel, i) => <ReelCard reel={reel} index={i} clone />)}
+        </div>
+      </div>
+    </div>
+
+    <!-- Tablet / desktop: static 3-up grid -->
+    <div class="hidden justify-items-center gap-7 md:grid md:grid-cols-3">
+      {reels.map((reel, i) => <ReelCard reel={reel} index={i} />)}
+    </div>
+
+    <!-- Follow CTA -->
+    <div class="reveal mt-14 text-center" style="--d:.2s">
+      <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="btn-ghost">
+        <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i> Follow &nbsp;@roamsocial.in
+      </a>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  /* Reel player: tap to play/pause, one at a time, pause off-screen. */
+  (function () {
+    var cards = document.querySelectorAll(".reel-card");
+    if (!cards.length) return;
+    var activeCard = null;
+
+    cards.forEach(function (card) {
+      var video = card.querySelector(".reel-video");
+      var muteBtn = card.querySelector(".reel-mute-btn");
+      var progress = card.querySelector(".reel-progress-fill");
+      if (!video) return;
+
+      video.volume = 1;
+
+      video.addEventListener("timeupdate", function () {
+        if (video.duration && progress) {
+          progress.style.width = (video.currentTime / video.duration) * 100 + "%";
+        }
+      });
+
+      card.addEventListener("click", function (e) {
+        if (e.target.closest("a")) return;
+
+        if (e.target.closest(".reel-mute-btn")) {
+          e.stopPropagation();
+          video.muted = !video.muted;
+          var icon = muteBtn ? muteBtn.querySelector("i") : null;
+          if (icon) {
+            icon.className = video.muted
+              ? "fa-solid fa-volume-xmark text-xs"
+              : "fa-solid fa-volume-high text-xs text-gold";
+          }
+          return;
+        }
+
+        if (card.classList.contains("is-playing")) {
+          if (video.paused) {
+            video.play().then(function () {
+              card.classList.remove("is-paused");
+            }).catch(function () {});
+          } else {
+            video.pause();
+            card.classList.add("is-paused");
+          }
+          return;
+        }
+
+        cards.forEach(function (other) {
+          if (other === card) return;
+          var otherVideo = other.querySelector(".reel-video");
+          if (otherVideo) {
+            otherVideo.pause();
+            otherVideo.currentTime = 0;
+          }
+          other.classList.remove("is-playing", "is-paused");
+          var otherProgress = other.querySelector(".reel-progress-fill");
+          if (otherProgress) otherProgress.style.width = "0%";
+        });
+
+        card.classList.add("is-playing");
+        card.classList.remove("is-paused");
+        activeCard = card;
+        video.play().catch(function () {
+          video.muted = true;
+          video.play();
+        });
+      });
+    });
+
+    var section = document.getElementById("instagram");
+    if (section && "IntersectionObserver" in window) {
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting && activeCard) {
+              var v = activeCard.querySelector(".reel-video");
+              if (v && !v.paused) {
+                v.pause();
+                activeCard.classList.add("is-paused");
+              }
+            }
+          });
+        },
+        { threshold: 0.1 },
+      ).observe(section);
+    }
+  })();
+</script>
+
+<script is:inline>
+  /* Mobile reel rail: drifts right → left on its own, pauses on touch/drag
+     or while a reel is playing, and wraps seamlessly via a duplicated set. */
+  (function () {
+    var marquee = document.getElementById("reelsMarquee");
+    if (!marquee) return;
+    var track = marquee.querySelector(".reels-track");
+    if (!track) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var mobileQuery = window.matchMedia("(max-width: 767px)");
+    var SPEED = 0.4; // px per frame (~24 px/s)
+    var GAP = 20; // must match the gap between .reels-track and .reels-clone
+    var setWidth = 0;
+    var pausedUntil = 0;
+    var onScreen = false;
+
+    function measure() {
+      setWidth = track.getBoundingClientRect().width + GAP;
+    }
+    measure();
+    window.addEventListener("resize", measure);
+
+    function hold() {
+      pausedUntil = performance.now() + 3500;
+    }
+    marquee.addEventListener("touchstart", hold, { passive: true });
+    marquee.addEventListener("pointerdown", hold, { passive: true });
+    marquee.addEventListener("wheel", hold, { passive: true });
+
+    var section = document.getElementById("instagram");
+    if (section && "IntersectionObserver" in window) {
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            onScreen = entry.isIntersecting;
+          });
+        },
+        { threshold: 0.05 },
+      ).observe(section);
+    } else {
+      onScreen = true;
+    }
+
+    var last = performance.now();
+    function tick(now) {
+      var dt = Math.min(now - last, 64);
+      last = now;
+      var playing = marquee.querySelector(".reel-card.is-playing");
+      if (
+        !reduce &&
+        mobileQuery.matches &&
+        onScreen &&
+        !document.hidden &&
+        !playing &&
+        now > pausedUntil &&
+        setWidth > 0
+      ) {
+        marquee.scrollLeft += SPEED * (dt / 16.67);
+        if (marquee.scrollLeft >= setWidth) marquee.scrollLeft -= setWidth;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>

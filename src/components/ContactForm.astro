@@ -1,0 +1,432 @@
+---
+/**
+ * ContactForm.astro — booking inquiries.
+ * Submits JSON to the Cloudflare Pages Function at /api/contact, which
+ * delivers to support@roamsocial.in via Resend. No SMTP credentials are
+ * exposed to the browser and no third-party form endpoint is involved.
+ */
+
+const emailHref =
+  "mailto:support@roamsocial.in?subject=" +
+  encodeURIComponent("ROAM SOCIAL Booking Inquiry");
+const whatsappHref =
+  "https://wa.me/918217733823?text=" +
+  encodeURIComponent("Hi ROAM SOCIAL, I'd like to inquire about booking the mobile bar for an event.");
+---
+
+<section id="contact" class="relative border-t border-white/5 bg-[#0a0a0c] py-24 md:py-32">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-20"
+    aria-hidden="true"
+    style="background: radial-gradient(45rem 25rem at 50% 20%, rgba(200, 163, 95, .15) 0%, transparent 70%);"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+    <!-- Header -->
+    <div class="mb-14 text-center md:mb-16">
+      <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">04 — Bookings &amp; Collaborations</p>
+      <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">
+        Plan Your <span class="gold-text italic">Bar</span> Experience
+      </h2>
+      <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/50" style="--d:.2s">
+        Whether you're curating a 500-guest wedding, a weekend pop-up, or a private terrace soiree in Bengaluru —
+        share your event details below. All inquiries route directly to
+        <strong class="font-medium text-champagne">support@roamsocial.in</strong>.
+      </p>
+    </div>
+
+    <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-12">
+      <!-- Form -->
+      <div class="reveal rounded-3xl border border-white/10 bg-coal/90 p-7 shadow-2xl backdrop-blur-xl md:col-span-8 md:p-10">
+        <div id="formAlert" class="mb-6 hidden rounded-2xl border p-4 text-sm transition-all" role="alert" aria-live="polite"></div>
+
+        <form id="contactForm" novalidate class="space-y-6">
+          <!-- Anti-spam honeypot -->
+          <div class="hidden" aria-hidden="true" style="display:none !important;">
+            <label for="honeypotField">Leave this blank</label>
+            <input type="text" name="_gotcha" id="honeypotField" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="userName" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Full Name <span class="text-gold">*</span>
+              </label>
+              <input
+                type="text"
+                id="userName"
+                name="name"
+                required
+                maxlength="80"
+                placeholder="Aarav Sharma"
+                autocomplete="name"
+                class="mt-2 w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-base text-white sm:text-sm placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+              />
+              <p id="errName" class="mt-1.5 hidden text-[11px] text-red-400"></p>
+            </div>
+
+            <div>
+              <label for="userEmail" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Email Address <span class="text-gold">*</span>
+              </label>
+              <input
+                type="email"
+                id="userEmail"
+                name="email"
+                required
+                maxlength="100"
+                placeholder="aarav@domain.com"
+                autocomplete="email"
+                class="mt-2 w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-base text-white sm:text-sm placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+              />
+              <p id="errEmail" class="mt-1.5 hidden text-[11px] text-red-400"></p>
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="userPhone" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Phone / WhatsApp <span class="text-gold">*</span>
+              </label>
+              <input
+                type="tel"
+                id="userPhone"
+                name="phone"
+                required
+                maxlength="20"
+                placeholder="+91 98765 43210"
+                autocomplete="tel"
+                class="mt-2 w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-base text-white sm:text-sm placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+              />
+              <p id="errPhone" class="mt-1.5 hidden text-[11px] text-red-400"></p>
+            </div>
+
+            <div>
+              <label for="eventDate" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Event Date
+              </label>
+              <input
+                type="date"
+                id="eventDate"
+                name="event_date"
+                class="mt-2 w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-base text-white transition [color-scheme:dark] focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+              />
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="eventType" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Event Type
+              </label>
+              <div class="relative mt-2">
+                <select
+                  id="eventType"
+                  name="event_type"
+                  class="w-full appearance-none rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-base text-white sm:text-sm transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+                >
+                  <option value="Wedding / Sangeet / Reception">Wedding / Sangeet / Reception</option>
+                  <option value="Pop-up / Brand Activation">Pop-up / Brand Activation</option>
+                  <option value="Private Celebration / House Party">Private Celebration / House Party</option>
+                  <option value="Corporate Event / Gala">Corporate Event / Gala</option>
+                  <option value="Bespoke Mobile Bar Setup">Bespoke Mobile Bar Setup</option>
+                  <option value="Other">Other Custom Format</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/40">
+                  <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="guestCount" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Estimated Guests
+              </label>
+              <div class="relative mt-2">
+                <select
+                  id="guestCount"
+                  name="guest_count"
+                  class="w-full appearance-none rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-base text-white sm:text-sm transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+                >
+                  <option value="Intimate (Up to 35 guests)">Intimate (Up to 35 guests)</option>
+                  <option value="Medium (35 – 80 guests)">Medium (35 – 80 guests)</option>
+                  <option value="Large (80 – 200 guests)">Large (80 – 200 guests)</option>
+                  <option value="Grand (200 – 500+ guests)">Grand (200 – 500+ guests)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/40">
+                  <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="userMessage" class="block text-[11px] font-medium uppercase tracking-[.22em] text-white/70">
+                Cocktail Wishlist &amp; Notes
+              </label>
+              <span class="text-[10px] text-white/35">Max 800 chars</span>
+            </div>
+            <textarea
+              id="userMessage"
+              name="message"
+              rows="4"
+              maxlength="800"
+              placeholder="Tell us about the venue (Indiranagar, Koramangala...), hours of service, or preferred drinks (e.g. Negroni, Violet Pour, Basil Smash mocktails)..."
+              class="mt-2 w-full resize-none rounded-xl border border-white/10 bg-black/50 px-4 py-3.5 text-base text-white sm:text-sm placeholder-white/25 transition focus:border-gold/70 focus:bg-black/80 focus:outline-none focus:ring-1 focus:ring-gold/70"
+            ></textarea>
+          </div>
+
+          <!-- Consent checkbox: required before the form can be submitted -->
+          <div class="rounded-xl border border-white/10 bg-black/30 p-4">
+            <label for="consent" class="flex cursor-pointer items-start gap-3">
+              <input
+                type="checkbox"
+                id="consent"
+                name="consent"
+                required
+                class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer appearance-none rounded border border-white/25 bg-black/60 transition checked:border-gold checked:bg-gold focus:outline-none focus:ring-2 focus:ring-gold/50"
+              />
+              <span class="text-xs leading-relaxed text-white/60">
+                I agree to the
+                <a href="/privacy" target="_blank" rel="noopener" class="text-champagne underline underline-offset-2 transition hover:text-gold">Privacy Policy</a>
+                &amp;
+                <a href="/terms" target="_blank" rel="noopener" class="text-champagne underline underline-offset-2 transition hover:text-gold">Terms and Conditions</a>
+              </span>
+            </label>
+            <p id="errConsent" class="mt-2 hidden text-[11px] text-red-400"></p>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" id="submitFormBtn" class="btn-gold w-full !py-4 !text-xs font-semibold tracking-[.2em]">
+              <span id="btnLabel" class="flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                Send Enquiry
+              </span>
+              <span id="btnSpinner" class="hidden items-center gap-2">
+                <i class="fa-solid fa-circle-notch fa-spin text-sm" aria-hidden="true"></i>
+                Sending your enquiry...
+              </span>
+            </button>
+
+            <div class="mt-4 flex flex-col items-center justify-between gap-2 text-center text-[10px] text-white/40 sm:flex-row">
+              <span class="flex items-center gap-1.5">
+                <i class="fa-solid fa-shield-halved text-gold/80" aria-hidden="true"></i>
+                Encrypted &amp; Spam Protected
+              </span>
+              <span>Direct delivery to <strong class="text-white/60">support@roamsocial.in</strong></span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Direct channels card -->
+      <div class="reveal flex flex-col justify-between rounded-3xl border border-gold/30 bg-gradient-to-br from-[#151412] to-coal p-7 md:col-span-4 md:p-9" style="--d:.15s">
+        <div>
+          <span class="text-[9px] uppercase tracking-[.32em] text-gold">Direct Channels</span>
+          <h3 class="mt-3 font-display text-2xl font-medium text-white md:text-3xl">Prefer to chat right away?</h3>
+          <p class="mt-4 text-xs leading-relaxed text-white/55">
+            Our hospitality team in Bengaluru monitors email and WhatsApp around the clock for upcoming calendar dates.
+          </p>
+
+          <div class="mt-8 space-y-5 border-t border-white/10 pt-6">
+            <div class="flex items-start gap-3.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                <i class="fa-solid fa-envelope text-sm" aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[.24em] text-white/40">Inquiry &amp; Support Desk</p>
+                <a href={emailHref} class="mt-1 block text-sm font-medium text-white transition hover:text-gold">
+                  support@roamsocial.in
+                </a>
+                <span class="text-[10px] text-white/35">Monitored 7 days a week</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                <i class="fa-brands fa-whatsapp text-base" aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[.24em] text-white/40">WhatsApp Hotline</p>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="mt-1 block text-sm font-medium text-white transition hover:text-gold">
+                  +91 82177 33823
+                </a>
+                <span class="text-[10px] text-white/35">Instant quote &amp; date checks</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-black/60 text-gold">
+                <i class="fa-solid fa-location-dot text-sm" aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[.24em] text-white/40">Operating Region</p>
+                <p class="mt-1 text-sm text-white">Bengaluru, Karnataka</p>
+                <span class="text-[10px] text-white/35">Roams across all city zones</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-white/10 pt-6">
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn-gold w-full !py-3.5 !text-[11px]">
+            <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var pageLoadTimestamp = Date.now();
+    var lastSubmissionTime = 0;
+    var SUBMIT_COOLDOWN_MS = 25000;
+
+    var form = document.getElementById("contactForm");
+    var submitBtn = document.getElementById("submitFormBtn");
+    var btnLabel = document.getElementById("btnLabel");
+    var btnSpinner = document.getElementById("btnSpinner");
+    var formAlert = document.getElementById("formAlert");
+    var eventDateInput = document.getElementById("eventDate");
+
+    if (eventDateInput) {
+      eventDateInput.setAttribute("min", new Date().toISOString().split("T")[0]);
+    }
+
+    function showAlert(type, htmlContent) {
+      formAlert.className = "mb-6 rounded-2xl border p-5 text-sm transition-all";
+      if (type === "success") {
+        formAlert.classList.add("border-gold/50", "bg-gold/10", "text-champagne");
+      } else {
+        formAlert.classList.add("border-red-500/50", "bg-red-950/40", "text-red-200");
+      }
+      formAlert.innerHTML = htmlContent;
+      formAlert.classList.remove("hidden");
+      formAlert.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    if (!form) return;
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      formAlert.classList.add("hidden");
+      formAlert.innerHTML = "";
+
+      var name = document.getElementById("userName").value.trim();
+      var email = document.getElementById("userEmail").value.trim();
+      var phone = document.getElementById("userPhone").value.trim();
+      var eventDate = eventDateInput ? eventDateInput.value : "";
+      var eventType = document.getElementById("eventType").value;
+      var guests = document.getElementById("guestCount").value;
+      var message = document.getElementById("userMessage").value.trim();
+      var gotchaEl = document.getElementById("honeypotField");
+      var gotcha = gotchaEl ? gotchaEl.value : "";
+
+      var errName = document.getElementById("errName");
+      var errEmail = document.getElementById("errEmail");
+      var errPhone = document.getElementById("errPhone");
+      var consentInput = document.getElementById("consent");
+      var errConsent = document.getElementById("errConsent");
+      [errName, errEmail, errPhone, errConsent].forEach(function (el) {
+        el.classList.add("hidden");
+        el.textContent = "";
+      });
+
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var hasError = false;
+      if (name.length < 2) {
+        errName.textContent = "Please enter your full name.";
+        errName.classList.remove("hidden");
+        hasError = true;
+      }
+      if (!emailRegex.test(email)) {
+        errEmail.textContent = "Please provide a valid email address.";
+        errEmail.classList.remove("hidden");
+        hasError = true;
+      }
+      if (phone.length < 7) {
+        errPhone.textContent = "Please provide your phone or WhatsApp number.";
+        errPhone.classList.remove("hidden");
+        hasError = true;
+      }
+      if (!consentInput.checked) {
+        errConsent.textContent =
+          "Please agree to the Privacy Policy & Terms and Conditions to send your enquiry.";
+        errConsent.classList.remove("hidden");
+        hasError = true;
+      }
+      if (hasError) return;
+
+      if (Date.now() - pageLoadTimestamp < 2000) {
+        showAlert("error", '<div class="flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation text-red-400"></i><span>Please verify your details before submitting.</span></div>');
+        return;
+      }
+      if (Date.now() - lastSubmissionTime < SUBMIT_COOLDOWN_MS) {
+        var remaining = Math.ceil((SUBMIT_COOLDOWN_MS - (Date.now() - lastSubmissionTime)) / 1000);
+        showAlert("error", '<div class="flex items-center gap-3"><i class="fa-solid fa-clock text-red-400"></i><span>Please wait ' + remaining + " seconds before submitting again.</span></div>");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      btnLabel.classList.add("hidden");
+      btnSpinner.classList.remove("hidden");
+      btnSpinner.classList.add("flex");
+
+      try {
+        var response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Rendered-At": String(pageLoadTimestamp),
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            phone: phone,
+            eventDate: eventDate,
+            eventType: eventType,
+            guests: guests,
+            message: message,
+            consent: consentInput.checked,
+            _gotcha: gotcha,
+          }),
+        });
+
+        var data = {};
+        try {
+          data = await response.json();
+        } catch (err) {}
+
+        if (response.ok && data.ok) {
+          lastSubmissionTime = Date.now();
+          showAlert(
+            "success",
+            '<div class="space-y-3">' +
+              '<div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-xl text-gold"></i><h4 class="font-display text-base font-semibold text-white">Enquiry delivered to support@roamsocial.in</h4></div>' +
+              '<p class="text-xs text-white/70">Thank you, <strong>' + name + "</strong>! Your event details have been sent to our bookings team. We will review availability and send our customized bar deck shortly.</p>" +
+              "</div>",
+          );
+          form.reset();
+        } else {
+          throw new Error(data.error || "Submission failed.");
+        }
+      } catch (err) {
+        showAlert(
+          "error",
+          '<div class="flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation text-red-400"></i><span>' +
+            (err.message || "We could not deliver your message. Please email support@roamsocial.in directly.") +
+            "</span></div>",
+        );
+      } finally {
+        submitBtn.disabled = false;
+        btnLabel.classList.remove("hidden");
+        btnSpinner.classList.add("hidden");
+        btnSpinner.classList.remove("flex");
+      }
+    });
+  })();
+</script>

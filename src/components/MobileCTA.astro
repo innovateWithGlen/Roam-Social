@@ -1,0 +1,41 @@
+---
+/**
+ * MobileCTA.astro — mobile-only floating WhatsApp CTA (bottom-right).
+ * Hidden on md+ screens (the nav + contact card carry desktop conversions)
+ * and auto-hidden while the contact form is in view so it never overlaps
+ * the primary booking path.
+ */
+
+const href =
+  "https://wa.me/918217733823?text=" +
+  encodeURIComponent("Hi ROAM SOCIAL, I'd like to book the mobile bar for an event.");
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  id="waBubble"
+  class="wa-bubble md:hidden"
+  aria-label="Chat with ROAM SOCIAL on WhatsApp"
+>
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<script is:inline>
+  (function () {
+    var waBubble = document.getElementById("waBubble");
+    var contactSec = document.getElementById("contact");
+    if (!waBubble || !contactSec || !("IntersectionObserver" in window)) return;
+
+    var bubbleObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          waBubble.classList.toggle("is-hidden", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.12 },
+    );
+    bubbleObserver.observe(contactSec);
+  })();
+</script>

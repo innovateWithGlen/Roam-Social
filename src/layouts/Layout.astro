@@ -1,0 +1,191 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  showSplash?: boolean;
+}
+
+const {
+  title = "ROAM SOCIAL | Luxury Mobile Bar in Bengaluru — Jeep Bar, Cocktails & Social Bites",
+  description = "ROAM SOCIAL is a luxury mobile bar in Bengaluru — a vintage Jeep bar pouring crafted cocktails & social bites at weddings, pop-ups and private events. Book the mobile bar.",
+  showSplash = true,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, "https://roamsocial.in").toString();
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Roam" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ROAM SOCIAL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://roamsocial.in/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ROAM SOCIAL luxury mobile bar — branded Jeep bar set up at golden hour in Bengaluru" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://roamsocial.in/images/og-image.jpg" />
+    <meta name="twitter:image:alt" content="ROAM SOCIAL luxury mobile bar — branded Jeep bar set up at golden hour in Bengaluru" />
+
+    <!-- Security (defense-in-depth; real HTTP headers live in public/_headers on Pages) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
+    <!-- LocalBusiness structured data -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FoodEstablishment",
+        "name": "ROAM SOCIAL",
+        "description": "Luxury mobile bar in Bengaluru — vintage Jeep bar serving crafted cocktails and social bites at pop-ups, weddings and private events.",
+        "email": "support@roamsocial.in",
+        "telephone": "+91-82177-33823",
+        "url": "https://roamsocial.in",
+        "image": "https://roamsocial.in/images/og-image.jpg",
+        "logo": "https://roamsocial.in/images/roam-logo.png",
+        "sameAs": ["https://www.instagram.com/roamsocial.in"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "areaServed": ["Bengaluru", "Indiranagar", "Koramangala", "Whitefield", "HSR Layout", "MG Road"]
+      }
+    </script>
+
+    <!-- Performance: resource hints -->
+    <link rel="dns-prefetch" href="https://videos.pexels.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <slot name="head" />
+  </head>
+
+  <body class="bg-ink font-body text-white antialiased">
+    <!-- ROAM splash: 3s cinematic staged intro matching the brand reel.
+         The geometric mark is recreated as inline SVG so its lines can be
+         drawn on; the wordmark and tagline are cropped from the flat logo. -->
+    {showSplash && (
+      <div id="roam-splash" class="roam-splash" aria-hidden="true">
+        <div class="roam-splash__logo">
+          <svg
+            class="roam-splash__mark"
+            viewBox="0 0 352 520"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path class="roam-mark__stroke roam-mark__upper" pathLength="1" d="M6 4 L348 4 L224 209 L128 249 Z" />
+            <path class="roam-mark__stroke roam-mark__lower" pathLength="1" d="M103 344 L231 302 L349 517 L3 517 Z" />
+            <circle class="roam-mark__dot" cx="176" cy="278" r="28" />
+          </svg>
+          <img class="roam-splash__wordmark" src="/roam-wordmark.png" alt="" draggable="false" />
+          <img class="roam-splash__social" src="/roam-social-rule.png" alt="" draggable="false" />
+        </div>
+      </div>
+    )}
+    <div class="grain" aria-hidden="true"></div>
+    <slot />
+
+    <script is:inline>
+      // ROAM splash: runs once per document load. The staged intro is pure
+      // CSS; this only handles the exit fade and reduced-motion opt-out.
+      (function () {
+        var splash = document.getElementById("roam-splash");
+        if (!splash) return;
+
+        // Reduced-motion users get the homepage immediately.
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduced) {
+          splash.remove();
+          return;
+        }
+
+        // 0-2600ms: logo reveal · 2600-3000ms: fade to reveal the homepage.
+        window.setTimeout(function () {
+          splash.classList.add("is-exiting");
+        }, 2600);
+        window.setTimeout(function () {
+          splash.remove();
+        }, 3000);
+      })();
+    </script>
+
+    <script is:inline>
+      // Scroll reveal (shared by every section component)
+      (function () {
+        var revealEls = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+          );
+          revealEls.forEach(function (el) {
+            io.observe(el);
+          });
+        } else {
+          revealEls.forEach(function (el) {
+            el.classList.add("in");
+          });
+        }
+
+        // Navbar glass intensifies on scroll
+        var nav = document.getElementById("siteNav");
+        if (nav) {
+          var onScroll = function () {
+            nav.classList.toggle("scrolled", window.scrollY > 40);
+          };
+          window.addEventListener("scroll", onScroll, { passive: true });
+          onScroll();
+        }
+
+        var yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
+</html>

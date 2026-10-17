@@ -1,0 +1,121 @@
+---
+/**
+ * Gallery.astro — "The Roam Experience" asymmetric brand grid.
+ * All imagery is local under /images/ with object-cover object-center so
+ * faces and cup branding are never cropped.
+ */
+---
+
+<section id="gallery" class="border-y border-white/5 bg-[#0c0c0e] py-24 md:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="mb-14 text-center md:mb-16">
+      <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">02 — In Action</p>
+      <h2 class="reveal font-display text-4xl font-medium md:text-5xl" style="--d:.1s">
+        The <span class="gold-text italic">Roam</span> Experience
+      </h2>
+      <p class="reveal mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/45" style="--d:.2s">
+        From the first ice drop to the final pour — a look at the bar in motion,
+        and the branded cup that carries the craft from pop-up to party.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:auto-rows-[200px] md:grid-cols-12 md:gap-5">
+      <!-- The full setup (feature) -->
+      <figure class="tile reveal group relative h-96 overflow-hidden rounded-2xl border border-white/5 md:col-span-5 md:row-span-2 md:h-auto">
+        <img
+          src="/images/mobile-bar-setup.jpg"
+          srcset="/images/mobile-bar-setup-900.jpg 900w, /images/mobile-bar-setup.jpg 1537w"
+          sizes="(min-width: 768px) 42vw, 92vw"
+          loading="lazy"
+          decoding="async"
+          alt="ROAM SOCIAL mobile bar with a black canopy and hanging bulbs beside the branded vintage Jeep"
+          class="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+        <figcaption class="absolute bottom-0 left-0 p-6">
+          <span class="text-[9px] uppercase tracking-[.3em] text-gold">The Setup</span>
+          <p class="mt-1.5 font-display text-xl">Crafted In The Wild</p>
+        </figcaption>
+      </figure>
+
+      <!-- Poured to order -->
+      <figure class="tile reveal group relative h-96 overflow-hidden rounded-2xl border border-white/5 md:col-span-4 md:row-span-2 md:h-auto" style="--d:.1s">
+        <img
+          src="/images/bartender-pour.jpg"
+          srcset="/images/bartender-pour-900.jpg 900w, /images/bartender-pour.jpg 1563w"
+          sizes="(min-width: 768px) 33vw, 92vw"
+          loading="lazy"
+          decoding="async"
+          alt="ROAM SOCIAL bartender in a branded cap pouring a drink into a ROAM SOCIAL cup"
+          class="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+        <figcaption class="absolute bottom-0 left-0 p-6">
+          <span class="text-[9px] uppercase tracking-[.3em] text-gold">Signature Pour</span>
+          <p class="mt-1.5 font-display text-xl">Poured To Order</p>
+        </figcaption>
+      </figure>
+
+      <!-- On the road -->
+      <figure class="tile reveal group relative h-72 overflow-hidden rounded-2xl border border-white/5 md:col-span-3 md:h-auto" style="--d:.2s">
+        <img
+          src="/images/jeep-canopy.jpg"
+          srcset="/images/jeep-canopy-900.jpg 900w, /images/jeep-canopy.jpg 1579w"
+          sizes="(min-width: 768px) 25vw, 92vw"
+          loading="lazy"
+          decoding="async"
+          alt="ROAM SOCIAL crew member fastening the soft top of the branded vintage Jeep"
+          class="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+        <figcaption class="absolute bottom-0 left-0 p-5">
+          <span class="text-[9px] uppercase tracking-[.3em] text-gold">On The Road</span>
+          <p class="mt-1 font-display text-lg">Set-Up, Ready</p>
+        </figcaption>
+      </figure>
+
+      <!-- Quote tile -->
+      <div class="reveal relative flex h-64 flex-col justify-between overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br from-[#16130e] to-coal p-6 md:col-span-3 md:h-auto" style="--d:.28s">
+        <i class="fa-solid fa-quote-left text-2xl text-gold/50" aria-hidden="true"></i>
+        <p class="font-display text-xl italic leading-snug text-white/90">&ldquo;Good drinks. Bolder stories.&rdquo;</p>
+        <span class="text-[9px] uppercase tracking-[.3em] text-gold/80">— Poured Fresh. Shared Often.</span>
+      </div>
+
+      <!-- The rig -->
+      <figure class="tile reveal group relative h-72 overflow-hidden rounded-2xl border border-white/5 md:col-span-7 md:h-auto">
+        <img
+          src="/images/roam-vintage-jeep.jpg"
+          srcset="/images/roam-vintage-jeep-900.jpg 900w, /images/roam-vintage-jeep.jpg 1536w"
+          sizes="(min-width: 768px) 58vw, 92vw"
+          loading="lazy"
+          decoding="async"
+          alt="White vintage ROAM SOCIAL Mahindra off-road Jeep with roof rack"
+          class="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" aria-hidden="true"></div>
+        <figcaption class="absolute bottom-0 left-0 p-6">
+          <span class="text-[9px] uppercase tracking-[.3em] text-gold">The Rig</span>
+          <p class="mt-1.5 font-display text-xl">Vintage Mahindra Jeep</p>
+        </figcaption>
+      </figure>
+
+      <!-- CTA tile -->
+      <a
+        href="#contact"
+        class="reveal group relative flex h-64 flex-col items-start justify-between overflow-hidden rounded-2xl border border-white/10 bg-coal p-6 transition-all duration-500 hover:border-gold/60 md:col-span-5 md:h-auto"
+        style="--d:.1s"
+      >
+        <div class="flex w-full items-start justify-between">
+          <span class="text-[9px] uppercase tracking-[.3em] text-gold">Now Booking</span>
+          <span class="grid h-11 w-11 place-items-center rounded-full border border-gold/40 text-gold transition-all duration-500 group-hover:rotate-45 group-hover:bg-gold group-hover:text-black">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl font-medium md:text-3xl">Bring the bar<br />to your event.</h3>
+          <p class="mt-3 text-sm text-white/45">Pop-ups • Weddings • Corporate nights across Bengaluru.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

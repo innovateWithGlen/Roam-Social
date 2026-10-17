@@ -1,0 +1,98 @@
+---
+/**
+ * BrandStory.astro — "The Roam Philosophy" campaign band.
+ * Four ROAM SOCIAL ad posters. Posters already carry their own
+ * headlines, so no overlay text — image fills the square container.
+ */
+
+const moods = [
+  {
+    label: "Fresh Energy",
+    image: "/images/philosophy-fresh-energy-1400.jpeg",
+    srcset: "/images/philosophy-fresh-energy-800.jpeg 800w, /images/philosophy-fresh-energy-1400.jpeg 1400w",
+    alt: "Fresh Energy Good Company — lime mint crushed ice cocktail campaign",
+  },
+  {
+    label: "The Moment",
+    image: "/images/philosophy-sip-moment-1400.jpeg",
+    srcset: "/images/philosophy-sip-moment-800.jpeg 800w, /images/philosophy-sip-moment-1400.jpeg 1400w",
+    alt: "Sip Into The Moment — stirring a fresh orange drink with ice in a ROAM SOCIAL cup",
+  },
+  {
+    label: "Poured Fresh",
+    image: "/images/philosophy-poured-fresh-1400.jpeg",
+    srcset: "/images/philosophy-poured-fresh-800.jpeg 800w, /images/philosophy-poured-fresh-1400.jpeg 1400w",
+    alt: "Poured Fresh Shared Often — bartender pouring purple liquid into a ROAM SOCIAL cup",
+  },
+  {
+    label: "Social Ritual",
+    image: "/images/philosophy-social-ritual-1400.jpeg",
+    srcset: "/images/philosophy-social-ritual-800.jpeg 800w, /images/philosophy-social-ritual-1400.jpeg 1400w",
+    alt: "Your Next Social Ritual — ROAM SOCIAL bartender in branded cap tasting a drink",
+  },
+];
+---
+
+<section id="campaign" class="relative overflow-hidden py-24 md:py-32">
+  <!-- Faint colour washes from the ad palette -->
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[.14]"
+    aria-hidden="true"
+    style="background:
+      radial-gradient(40rem 24rem at 8% 18%, #c7dc6b 0%, transparent 62%),
+      radial-gradient(38rem 24rem at 92% 22%, #ec944f 0%, transparent 62%),
+      radial-gradient(38rem 24rem at 12% 88%, #f2e8d5 0%, transparent 60%),
+      radial-gradient(42rem 26rem at 88% 90%, #ee7ab8 0%, transparent 62%);"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="mb-14 max-w-3xl md:mb-16">
+      <p class="reveal kicker mb-5 text-[10px] font-medium text-gold md:text-xs">The Roam Philosophy</p>
+      <h2 class="reveal camp-head text-4xl font-medium text-white sm:text-5xl md:text-6xl" style="--d:.1s">
+        Good Drinks.<br /><span class="gold-text">Bolder Stories.</span>
+      </h2>
+      <p class="reveal mt-7 max-w-lg text-sm leading-relaxed text-white/45" style="--d:.2s">
+        Four moods, one bar. Whether it's the first lime dropped in the shaker or the last
+        round poured under the tent lights, ROAM SOCIAL is built around the people holding the cup.
+      </p>
+    </div>
+
+    <!-- Highlights container -->
+    <div class="reveal rounded-3xl border border-gold/20 bg-white/[0.02] p-3 shadow-[0_24px_80px_rgba(0,0,0,.45)] md:p-5">
+      <div class="grid grid-cols-2 gap-3 lg:grid-cols-4 md:gap-5">
+        {
+          moods.map((mood, i) => (
+            <figure
+              class="camp-card reveal group"
+              style={`--d:${0.1 * i}s`}
+            >
+              <div class="relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-coal transition-colors duration-500 group-hover:border-gold/50 md:rounded-2xl">
+                <img
+                  src={mood.image}
+                  srcset={mood.srcset}
+                  sizes="(max-width: 1023px) 50vw, 320px"
+                  alt={mood.alt}
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+                />
+              </div>
+              <figcaption class="mt-3 flex items-center justify-center gap-2 text-center text-[10px] font-medium uppercase tracking-[0.3em] text-white/70">
+                <span class="h-1 w-1 rounded-full bg-gold" aria-hidden="true"></span>
+                {mood.label}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Brand stamp -->
+    <div class="reveal mt-14 flex items-center gap-5 md:mt-16">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gold/50" aria-hidden="true"></span>
+      <p class="kicker text-center text-[10px] font-medium text-gold md:text-xs">Crafted Drinks.&nbsp;&nbsp;Social Moments.</p>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gold/50" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

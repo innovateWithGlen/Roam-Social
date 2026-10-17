@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local testing with: npx wrangler pages dev dist
+# .dev.vars is gitignored — never commit real keys.
+
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+RESEND_FROM="ROAM SOCIAL Website <no-reply@roamsocial.in>"
+CONTACT_TO=support@roamsocial.in

@@ -1,0 +1,644 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-coal: #101013;
+  --color-smoke: #17181c;
+  --color-gold: #c8a35f;
+  --color-champagne: #ead9b0;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-padding-top: 120px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: #0a0a0a;
+  overflow-x: hidden;
+}
+
+/* Balanced headline wrapping + prettier body copy across all widths */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: #c8a35f;
+  color: #0a0a0a;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2b30;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 163, 95, 0.55);
+}
+
+.kicker {
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.gold-text {
+  background: linear-gradient(115deg, #f2e3bd 0%, #d3b478 40%, #a3803e 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #ecd9ab 0%, #c8a35f 48%, #a3803e 100%);
+  color: #0a0a0a;
+  padding: 1rem 2.1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 44px rgba(200, 163, 95, 0.28);
+  filter: brightness(1.06);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #f5f5f4;
+  padding: 1rem 2.1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  transition: border-color 0.4s ease, color 0.4s ease, background 0.4s ease, transform 0.4s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(200, 163, 95, 0.7);
+  color: #ead9b0;
+  background: rgba(200, 163, 95, 0.06);
+  transform: translateY(-2px);
+}
+
+.nav-link {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 0;
+  background: #c8a35f;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover {
+  color: #ead9b0;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+#siteNav .nav-shell {
+  transition: background 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+}
+#siteNav.scrolled .nav-shell {
+  background: rgba(7, 7, 8, 0.82);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55);
+}
+
+.mobile-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+.mobile-panel.open {
+  max-height: 460px;
+  opacity: 1;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0s);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* Hero fills the viewport without the mobile URL-bar jump (svh where supported). */
+.hero-viewport {
+  height: 100vh;
+}
+@supports (height: 100svh) {
+  .hero-viewport {
+    height: 100svh;
+  }
+}
+
+@keyframes heroDrift {
+  0% { transform: scale(1.03); }
+  100% { transform: scale(1.13); }
+}
+.hero-kenburns {
+  animation: heroDrift 22s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes cue {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(9px); opacity: 0.35; }
+}
+.scroll-cue i {
+  animation: cue 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+.play-ring {
+  animation: pulseRing 2.6s ease-out infinite;
+}
+
+.tile img {
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease;
+}
+.tile:hover img {
+  transform: scale(1.06);
+}
+
+:root {
+  --c-lime: #c7dc6b;
+  --c-sunset: #ec944f;
+  --c-cream: #f2e8d5;
+  --c-berry: #ee7ab8;
+}
+
+.camp-head {
+  font-family: "Playfair Display", Georgia, serif;
+  text-transform: uppercase;
+  line-height: 0.96;
+  letter-spacing: 0.005em;
+}
+.camp-rule {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, currentColor, transparent);
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.camp-card img {
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
+}
+.camp-card:hover img {
+  transform: scale(1.07);
+}
+.camp-card:hover .camp-rule {
+  width: 72px;
+}
+
+.drink-img {
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease;
+  filter: saturate(0.92) contrast(1.04);
+}
+.drink-card:hover .drink-img {
+  transform: scale(1.08);
+  filter: saturate(1.08) contrast(1.06);
+}
+.drink-num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  line-height: 1;
+}
+
+.reel-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.reel-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 163, 95, 0.5);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65);
+}
+.reel-card.is-playing {
+  border-color: rgba(200, 163, 95, 0.85);
+  box-shadow: 0 0 35px rgba(200, 163, 95, 0.25), 0 20px 50px rgba(0, 0, 0, 0.85);
+}
+.reel-card.is-playing .reel-poster-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+.reel-card.is-playing .reel-play-center {
+  opacity: 0;
+  pointer-events: none;
+}
+.reel-card.is-paused .reel-play-center {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+.reel-poster-layer {
+  transition: opacity 0.5s ease;
+}
+.reel-play-center {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.reel-progress-fill {
+  transition: width 0.12s linear;
+}
+
+/* Mobile-only floating WhatsApp CTA (bottom-right, icon only) */
+.wa-bubble {
+  position: fixed;
+  right: 20px;
+  bottom: 28px;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #fff;
+  box-shadow: 0 12px 34px rgba(18, 140, 126, 0.45), 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, opacity 0.3s ease;
+}
+.wa-bubble:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 16px 42px rgba(18, 140, 126, 0.55), 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+.wa-bubble:active {
+  transform: translateY(-1px) scale(0.96);
+}
+.wa-bubble i {
+  font-size: 1.85rem;
+  line-height: 1;
+}
+@keyframes waPulse {
+  0% { box-shadow: 0 12px 34px rgba(18, 140, 126, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 12px 34px rgba(18, 140, 126, 0.45), 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 12px 34px rgba(18, 140, 126, 0.45), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.wa-bubble {
+  animation: waPulse 2.8s ease-out infinite;
+}
+.wa-bubble.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+/* Menu filter pills */
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1.15rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+.filter-pill:hover {
+  border-color: rgba(200, 163, 95, 0.5);
+  color: #ead9b0;
+}
+.filter-pill.is-active {
+  background: linear-gradient(135deg, #ecd9ab 0%, #c8a35f 48%, #a3803e 100%);
+  border-color: transparent;
+  color: #0a0a0a;
+  font-weight: 600;
+}
+.menu-card.is-hidden {
+  display: none;
+}
+
+/* Mobile "show first N, reveal the rest" toggle */
+.menu-over {
+  display: none !important;
+}
+.view-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 46px;
+  padding: 0.8rem 1.7rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 163, 95, 0.45);
+  background: rgba(200, 163, 95, 0.07);
+  color: #ead9b0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+}
+.view-more:hover {
+  background: rgba(200, 163, 95, 0.15);
+  border-color: rgba(200, 163, 95, 0.7);
+}
+.view-more:active {
+  transform: scale(0.97);
+}
+
+/* Mobile reels rail: horizontal snap scroll, no visible scrollbar */
+.reels-rail {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.reels-rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Infinite right-to-left reel marquee */
+.reels-marquee {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  cursor: grab;
+  mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+.reels-marquee::-webkit-scrollbar {
+  display: none;
+}
+.reels-marquee.is-dragging {
+  cursor: grabbing;
+}
+.reels-track,
+.reels-clone {
+  flex: 0 0 auto;
+  width: max-content;
+  will-change: scroll-position;
+}
+
+/* Pairing badge */
+.pairing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 163, 95, 0.35);
+  background: rgba(200, 163, 95, 0.08);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ead9b0;
+}
+.pairing-badge i {
+  font-size: 9px;
+  color: #c8a35f;
+}
+
+/* =========================================================
+   ROAM intro splash — 3s cinematic staged intro.
+   Stacked, centred composition on black matching the brand
+   reel: mark draws on → ROAM wordmark → SOCIAL rule + text.
+   The mark is inline SVG (stroke-draw); the wordmark and
+   tagline are cropped from the flat logo lockup.
+   ========================================================= */
+.roam-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 400ms;
+}
+
+.roam-splash.is-exiting {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.roam-splash__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2.6vh, 24px);
+  width: min(82vw, 520px);
+}
+
+.roam-splash__mark,
+.roam-splash__wordmark,
+.roam-splash__social {
+  display: block;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Stacked proportions echo the reel: mark prominent above the wordmark. */
+.roam-splash__mark {
+  width: 36%;
+}
+
+.roam-splash__wordmark {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: roam-fade-up 800ms cubic-bezier(0.22, 1, 0.36, 1) 1450ms forwards;
+}
+
+.roam-splash__social {
+  width: 92%;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: roam-fade-up 550ms cubic-bezier(0.22, 1, 0.36, 1) 2100ms forwards;
+}
+
+/* --- Mark stroke draw: 200ms → ~1650ms --- */
+.roam-mark__stroke {
+  fill: none;
+  stroke: #fdfdfc;
+  stroke-width: 11;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.roam-mark__upper {
+  animation: roam-draw 1200ms cubic-bezier(0.55, 0.1, 0.35, 1) 200ms forwards;
+}
+
+.roam-mark__lower {
+  animation: roam-draw 1200ms cubic-bezier(0.55, 0.1, 0.35, 1) 450ms forwards;
+}
+
+.roam-mark__dot {
+  fill: #85a06f;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: roam-dot 700ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms forwards;
+}
+
+@keyframes roam-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes roam-dot {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.16);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes roam-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Coarse-pointer (touch) refinements — phones & tablets.
+   Neutralises hover states that get stuck on tap and runs
+   lighter motion on battery/GPU-constrained devices.
+   ========================================================= */
+@media (hover: none) {
+  .btn-gold:hover,
+  .btn-ghost:hover,
+  .reel-card:hover {
+    transform: none;
+  }
+  .reel-card:hover {
+    box-shadow: none;
+  }
+  .tile:hover img,
+  .camp-card:hover img,
+  .drink-card:hover .drink-img {
+    transform: none;
+  }
+  .camp-card:hover .camp-rule {
+    width: 44px;
+  }
+  .nav-link:hover::after {
+    width: 0;
+  }
+  .filter-pill:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .hero-kenburns {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-kenburns,
+  .marquee-track,
+  .scroll-cue i,
+  .play-ring,
+  .wa-bubble {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .roam-splash {
+    display: none;
+  }
+  .roam-splash__mark,
+  .roam-splash__wordmark,
+  .roam-splash__social,
+  .roam-mark__stroke,
+  .roam-mark__dot {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+}
