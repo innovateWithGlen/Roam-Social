@@ -2,5 +2,5 @@
 # .dev.vars is gitignored — never commit real keys.
 
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-RESEND_FROM="ROAM SOCIAL Website <no-reply@roamsocial.in>"
+RESEND_FROM="ROAM SOCIAL Website <bookings@no-reply.roamsocial.in>"
 CONTACT_TO=support@roamsocial.in

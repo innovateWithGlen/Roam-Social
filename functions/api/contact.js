@@ -11,7 +11,7 @@
  *        wrangler pages secret put RESEND_API_KEY
  *      (or: Cloudflare dashboard → Pages project → Settings → Variables).
  *   3. Optionally override the sender with a RESEND_FROM variable, e.g.
- *        RESEND_FROM="ROAM SOCIAL Website <no-reply@roamsocial.in>"
+ *        RESEND_FROM="ROAM SOCIAL Website <bookings@no-reply.roamsocial.in>"
  *
  * Runs only on Cloudflare Pages (functions/ directory). Local `astro dev`
  * will 404 this route — use `npx wrangler pages dev dist` to test it, with
@@ -154,7 +154,7 @@ export async function onRequestPost(context) {
     );
   }
 
-  const from = (env && env.RESEND_FROM) || "ROAM SOCIAL Website <no-reply@roamsocial.in>";
+  const from = (env && env.RESEND_FROM) || "ROAM SOCIAL Website <bookings@no-reply.roamsocial.in>";
   const to = (env && env.CONTACT_TO) || "support@roamsocial.in";
 
   const mailPayload = {
