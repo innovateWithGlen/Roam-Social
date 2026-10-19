@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import devFunctions from "./scripts/dev-functions.mjs";
 
 // Static output + Cloudflare Pages Functions (/functions) is the recommended
 // architecture for this site: Astro prerenders every page to dist/, and
@@ -14,7 +15,7 @@ export default defineConfig({
   compressHTML: true,
   integrations: [sitemap()],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), devFunctions()],
   },
   build: {
     format: "directory",

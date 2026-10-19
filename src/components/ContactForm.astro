@@ -412,7 +412,9 @@ const whatsappHref =
           );
           form.reset();
         } else {
-          throw new Error(data.error || "Submission failed.");
+          // Surface the HTTP status so a missing route (404) or an email
+          // provider failure (5xx) is distinguishable in the UI.
+          throw new Error(data.error || "Submission failed (HTTP " + response.status + ").");
         }
       } catch (err) {
         showAlert(
