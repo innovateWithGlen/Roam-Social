@@ -34,5 +34,8 @@ Desktop.ini
 .wrangler/
 .dev.vars
 
+# client documents (invoices, quotes) — keep local, never commit
+invoice-*.html
+
 # misc
 *.local
