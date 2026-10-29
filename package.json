@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "ROAM SOCIAL — Luxury Mobile Bar in Bengaluru. Jeep Bar, Cocktails & Social Bites.",
+  "description": "Luxury mobile bar website for ROAM SOCIAL, Bengaluru — a vintage Jeep bar serving craft cocktails & social bites at weddings, pop-ups and private events.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
